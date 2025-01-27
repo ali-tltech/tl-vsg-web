@@ -62,12 +62,12 @@ const Header = ({ mainMenuClass = "", navItems = items, onePage = false }) => {
                 </h5>
               </div>
             </div>
-            <div className="main-menu-wrapper__search-cat">
+            {/* <div className="main-menu-wrapper__search-cat">
               <a
                 onClick={handleToggleSearch}
                 className="main-menu-wrapper__search search-toggler icon-magnifying-glass cursor-pointer"
               ></a>
-            </div>
+            </div> */}
           </div>
         </div>
       </nav>

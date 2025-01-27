@@ -32,6 +32,7 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
 
   return (
     <header className="main-header-two clearfix">
+      {/* Top navbar */}
       <div className="main-header-two__top clearfix">
         <div className="container clearfix">
           <div className="main-header-two__top-inner clearfix">
@@ -65,6 +66,8 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
           </div>
         </div>
       </div>
+      {/*End Top navbar */}
+
       <nav
         className={`${
           scrollTop
@@ -87,14 +90,14 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
                   <MenuList navItems={navItems} onePage={onePage} />
                 </div>
               </div>
-              <div className="main-menu-two-wrapper__right">
+              {/* <div className="main-menu-two-wrapper__right">
                 <div className="main-menu-two-wrapper__search-box">
                   <a
                     onClick={handleToggleSearch}
                     className="main-menu-two-wrapper__search search-toggler icon-magnifying-glass cursor-pointer"
                   ></a>
                 </div>
-              </div>
+              </div> */}
             </div>
           </Container>
         </div>
