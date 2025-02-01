@@ -1,10 +1,9 @@
 import React from "react";
-import { Image, Row } from "react-bootstrap";
-import Faqs from "../FAQsPage/Faqs";
-import SingleHowHelp from "./SingleHowHelp";
+import { Image, } from "react-bootstrap";
+
 
 const ServiceDetailsRight = ({ service = {} }) => {
-  const { image, icon, title, text, text2, text3, contents, howHelps, faqs } =
+  const { image, icon, title, text, text2, text3, contents, } =
     service;
 
   return (
@@ -33,16 +32,6 @@ const ServiceDetailsRight = ({ service = {} }) => {
         ))}
       </ul>
       <p className="service-details__text-3">{text3}</p>
-      <div className="service-details__how-help">
-        <Row>
-          {howHelps.map((howHelp) => (
-            <SingleHowHelp key={howHelp.id} howHelp={howHelp} />
-          ))}
-        </Row>
-      </div>
-      <div className="service-details__faq">
-        <Faqs faqs={faqs} />
-      </div>
     </div>
   );
 };

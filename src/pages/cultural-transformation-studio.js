@@ -3,12 +3,12 @@ import Header from "@/components/Header/Header";
 import Layout from "@/components/Layout/Layout";
 import PageHeader from "@/components/Reuseable/PageHeader";
 import ServiceDetails from "@/components/ServicesSection/ServiceDetails";
-import { businessGrowth } from "@/data/servicesSection";
+import { CulturalTransformationStudios } from "@/data/servicesSection";
 import React from "react";
 
-const { title } = businessGrowth;
+const { title } = CulturalTransformationStudios;
 
-const BusinessGrowth = () => {
+const CulturalTransformationStudio = () => {
   return (
     <Layout pageTitle={title}>
       <Header />
@@ -18,10 +18,10 @@ const BusinessGrowth = () => {
         parent="Services"
         parentHref="/services"
       />
-      <ServiceDetails service={businessGrowth} />
+      <ServiceDetails service={CulturalTransformationStudios} />
       <CtaOne />
     </Layout>
   );
 };
 
-export default BusinessGrowth;
+export default CulturalTransformationStudio;

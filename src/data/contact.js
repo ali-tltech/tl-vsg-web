@@ -28,46 +28,46 @@ export const inputs = [
 ];
 
 const common = {
-  phone: "+1- ( 246 ) 333 - 0079",
-  phoneHref: "12463330079",
-  email: "needhelp@company.com",
+  phone: "+91 9000334512",
+  phoneHref: "+919000334512",
+  email: "venkatesans@venkatesans.com",
 };
 
-export const contactOne = {
-  bg,
-  tagline: "contact with us",
-  title: "We are Here to Help You & Your Business",
-  text: "Pellentesque ultricies quam dui, id portt tor leo \n iaculis nec. Phasellus ac neque.",
-  timeRange: "8:00 am - 6:00 pm",
-  inputs,
-  bottomTitle: "Visit Our Office",
-  contacts: [
-    {
-      id: 1,
-      title: "Austin",
-      text: "22 Texas West Hills",
-      ...common,
-    },
-    {
-      id: 2,
-      title: "Boston",
-      text: "22 Texas West Hills",
-      ...common,
-    },
-    {
-      id: 3,
-      title: "New York",
-      text: "22 Texas West Hills",
-      ...common,
-    },
-    {
-      id: 4,
-      title: "Dubai",
-      text: "22 Texas West Hills",
-      ...common,
-    },
-  ],
-};
+// export const contactOne = {
+//   bg,
+//   tagline: "contact with us",
+//   title: "We are Here to Help You & Your Business",
+//   text: "Pellentesque ultricies quam dui, id portt tor leo \n iaculis nec. Phasellus ac neque.",
+//   timeRange: "8:00 am - 6:00 pm",
+//   inputs,
+//   bottomTitle: "Visit Our Office",
+//   contacts: [
+//     {
+//       id: 1,
+//       title: "Austin",
+//       text: "22 Texas West Hills",
+//       ...common,
+//     },
+//     {
+//       id: 2,
+//       title: "Boston",
+//       text: "22 Texas West Hills",
+//       ...common,
+//     },
+//     {
+//       id: 3,
+//       title: "New York",
+//       text: "22 Texas West Hills",
+//       ...common,
+//     },
+//     {
+//       id: 4,
+//       title: "Dubai",
+//       text: "22 Texas West Hills",
+//       ...common,
+//     },
+//   ],
+// };
 
 export const contactPage = {
   tagline: "Contact with us",
@@ -77,9 +77,9 @@ export const contactPage = {
 };
 
 export const contactDetails = {
-  title: "Get in Touch",
-  text: "Nulla quis commodo ligula. Curabitur bibendum ante at nibh lobortis, nec volutpat mauris faucibus.",
-  address: "60 Road Broklyn Golden Street of New York. USA",
+  title: "Get in Touch with VSG",
+  text: "At VSG, we're dedicated to your success and ready to help you every step of the way. Whether you have a question, need support, or want to discuss our services, our team is here to assist you with prompt and personalized care.",
+  address: "No.102, Shaili Gardenia, Sainikpuri, Hyderabad - 87",
   contactIcon: "icon-phone1",
   ...common,
 };

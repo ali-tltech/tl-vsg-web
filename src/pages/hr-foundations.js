@@ -3,12 +3,12 @@ import Header from "@/components/Header/Header";
 import Layout from "@/components/Layout/Layout";
 import PageHeader from "@/components/Reuseable/PageHeader";
 import ServiceDetails from "@/components/ServicesSection/ServiceDetails";
-import { bankingAdvising } from "@/data/servicesSection";
+import { HrFoundation } from "@/data/servicesSection";
 import React from "react";
 
-const { title } = bankingAdvising;
+const { title } = HrFoundation;
 
-const BankingAdvising = () => {
+const HrFoundations = () => {
   return (
     <Layout pageTitle={title}>
       <Header />
@@ -18,10 +18,10 @@ const BankingAdvising = () => {
         parent="Services"
         parentHref="/services"
       />
-      <ServiceDetails service={bankingAdvising} />
+      <ServiceDetails service={HrFoundation} />
       <CtaOne />
     </Layout>
   );
 };
 
-export default BankingAdvising;
+export default HrFoundations;

@@ -8116,7 +8116,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .service-details {
   position: relative;
   display: block;
-  padding: 120px 0 120px;
+  padding: 120px 0 50px;
 }
 
 .service-details__sidebar {

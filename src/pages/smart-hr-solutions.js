@@ -3,12 +3,12 @@ import Header from "@/components/Header/Header";
 import Layout from "@/components/Layout/Layout";
 import PageHeader from "@/components/Reuseable/PageHeader";
 import ServiceDetails from "@/components/ServicesSection/ServiceDetails";
-import { auditMarketing } from "@/data/servicesSection";
+import { SmartHRSolutionsDetail } from "@/data/servicesSection";
 import React from "react";
 
-const { title } = auditMarketing;
+const { title } = SmartHRSolutionsDetail;
 
-const AuditMarketing = () => {
+const SmartHrSolutions = () => {
   return (
     <Layout pageTitle={title}>
       <Header />
@@ -18,10 +18,10 @@ const AuditMarketing = () => {
         parent="Services"
         parentHref="/services"
       />
-      <ServiceDetails service={auditMarketing} />
+      <ServiceDetails service={SmartHRSolutionsDetail} />
       <CtaOne />
     </Layout>
   );
 };
 
-export default AuditMarketing;
+export default SmartHrSolutions;
