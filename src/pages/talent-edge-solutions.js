@@ -3,12 +3,12 @@ import Header from "@/components/Header/Header";
 import Layout from "@/components/Layout/Layout";
 import PageHeader from "@/components/Reuseable/PageHeader";
 import ServiceDetails from "@/components/ServicesSection/ServiceDetails";
-import { consumerProduct } from "@/data/servicesSection";
+import { TalentEdgeSolution } from "@/data/servicesSection";
 import React from "react";
 
-const { title } = consumerProduct;
+const { title } = TalentEdgeSolution;
 
-const ConsumerProduct = () => {
+const TalentEdgeSolutions = () => {
   return (
     <Layout pageTitle={title}>
       <Header />
@@ -18,10 +18,10 @@ const ConsumerProduct = () => {
         parent="Services"
         parentHref="/services"
       />
-      <ServiceDetails service={consumerProduct} />
+      <ServiceDetails service={TalentEdgeSolution} />
       <CtaOne />
     </Layout>
   );
 };
 
-export default ConsumerProduct;
+export default TalentEdgeSolutions;
