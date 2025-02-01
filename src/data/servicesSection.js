@@ -1,6 +1,6 @@
 import image1 from "@/images/services/service-details-img-1.jpg";
 import image3 from "@/images/services/service-details-img-2.jpg";
-// import image6 from "@/images/services/service-details-img-3.jpg";
+import image6 from "@/images/services/service-details-img-3.jpg";
 import image4 from "@/images/services/service-details-img-4.jpg";
 import image2 from "@/images/services/service-details-img-5.jpg";
 import image5 from "@/images/services/service-details-img-6.jpg";
