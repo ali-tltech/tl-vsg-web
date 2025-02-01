@@ -54,10 +54,10 @@ const OurMissionTwo = ({ className = "", shape = 2 }) => {
                     style={{ cursor: "pointer" }}
                     className="video-popup"
                   >
-                    <div className="our-mission-two__video-icon">
+                    {/* <div className="our-mission-two__video-icon">
                       <span className="fa fa-play"></span>
                       <i className="ripple"></i>
-                    </div>
+                    </div> */}
                   </a>
                   <h3 className="our-mission-two__video-text">{videoText}</h3>
                 </div>

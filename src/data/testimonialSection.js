@@ -23,7 +23,7 @@ export const testimonialOne = [
     quote,
     image: "testimonial-1-client-img-3.jpg",
     text: "VS GenX Solutions revolutionized our HR department with proactive strategies and deep expertise, significantly enhancing our workflow and operational efficiency.",
-    name: " Ravi P",
+    name: " Meera S",
     title: "Customers",
   },
 ];

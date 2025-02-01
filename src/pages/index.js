@@ -36,7 +36,7 @@ const Home2 = () => {
       <WhyChooseOne />
       <OurMissionTwo />
       <CounterOne />
-      <NewsOne className="news-two" />
+      {/* <NewsOne className="news-two" /> */}
       <GoogleMap />
       <CtaOne className="cta-two" />
     </Layout>
