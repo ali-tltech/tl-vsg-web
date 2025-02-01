@@ -36,11 +36,11 @@ const WhyChooseOne = () => {
                   </li>
                 ))}
               </ul>
-              <div className="why-choose-one__progress">
+              {/* <div className="why-choose-one__progress">
                 {progresses.map((progress) => (
                   <ProgressWhyChose key={progress.id} progress={progress} />
                 ))}
-              </div>
+              </div> */}
             </div>
           </Col>
         </Row>

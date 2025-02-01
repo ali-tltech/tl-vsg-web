@@ -9,31 +9,31 @@ import { servicesSubNavItems } from "./headerData";
 
 export const servicesOne = {
   tagline: "Our Services",
-  title: "Services We Offer",
+  title: "Our Core HR Services",
   services: [
     {
       id: 1,
-      title: "Consumer \n Product",
+      title: "HR Foundations Accelerator",
       image: "services-1-1.jpg",
       icon: "icon-creative",
       href: "/consumer-product",
-      text: "Lorem ipsum dolor sit donec amet tristique ante vel sem dictum is rhoncus elit sed.",
+      text: "Establish robust HR foundations with comprehensive policies, compliance measures, and employee handbooks for sustainable organizational growth.",
     },
     {
       id: 2,
-      title: "Banking \n Advising",
+      title: "Talent Edge Solutions",
       image: "services-1-2.jpg",
       icon: "icon-business",
       href: "/banking-advising",
-      text: "Lorem ipsum dolor sit donec amet tristique ante vel sem dictum is rhoncus elit sed.",
+      text: "Connect underrepresented talent with tailored recruitment strategies, seamless onboarding processes, and dynamic employer branding solutions exceptionally.",
     },
     {
       id: 3,
-      title: "Marketing \n Rules",
+      title: "Leadership Horizon Hub",
       image: "services-1-3.jpg",
       icon: "icon-global",
       href: "/marketing-rules",
-      text: "Lorem ipsum dolor sit donec amet tristique ante vel sem dictum is rhoncus elit sed.",
+      text: "Develop inclusive leaders through innovative coaching programs, strategic skill enhancement, and transformative leadership development workshops effectively.",
     },
     {
       id: 4,

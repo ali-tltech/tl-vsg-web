@@ -29,7 +29,7 @@ const OurMission = () => {
                 <TextSplit text={title} />
               </h2>
               <Link href="/about" className="thm-btn our-mission__btn">
-                Discover More
+                Discover Our Services
               </Link>
             </div>
           </Col>

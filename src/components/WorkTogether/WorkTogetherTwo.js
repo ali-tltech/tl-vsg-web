@@ -29,7 +29,7 @@ const WorkTogetherTwo = () => {
               </div>
               <p className="work-together-tow__text-2">{text2}</p>
               <Link href="/about" className="thm-btn work-together-tow__btn">
-                Discover More
+              CONTACT US 
               </Link>
             </div>
           </Col>

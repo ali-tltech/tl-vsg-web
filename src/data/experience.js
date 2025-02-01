@@ -1,3 +1,3 @@
 export const experience = {
-  title: "Experience you can trust, Service quality you can \n easily count on",
+  title: "Trusted expertise, dependable service quality you can always count on.",
 };

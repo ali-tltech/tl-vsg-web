@@ -3,63 +3,64 @@ import videoBg2 from "@/images/resources/welcome-three-video-bg.jpg";
 import image from "@/images/resources/welcome-two-img-1.jpg";
 import bg from "@/images/shapes/welcome-one-shape.png";
 
-export const welcomeOne = {
-  bg,
-  videoBg,
-  tagline: "welcome to our agency",
-  title: "Secure & Safe Advices for your Small & Big Businesses",
-  counter: [
-    {
-      id: 1,
-      text: "Happy Customers",
-      count: 962,
-    },
-    {
-      id: 2,
-      text: "Completed Cases",
-      count: 882,
-    },
-  ],
-  videoId: "Get7rqXYrbQ",
-  features: [
-    {
-      id: 1,
-      title: "Wealth \n Management",
-      href: "/consumer-product",
-      icon: "icon-wealth",
-    },
-    {
-      id: 2,
-      title: "Audit \n Marketing",
-      href: "/audit-marketing",
-      icon: "icon-data-analytics",
-    },
-    {
-      id: 3,
-      title: "Finance \n Consulting",
-      href: "/financial-advice",
-      icon: "icon-report",
-    },
-  ],
-  bottomText:
-    "Consulting & Finance Services Built Specifically for your Business.",
-};
+// export const welcomeOne = {
+//   bg,
+//   videoBg,
+//   tagline: "welcome to our agency",
+//   title: "Secure & Safe Advices for your Small & Big Businesses",
+//   counter: [
+//     {
+//       id: 1,
+//       text: "Happy Customers",
+//       count: 962,
+//     },
+//     {
+//       id: 2,
+//       text: "Completed Cases",
+//       count: 882,
+//     },
+//   ],
+//   videoId: "Get7rqXYrbQ",
+//   features: [
+//     {
+//       id: 1,
+//       title: "Wealth \n Management",
+//       href: "/consumer-product",
+//       icon: "icon-wealth",
+//     },
+//     {
+//       id: 2,
+//       title: "Audit \n Marketing",
+//       href: "/audit-marketing",
+//       icon: "icon-data-analytics",
+//     },
+//     {
+//       id: 3,
+//       title: "Finance \n Consulting",
+//       href: "/financial-advice",
+//       icon: "icon-report",
+//     },
+//   ],
+//   bottomText:
+//     "Consulting & Finance Services Built Specifically for your Business.",
+// };
 
 export const welcomeTwo = {
   image,
   tagline: "our introduction",
-  title: " We’re Best Consultant Agency in NY",
+  title: "  Empowering Talent, Transforming HR Futures",
   text1:
-    "Suspendisse vel iaculis leo. Curabitur scelerisque mi porta justo fermentum porta.",
+    "  Purposeful HR unlocks untapped potential. We ignite growth through innovative, equity-driven strategies.",
   text2:
-    "There are many variations of passages of Lorem Ipsum available, but the majority have suffered dimply free text alteration in some form, by injected humour, or randomised.",
+    "At VS GenX Solutions, we empower underprivileged talent with scalable HR solutions that build resilient, future-ready organizations.We redefine HR for startups as a catalyst for purpose, equity, and sustainable transformation.By blending innovative strategies with inclusive practices, we help every organization achieve dynamic, lasting success.",
   points: [
-    "Nsectetur cing elit.",
-    "Suspe ndisse suscipit sagittis leo.",
-    "Entum estibulum digni posuere.",
-    "Donec tristique ante dictum rhoncus.",
+    "2012: Founded with a commitment to equity and HR transformation.",
+    "2014: Expanded services to empower underprivileged talent across diverse industries.",
+    "2016: Launched scalable HR solutions tailored for startups and growing businesses.",
+    "2018: Earned recognition for innovative, purpose-driven HR strategies.",
+    "2020: Partnered with 50+ startups, driving inclusive growth and measurable impact.",
   ],
-  iconText: "Duis rhoncus \n orci utm",
+  iconText: "Here for you 24/7 Support",
 };
 
 export const welcomeThree = {

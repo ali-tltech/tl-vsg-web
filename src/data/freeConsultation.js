@@ -1,7 +1,7 @@
 export const freeConsultation = {
   title: "Get your FREE \n business consultation",
   titleHighlight: "FREE",
-  phone: "+1- ( 246 ) 333 - 0079",
-  phoneHref: "12463330079",
-  email: "needhelp@company.com",
+  phone: "+91 9000334512",
+  phoneHref: "+919000334512",
+  email: "venkatesans@venkatesans.com",
 };

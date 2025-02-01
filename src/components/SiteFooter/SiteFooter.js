@@ -128,7 +128,7 @@ const SiteFooter = ({ footerClassName = "" }) => {
             <Col xl={12}>
               <div className="site-footer__bottom-inner">
                 <p className="site-footer__bottom-text">
-                  © Copyright {year} by <a href="#">{author}</a>
+                  © Copyright {year} by <a href="https://tltechnologies.net/" target="_blank"> {author}</a>
                 </p>
               </div>
             </Col>

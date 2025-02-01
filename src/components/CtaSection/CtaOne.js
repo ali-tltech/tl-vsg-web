@@ -20,7 +20,7 @@ const CtaOne = ({ className = "" }) => {
                   <TextSplit text={title} />
                 </h3>
                 <Link href={href} className="thm-btn cta-one__btn">
-                  Discover More
+                Discover Our Services
                 </Link>
               </div>
             </div>

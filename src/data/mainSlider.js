@@ -25,19 +25,19 @@ export const mainSliderTwo = [
   {
     id: 1,
     bg: "main-slider-2-1.jpg",
-    title: "Provides quality \n consultancy",
+    title: "Ignite Imagination, Forge Tomorrow.",
     href: "/about",
   },
   {
     id: 2,
     bg: "main-slider-2-2.jpg",
-    title: "Provides quality \n consultancy",
+    title: "Elevate Ambition, Inspire Achievement.",
     href: "/about",
   },
   {
     id: 3,
     bg: "main-slider-2-3.jpg",
-    title: "Provides quality \n consultancy",
+    title: "Unleash Creativity, Shape the Future.",
     href: "/about",
   },
 ];

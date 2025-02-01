@@ -3,19 +3,8 @@ import image from "@/images/resources/why-choose-1-1.jpg";
 export const whyChooseOne = {
   image,
   tagline: "our benefits",
-  title: "Why Choose Our Consultancy",
-  text: "There are many variations of passages of but the majority have in some form, by injected humou or words which don't look even slightly believable of but the majority have suffered.",
-  points: ["Integer et massa sit", "Integer et massa sit"],
-  progresses: [
-    {
-      id: 1,
-      title: "Consulting",
-      count: 77,
-    },
-    {
-      id: 2,
-      title: "Finance",
-      count: 60,
-    },
-  ],
+  title: "Why Choose VS GenX Solutions",
+  text: "At VS GenX Solutions, we harness innovative HR strategies to unlock potential, drive equitable growth, and empower underrepresented talent. Our tailored, scalable solutions and unwavering commitment to excellence create agile teams that thrive in today’s dynamic business landscape.",
+  points: ["Proven HR Expertise", "Inclusive Growth", "Tailored Solutions","Commitment to Innovation"],
+
 };

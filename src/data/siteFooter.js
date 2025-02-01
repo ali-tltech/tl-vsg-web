@@ -75,11 +75,11 @@ const footerData = {
     },
   ],
   newsletterText: "Subsrcibe for our upcoming latest articles and resources",
-  address: "60 road, broklyn golden street new york. USA",
-  phone: "+1- ( 246 ) 333 - 0079",
-  phoneHref: "12463330079",
-  email: "needhelp@company.com",
-  author: "Oslim",
+  address: "No.102, Shaili Gardenia, Sainikpuri, Hyderabad - 87",
+  phone: "+91 9000334512",
+  phoneHref: "+919000334512",
+  email: "venkatesans@venkatesans.com",
+  author: "TL Technologies",
   year: new Date().getFullYear(),
 };
 
