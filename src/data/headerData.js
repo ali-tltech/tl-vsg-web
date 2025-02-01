@@ -60,7 +60,6 @@ export const navItems = [
     id: 2,
     name: "About Us",
     href: "/about",
-    // subNavItems: servicesSubNavItems,
   },
   {
     id: 3,
@@ -72,44 +71,19 @@ export const navItems = [
     id: 3,
     name: "FAQs",
     href: "/faq",
-    // subNavItems: [
-    //   { id: 1, name: "About", href: "/about" },
-    //   // { id: 2, name: "Team", href: "/team" },
-    //   // { id: 3, name: "Team Two", href: "/team-2" },
-    //   // { id: 4, name: "Testimonials", href: "/testimonials" },
-    //   { id: 5, name: "FAQs", href: "/faq" },
-    //   { id: 6, name: "404 Error", href: "/404" },
-    // ],
+
   },
   {
     id: 4,
     name: "Cases",
     href: "/cases",
-    // subNavItems: [
-    //   { id: 1, name: "Cases", href: "/cases" },
-    //   { id: 2, name: "Cases Two", href: "/cases-2" },
-    //   { id: 3, name: "Case Details", href: "/case-details" },
-    // ],
+
   },
   {
     id: 5,
     name: "Blog",
     href: "/blog",
-    // subNavItems: [
-    //   { id: 1, name: "Blog Posts", href: "/blog" },
-    //   { id: 2, name: "Blog Two", href: "/blog-2" },
-    //   {
-    //     id: 3,
-    //     name: "Blog Sidebar",
-    //     href: "/blog-sidebar",
-    //     subItems: [
-    //       { id: 1, name: "Blog Right Sidebar", href: "/blog-sidebar" },
-    //       { id: 2, name: "Blog Left Sidebar", href: "/blog-sidebar-right" },
-    //     ],
-    //   },
-    //   { id: 4, name: "Blog Details", href: "/blog-details" },
-    // ],
-  },
+    },
   {
     id: 6,
     name: "Contact",
@@ -144,9 +118,9 @@ const headerData = {
   logo,
   navItems,
   callText: "Need help? Talk to an expert",
-  phone: "+1- ( 246 ) 333 - 0079",
-  phoneHref: "12463330079",
-  email: "needhelp@oslim.com",
+  phone: "+91 9000334512",
+  phoneHref: "+919000334512",
+  email: "venkatesans@venkatesans.com",
   socials,
 };
 
