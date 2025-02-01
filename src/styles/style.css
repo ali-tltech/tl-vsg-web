@@ -307,8 +307,8 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .section-title__title {
   margin: 0;
-  font-size: 55px;
-  line-height: 65px;
+  font-size: 40px;
+  line-height: 60px;
   font-weight: 800;
 }
 
@@ -4422,7 +4422,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .welcome-two__right .section-title {
-  margin-bottom: 35px;
+  margin-bottom: 10px;
 }
 
 .welcome-two__text-1 {
@@ -4767,7 +4767,7 @@ input[type="search"]::-webkit-search-results-decoration {
   font-size: 20px;
   font-weight: 600;
   line-height: 30px;
-  margin-bottom: 36px;
+  margin-bottom: 20px;
 }
 
 .tab-content__text {

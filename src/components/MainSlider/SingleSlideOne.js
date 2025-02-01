@@ -33,7 +33,7 @@ const SingleSlideOne = ({ slider = {}, showShape = false }) => {
                 <TextSplit text={title} />
               </h2>
               <Link href={href} className="thm-btn">
-                Discover More
+                Discover Our Services
               </Link>
             </div>
           </Col>

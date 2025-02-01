@@ -96,7 +96,7 @@ const WelcomeThree = ({ id = "" }) => {
                 </div>
                 <div className="welcome-three__bottom">
                   <Link href="/about" className="thm-btn welcome-three__btn">
-                    Discover More
+                    Discover Our Services
                   </Link>
                   <div className="welcome-three__video">
                     <a

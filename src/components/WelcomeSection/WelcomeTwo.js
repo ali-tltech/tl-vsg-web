@@ -48,7 +48,7 @@ const WelcomeTwo = ({ id = "" }) => {
               </div>
               <p className="welcome-two__text-2">{text2}</p>
               <Link href="/about" className="thm-btn welcome-two__btn">
-                Discover More
+              More About Us
               </Link>
             </div>
           </Col>

@@ -8,7 +8,7 @@ import SingleTab from "./SingleTab";
 const { tagline, title, tabs, points } = qualityWork;
 
 const QualityWork = () => {
-  const [current, setCurrent] = useState("solutions");
+  const [current, setCurrent] = useState("Journey");
 
   return (
     <section className="quality-work">

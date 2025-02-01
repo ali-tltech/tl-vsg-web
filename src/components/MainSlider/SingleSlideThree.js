@@ -46,7 +46,7 @@ const SingleSlideThree = ({ slider = {} }) => {
                 <TextSplit text={title} highlight="&" />
               </h2>
               <Link href="/about" className="thm-btn">
-                Discover More
+                Discover Our Services
               </Link>
             </div>
           </Col>
