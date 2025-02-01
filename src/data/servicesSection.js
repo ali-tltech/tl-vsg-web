@@ -1,10 +1,9 @@
 import image1 from "@/images/services/service-details-img-1.jpg";
 import image3 from "@/images/services/service-details-img-2.jpg";
-import image6 from "@/images/services/service-details-img-3.jpg";
+// import image6 from "@/images/services/service-details-img-3.jpg";
 import image4 from "@/images/services/service-details-img-4.jpg";
 import image2 from "@/images/services/service-details-img-5.jpg";
 import image5 from "@/images/services/service-details-img-6.jpg";
-import { faqs } from "./fAQsPage";
 import { servicesSubNavItems } from "./headerData";
 
 export const servicesOne = {
@@ -159,6 +158,12 @@ export const LeadershipHorizonHubs = {
   ...LeadershipHorizonHubDetails,
 };
 
+export const CulturalTransformationStudios = {
+  image: image6,
+  title: "Cultural Transformation Studio",
+  ...CulturalTransformationStudioDetails,
+};
+
 export const SmartHRSolutionsDetail = {
   image: image4,
   title: "Smart HR Solutions",
@@ -171,8 +176,4 @@ export const EmployeeEngagementCatalysts = {
   ...EmployeeEngagementCatalystDetails,
 };
 
-// export const marketingRules = {
-//   image: image6,
-//   title: "Marketing Rules",
-//   ...HrFoundationDetails,
-// };
+
