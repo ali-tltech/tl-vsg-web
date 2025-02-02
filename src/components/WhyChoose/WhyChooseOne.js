@@ -24,18 +24,38 @@ const WhyChooseOne = () => {
             <div className="why-choose-one__right">
               <Title title={title} tagline={tagline} className="text-left" />
               <p className="why-choose-one__text">{text}</p>
-              <ul className="list-unstyled why-choose-one__points">
-                {points.map((point, i) => (
-                  <li key={i}>
-                    <div className="icon">
-                      <i className="fa fa-check"></i>
-                    </div>
-                    <div className="text">
-                      <p>{point}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+  {points.map((point, i) => (
+    <li
+      key={i}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        marginBottom: "8px",
+      }}
+    >
+      <div
+        style={{
+          width: "24px",
+          height: "24px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: "#FFD700",
+          color: "white",
+          borderRadius: "50%",
+          marginRight: "8px",
+        }}
+      >
+        <i className="fa fa-check"></i>
+      </div>
+      <div style={{ flex: 1 }}>
+        <p style={{ marginTop: "16px", fontSize: "26px", color: "#333"  ,fontWeight:700}}>{point}</p>
+      </div>
+    </li>
+  ))}
+</ul>
+
               {/* <div className="why-choose-one__progress">
                 {progresses.map((progress) => (
                   <ProgressWhyChose key={progress.id} progress={progress} />
