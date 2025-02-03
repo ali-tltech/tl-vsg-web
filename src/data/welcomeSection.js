@@ -48,11 +48,11 @@ import bg from "@/images/shapes/welcome-one-shape.png";
 export const welcomeTwo = {
   image,
   tagline: "our introduction",
-  title: "  Empowering Talent, Transforming HR Futures",
+  title: " Empowering Businesses. Transforming Lives.",
   text1:
-    "  Purposeful HR unlocks untapped potential. We ignite growth through innovative, equity-driven strategies.",
+    "   HR solutions designed for Startups and SMEs—scalable, cost-effective, and impact-driven.",
   text2:
-    "At VS GenX Solutions, we empower underprivileged talent with scalable HR solutions that build resilient, future-ready organizations.We redefine HR for startups as a catalyst for purpose, equity, and sustainable transformation.By blending innovative strategies with inclusive practices, we help every organization achieve dynamic, lasting success.",
+    "At VS GenX Solutions, we go beyond HR consulting—we empower businesses with strategic, tech-driven HR solutions that drive sustainable growth, nurture talent, and build inclusive workplaces. Our mission extends beyond corporate success—we are committed to enabling talented individuals from underprivileged backgrounds, helping them achieve their full potential.",
   points: [
     "2012: Founded with a commitment to equity and HR transformation.",
     "2014: Expanded services to empower underprivileged talent across diverse industries.",

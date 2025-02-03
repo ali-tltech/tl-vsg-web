@@ -2,7 +2,7 @@ import React from "react";
 import { Image } from "react-bootstrap";
 
 const SingleTab = ({ tab = {}, current = "solutions" }) => {
-  const { id, image, title, text } = tab;
+  const { id, image, title, text, points } = tab;
 
   return (
     <div
@@ -15,7 +15,14 @@ const SingleTab = ({ tab = {}, current = "solutions" }) => {
         </div>
         <div className="tab-content__contnet">
           <h4 className="tab-content__title">{title}</h4>
-          <p className="tab-content__text">{text}</p>
+          {text && <p className="tab-content__text">{text}</p>}
+          {points && (
+            <ul className="tab-content__points">
+              {points.map((point, index) => (
+                <li key={index} dangerouslySetInnerHTML={{ __html: point }}></li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
     </div>

@@ -4,13 +4,14 @@ import CtaOne from "@/components/CtaSection/CtaOne";
 import Header from "@/components/Header/Header";
 import Layout from "@/components/Layout/Layout";
 import PageHeader from "@/components/Reuseable/PageHeader";
+import bg_contact from "@/images/backgrounds/contact-banner-image.jpg";
 import React from "react";
 
 const Contact = () => {
   return (
     <Layout pageTitle="Contact">
       <Header />
-      <PageHeader title="Contact" />
+      <PageHeader title="Contact" bgImage={bg_contact}/>
       <ContactDetails />
       <ContactPage isTitleTwo />
       <CtaOne />

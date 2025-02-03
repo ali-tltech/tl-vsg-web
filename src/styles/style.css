@@ -26,7 +26,7 @@
   --oslim-white-rgb: 255, 255, 255;
   --oslim-black: #191825;
   --oslim-black-rgb: 25, 24, 37;
-  --oslim-base: #ff613c;
+  --oslim-base: #434176;
   --oslim-base-rgb: 255, 97, 60;
   --oslim-extra: #fcf5f3;
   --oslim-extra-rgb: 252, 245, 243;
@@ -307,7 +307,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .section-title__title {
   margin: 0;
-  font-size: 40px;
+  font-size: 43px;
   line-height: 60px;
   font-weight: 800;
 }
@@ -1110,6 +1110,34 @@ input[type="search"]::-webkit-search-results-decoration {
 .stricky-header.main-menu-two {
   padding: 0 0 0;
 }
+
+/*--------------------------------------------------------------
+# coming soon
+--------------------------------------------------------------*/
+
+.coming-soon-badge {
+  position: absolute;
+  top: -10px;  /* Move above the nav item */
+  left: 50%;
+  transform: translateX(-50%);
+  background: red;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 0px 4px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+
+/* .disabled-link {
+  pointer-events: none;
+  color: #888;
+  cursor: not-allowed;
+  opacity: 0.7;
+} */
+
 
 /*--------------------------------------------------------------
 # Animations
@@ -3423,7 +3451,8 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .team-one__title {
   font-size: 20px;
-  color: var(--oslim-base);
+  /* color: var(--oslim-base); */
+  color:rgb(218, 206, 206);
   font-weight: 500;
   margin: 0;
   line-height: 28px;
@@ -4229,7 +4258,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .footer-widget__explore-list-two {
   position: relative;
   display: block;
-  margin-left: 65px;
+  margin-left: 40px;
 }
 
 .footer-widget__newsletter-box {
@@ -4459,7 +4488,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .welcome-two__points li .icon {
   height: 15px;
-  width: 15px;
+  width: 18px;
   background-color: var(--oslim-base);
   font-size: 9px;
   color: var(--oslim-white);
@@ -5148,7 +5177,7 @@ input[type="search"]::-webkit-search-results-decoration {
   position: relative;
   display: block;
   background-color: var(--oslim-extra);
-  padding: 120px 0 0;
+  padding: 109px 0 100px;
   overflow: hidden;
   z-index: 1;
 }

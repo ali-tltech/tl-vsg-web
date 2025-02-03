@@ -4,6 +4,8 @@ import Layout from "@/components/Layout/Layout";
 import PageHeader from "@/components/Reuseable/PageHeader";
 import ServiceDetails from "@/components/ServicesSection/ServiceDetails";
 import { LeadershipHorizonHubs } from "@/data/servicesSection";
+import bg_service from "@/images/backgrounds/service-banner-image.jpg";
+
 import React from "react";
 
 const { title } = LeadershipHorizonHubs;
@@ -17,6 +19,7 @@ const LeadershipHorizonHub = () => {
         title={title}
         parent="Services"
         parentHref="/services"
+        bgImage={bg_service}
       />
       <ServiceDetails service={LeadershipHorizonHubs} />
       <CtaOne />

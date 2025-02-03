@@ -15,6 +15,8 @@ import GoogleMap from "@/components/GoogleMap/GoogleMap";
 import CtaOne from "@/components/CtaSection/CtaOne";
 import Layout from "@/components/Layout/Layout";
 import { mainSliderTwo } from "@/data/mainSlider";
+import TestimonialThree from "@/components/TestimonialSection/TestimonialThree";
+import CaseTwo from "@/components/CaseSection/CaseTwo";
 
 const Home2 = () => {
   return (
@@ -32,7 +34,8 @@ const Home2 = () => {
       <Experience />
       <ServicesOne serviceCount={3} />
       <TestimonialOne className="testimonial-two" />
-      <BrandOne />
+      {/* <TestimonialThree className="testimonial-two" /> */}
+      {/* <BrandOne /> */}
       <WhyChooseOne />
       <OurMissionTwo />
       <CounterOne />

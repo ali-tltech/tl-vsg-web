@@ -4,6 +4,7 @@ import FAQsPage from "@/components/FAQsPage/FAQsPage";
 import Header from "@/components/Header/Header";
 import Layout from "@/components/Layout/Layout";
 import PageHeader from "@/components/Reuseable/PageHeader";
+import bg_faq from "@/images/backgrounds/faq-banner-image.jpg";
 import React from "react";
 
 const Faq = () => {
@@ -11,7 +12,7 @@ const Faq = () => {
     <Layout pageTitle="FAQs">
      
       <Header />
-      <PageHeader title="FAQs" />
+      <PageHeader title="FAQs" bgImage={bg_faq} />
       <FAQsPage />
       <ContactPage />
       <CtaOne />

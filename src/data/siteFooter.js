@@ -60,13 +60,13 @@ const footerData = {
     },
     {
       id: 7,
-      text: "Terms of use",
-      href: "/about",
+      text: "Terms & conditions",
+      href: "/terms-of-use",
     },
     {
       id: 8,
       text: "Privacy policy",
-      href: "/about",
+      href: "/privacy-policy",
     },
     {
       id: 9,
@@ -78,7 +78,7 @@ const footerData = {
   address: "No.102, Shaili Gardenia, Sainikpuri, Hyderabad - 87",
   phone: "+91 9000334512",
   phoneHref: "+919000334512",
-  email: "venkatesans@venkatesans.com",
+  email: "vsgenxsolutions@gmail.com ",
   author: "TL Technologies",
   year: new Date().getFullYear(),
 };

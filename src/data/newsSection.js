@@ -8,7 +8,7 @@ export const newsOne = {
   newsData: [
     {
       id: 1,
-      image: "news-1-1.jpg",
+      image: "news-1-1.jpg", // 370 x 256
       subtitle: "finance",
       title: "Accounting Support During the Exponential Growth",
       date: "20 Oct, 2022",
@@ -30,30 +30,30 @@ export const newsOne = {
       date: "20 Oct, 2022",
       comments: 2,
     },
-    {
-      id: 4,
-      image: "news-1-4.jpg",
-      subtitle: "finance",
-      title: "Competently parallel task fully researched data and",
-      date: "20 Oct, 2022",
-      comments: 2,
-    },
-    {
-      id: 5,
-      image: "news-1-5.jpg",
-      subtitle: "finance",
-      title: "Competently parallel task fully researched data and",
-      date: "20 Oct, 2022",
-      comments: 2,
-    },
-    {
-      id: 6,
-      image: "news-1-6.jpg",
-      subtitle: "finance",
-      title: "Competently parallel task fully researched data and",
-      date: "20 Oct, 2022",
-      comments: 2,
-    },
+    // {
+    //   id: 4,
+    //   image: "news-1-4.jpg",
+    //   subtitle: "finance",
+    //   title: "Competently parallel task fully researched data and",
+    //   date: "20 Oct, 2022",
+    //   comments: 2,
+    // },
+    // {
+    //   id: 5,
+    //   image: "news-1-5.jpg",
+    //   subtitle: "finance",
+    //   title: "Competently parallel task fully researched data and",
+    //   date: "20 Oct, 2022",
+    //   comments: 2,
+    // },
+    // {
+    //   id: 6,
+    //   image: "news-1-6.jpg",
+    //   subtitle: "finance",
+    //   title: "Competently parallel task fully researched data and",
+    //   date: "20 Oct, 2022",
+    //   comments: 2,
+    // },
   ],
 };
 

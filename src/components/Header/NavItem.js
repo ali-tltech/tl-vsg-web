@@ -67,7 +67,7 @@ const NavItem = ({ navItem = {}, mobile = false, onePage = false }) => {
     toggleActive();
   };
 
-  const { name, href, subNavItems = [] } = navItem;
+  const { name, href, subNavItems = [],comingSoon = false } = navItem;
 
   let current = onePage ? currentActive === href : pathname === href;
   if (!current && !onePage) {
@@ -83,7 +83,10 @@ const NavItem = ({ navItem = {}, mobile = false, onePage = false }) => {
       className={`${subNavItems.length ? "dropdown" : ""}${
         current ? " current" : ""
       }`}
+      style={{ position: "relative" }}
     >
+            {/* Coming Soon Badge */}
+            {comingSoon && <span className="coming-soon-badge">Coming Soon</span>}
       <Link
         onClick={handleToggleMenu}
         href={href}
