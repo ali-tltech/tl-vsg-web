@@ -9,5 +9,5 @@ export const ourMissionTwo = {
   bg,
   title: "Mission: Safeguarding Your Business & Beyond",
   videoId: "Get7rqXYrbQ",
-  videoText: "Watch video",
+  // videoText: "Watch video",
 };

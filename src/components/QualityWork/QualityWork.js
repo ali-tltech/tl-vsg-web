@@ -27,9 +27,7 @@ const QualityWork = () => {
                     <li
                       onClick={() => setCurrent(id)}
                       key={id}
-                      className={`tab-btn${
-                        current === id ? " active-btn" : ""
-                      }`}
+                      className={`tab-btn${current === id ? " active-btn" : ""}`}
                     >
                       <span>{tagline}</span>
                     </li>
@@ -46,14 +44,21 @@ const QualityWork = () => {
           <Col xl={5} lg={5}>
             <div className="quality-work__right">
               <ul className="quality-work__points list-unstyled">
-                {points.map(({ id, icon, title, text }) => (
+                {points.map(({ id, icon, title, text, points }) => (
                   <li key={id}>
                     <div className="icon">
                       <span className={icon}></span>
                     </div>
                     <div className="text">
                       <h4>{title}</h4>
-                      <p>{text}</p>
+                      {text && <p>{text}</p>}
+                      {points && (
+                        <ul>
+                          {points.map((point, index) => (
+                            <li key={index}>{point}</li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
                   </li>
                 ))}

@@ -76,13 +76,15 @@ export const navItems = [
   {
     id: 4,
     name: "Cases",
-    href: "/cases",
+    href: "#",
+    comingSoon: true, // Custom property to indicate "Coming Soon"
 
   },
   {
     id: 5,
     name: "Blog",
-    href: "/blog",
+    href: "#",
+    comingSoon: true, // Custom property to indicate "Coming Soon"
     },
   {
     id: 6,
@@ -120,7 +122,7 @@ const headerData = {
   callText: "Need help? Talk to an expert",
   phone: "+91 9000334512",
   phoneHref: "+919000334512",
-  email: "venkatesans@venkatesans.com",
+  email: "vsgenxsolutions@gmail.com ",
   socials,
 };
 

@@ -12,7 +12,7 @@ const Privacy = () => {
       <Header />
       <PageHeader title="Privacy Policy" />
       <PrivacyPolicy />
-      <ContactPage />
+      {/* <ContactPage /> */}
       <CtaOne />
     </Layout>
   );

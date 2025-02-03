@@ -9,20 +9,21 @@ import PageHeader from "@/components/Reuseable/PageHeader";
 import TeamOne from "@/components/TeamSection/TeamOne";
 import TestimonialOne from "@/components/TestimonialSection/TestimonialOne";
 import WorkTogetherTwo from "@/components/WorkTogether/WorkTogetherTwo";
+import bg_about from "@/images/backgrounds/aboutus-banner-image.jpg";
 import React from "react";
 
 const About = () => {
   return (
     <Layout pageTitle="About">
       <Header />
-      <PageHeader page="About" title="About us" />
+      <PageHeader page="About" title="About us" bgImage={bg_about} />
       <WorkTogetherTwo />
       <FreeConsultation />
       <QualityWork />
       <OurMissionTwo className="our-mission-three" shape={1} />
       <TeamOne />
       <TestimonialOne className="testimonial-two" />
-      <BrandOne />
+      {/* <BrandOne /> */}
       <CtaOne />
     </Layout>
   );

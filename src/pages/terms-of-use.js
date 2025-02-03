@@ -10,9 +10,9 @@ const TermsOfUse = () => {
   return (
     <Layout pageTitle="Terms Of Use Policy">
       <Header />
-      <PageHeader title="Terms Of Use Policy" />
+      <PageHeader title="Terms and Conditions & Disclaimer" />
       <TermsOfUsePolicy />
-      <ContactPage />
+      {/* <ContactPage /> */}
       <CtaOne />
     </Layout>
   );

@@ -8,7 +8,7 @@ export const qualityWork = {
       id: "Journey",
       tagline: "Our Journey",
       image,
-      title: " Redefining HR through equity, fairness, and transformative milestones.",
+      title: "Redefining HR through equity, fairness, and transformative milestones.",
       text: "Founded by Venkat, our journey began with a bold vision to redefine HR through equity and opportunity, and our milestones reflect our unwavering commitment to transformation.",
     },
     {
@@ -16,7 +16,13 @@ export const qualityWork = {
       tagline: "Core Values",
       image,
       title: "Empowering Innovation Through Trust, Collaboration & Inclusion.",
-      text: "At VS GenX, we build our foundation on trust, integrity, and transparent decision-making. We drive innovation through collaboration and foster an inclusive culture where every voice is valued.",
+      points: [
+        "<strong>Trust</strong> – Building lasting relationships through transparency and reliability.",
+        "<strong>Integrity</strong> – Upholding ethical standards and doing what’s right, always.",
+        "<strong>Inclusivity</strong> – Creating equitable workplaces by fostering diversity and collaboration.",
+        "<strong>Innovation</strong> – Driving continuous improvement through modern, agile HR solutions.",
+        "<strong>Impact</strong> – Making a meaningful difference for businesses and the workforce."
+      ],
     },
   ],
   points: [
@@ -24,13 +30,13 @@ export const qualityWork = {
       id: 1,
       icon: "icon-checking",
       title: "Our Vision",
-      text: "We aim to transform HR into a force for equity and progress. By integrating purpose with practical strategies, we drive social impact and foster business growth across diverse communities.",
+      text: "To be the go-to HR partner for Startups and SMEs, empowering them to scale efficiently with the right, cost-effective, and future-ready HR strategies. We strive to redefine HR as a catalyst for business growth, innovation, and equity.",
     },
     {
       id: 2,
       icon: "icon-conversation",
       title: "Our Mission",
-      text: "At VS GenX, we empower untapped talent from underprivileged backgrounds by creating opportunities for growth and delivering value-driven HR solutions. Our mission is to bridge gaps and enable every individual to shine.",
+      text: "We empower businesses with scalable, strategic, and cost-effective HR solutions tailored to their growth journey. Our mission is to enable talent from underprivileged communities with meaningful career opportunities, bridge the HR capability gap for startups and SMEs, and leverage HR technology to enhance efficiency. We foster a purpose-driven work culture that aligns business goals with human capital excellence.",
     },
   ],
 };

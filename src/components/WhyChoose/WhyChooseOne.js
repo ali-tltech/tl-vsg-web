@@ -41,7 +41,7 @@ const WhyChooseOne = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#FFD700",
+          backgroundColor: "#434176",
           color: "white",
           borderRadius: "50%",
           marginRight: "8px",

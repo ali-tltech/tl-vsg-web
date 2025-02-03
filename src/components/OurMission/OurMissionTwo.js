@@ -41,7 +41,7 @@ const OurMissionTwo = ({ className = "", shape = 2 }) => {
                 <h2 className="our-mission-two__title">
                   <TextSplit text={title} />
                 </h2>
-                <Link href="/about" className="thm-btn our-mission-two__btn">
+                <Link href="/services" className="thm-btn our-mission-two__btn">
                   Discover Our Services
                 </Link>
               </div>
