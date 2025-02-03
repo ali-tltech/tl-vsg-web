@@ -9,7 +9,7 @@ const ServiceDetailsRight = ({ service = {} }) => {
   return (
     <div className="service-details__right">
       <div className="service-details__img">
-        <Image src={image.src} alt="" />
+        <Image src={image.src} alt="Service image" />
       </div>
       <div className="service-details__content">
         <div className="service-details__title-box">

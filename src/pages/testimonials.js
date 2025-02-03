@@ -1,4 +1,4 @@
-import CtaOne from "@/components/CtaSection/CtaOne";
+import CtaContact from "@/components/CtaSection/CtaContact";
 import Header from "@/components/Header/Header";
 import Layout from "@/components/Layout/Layout";
 import PageHeader from "@/components/Reuseable/PageHeader";
@@ -11,7 +11,7 @@ const Testimonials = () => {
       <Header />
       <PageHeader page="Testimonials" title="Our Testimonials" />
       <TestimonialsPage />
-      <CtaOne />
+      <CtaContact/>
     </Layout>
   );
 };

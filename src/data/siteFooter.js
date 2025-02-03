@@ -70,8 +70,8 @@ const footerData = {
     },
     {
       id: 9,
-      text: "Help",
-      href: "/about",
+      text: "Testimonials",
+      href: "/testimonials",
     },
   ],
   newsletterText: "Subsrcibe for our upcoming latest articles and resources",
