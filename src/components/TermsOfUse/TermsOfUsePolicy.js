@@ -3,19 +3,19 @@ import React from "react";
 const TermsOfUsePolicy = () => {
   return (
     <div style={{ padding: "20px", color: "#333", lineHeight: "1.8", maxWidth: "900px", margin: "auto" }}>
-    <h2 style={{ textAlign: "center", color: "#007BFF", marginBottom: "10px", marginTop: "80px" }}>
-      Terms and Conditions & Disclaimer
-    </h2>
-    <p style={{ fontSize: "14px", textAlign: "center", fontStyle: "italic", color: "#666" }}>
-      Last Updated: February 8, 2025
-    </p>
-
-    <section>
-      <h3 style={{ color: "#007BFF", marginTop: "20px" }}>1. Introduction</h3>
-      <p>
-        Welcome to VS GenX Solutions. These Terms and Conditions ("Terms") govern your use of our website and services. By accessing or using our site, you agree to be bound by these Terms. If you do not agree with any part of these Terms, please do not use our website.
+      <h2 style={{ textAlign: "center", color: "#007BFF", marginBottom: "10px", marginTop: "80px" }}>
+        Terms and Conditions &amp; Disclaimer
+      </h2>
+      <p style={{ fontSize: "14px", textAlign: "center", fontStyle: "italic", color: "#666" }}>
+        Last Updated: February 8, 2025
       </p>
-    </section>
+
+      <section>
+        <h3 style={{ color: "#007BFF", marginTop: "20px" }}>1. Introduction</h3>
+        <p>
+          Welcome to VS GenX Solutions. These Terms and Conditions (&quot;Terms&quot;) govern your use of our website and services. By accessing or using our site, you agree to be bound by these Terms. If you do not agree with any part of these Terms, please do not use our website.
+        </p>
+      </section>
 
     <section>
       <h3 style={{ color: "#007BFF", marginTop: "20px" }}>2. Use of Our Website and Services</h3>
@@ -35,7 +35,7 @@ const TermsOfUsePolicy = () => {
 
     <section>
       <h3 style={{ color: "#007BFF", marginTop: "20px" }}>4. Disclaimer</h3>
-      <p><strong>Disclaimer of Warranties:</strong> Our website and services are provided "as is" without warranties of any kind. We do not guarantee uninterrupted, error-free, or fully secure services.</p>
+      <p><strong>Disclaimer of Warranties:</strong> Our website and services are provided &quot;as is&quot; without warranties of any kind. We do not guarantee uninterrupted, error-free, or fully secure services.</p>
       <p><strong>Limitation of Liability:</strong> VS GenX Solutions shall not be liable for any indirect, incidental, or consequential damages arising from your use of our website or services.</p>
       <p><strong>No Endorsement:</strong> References or links to third-party content are for convenience only and do not constitute an endorsement by VS GenX Solutions.</p>
     </section>
@@ -50,7 +50,7 @@ const TermsOfUsePolicy = () => {
     <section>
       <h3 style={{ color: "#007BFF", marginTop: "20px" }}>6. Changes to These Terms</h3>
       <p>
-        We reserve the right to modify these Terms at any time. Changes will be posted on this page, and the "Last Updated" date will be revised accordingly. Your continued use of our website constitutes acceptance of the updated Terms.
+        We reserve the right to modify these Terms at any time. Changes will be posted on this page, and the &quot;Last Updated&quot; date will be revised accordingly. Your continued use of our website constitutes acceptance of the updated Terms.
       </p>
     </section>
 
