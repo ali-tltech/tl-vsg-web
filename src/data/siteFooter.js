@@ -35,28 +35,28 @@ const footerData = {
     },
     {
       id: 2,
-      text: "Meet our team",
-      href: "/team",
+      text: "Services",
+      href: "/services",
     },
     {
       id: 3,
-      text: "Case stories",
-      href: "/case",
+      text: "Case Studies",
+      href: "#",
     },
     {
       id: 4,
-      text: "Latest news",
-      href: "/blog",
+      text: "Blog",
+      href: "#",
     },
     {
       id: 5,
-      text: "Contact",
-      href: "/contact",
+      text: "faqs",
+      href: "/faq",
     },
     {
       id: 6,
-      text: "Support",
-      href: "/about",
+      text: "Contact",
+      href: "/contact",
     },
     {
       id: 7,
