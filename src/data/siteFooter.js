@@ -50,7 +50,7 @@ const footerData = {
     },
     {
       id: 5,
-      text: "faqs",
+      text: "Faqs",
       href: "/faq",
     },
     {
