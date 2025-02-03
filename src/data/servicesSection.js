@@ -16,7 +16,7 @@ export const servicesOne = {
       image: "services-1-1.jpg",
       icon: "icon-creative",
       href: "/hr-foundations",
-      text: "Establish robust HR foundations with comprehensive policies, compliance measures, and employee handbooks for sustainable organizational growth.",
+      text: " Build strong HR policies, compliance frameworks & governance structures.",
     },
     {
       id: 2,
@@ -24,7 +24,7 @@ export const servicesOne = {
       image: "services-1-2.jpg",
       icon: "icon-business",
       href: "/talent-edge-solutions",
-      text: "Connect underrepresented talent with tailored recruitment strategies, seamless onboarding processes, and dynamic employer branding solutions exceptionally.",
+      text: " Hire, engage & develop talent including advising on compensation & rewards strategy.",
     },
     {
       id: 3,
@@ -32,7 +32,7 @@ export const servicesOne = {
       image: "services-1-3.jpg",
       icon: "icon-global",
       href: "/leadership-horizon-hub",
-      text: "Develop inclusive leaders through innovative coaching programs, strategic skill enhancement, and transformative leadership development workshops effectively.",
+      text: " Executive coaching, leadership development & behavioural training.",
     },
     {
       id: 4,
@@ -40,7 +40,7 @@ export const servicesOne = {
       image: "services-1-4.jpg",
       icon: "icon-mobile-analytics",
       href: "/cultural-transformation-studio",
-      text: "Create engaging organizational cultures with dynamic team-building, interactive workshops, cultural audits, and inclusive community initiatives effectively.",
+      text: " Create inclusive, high-performance workplace cultures.",
     },
     {
       id: 5,
@@ -48,7 +48,7 @@ export const servicesOne = {
       image: "services-1-5.jpg",
       icon: "icon-analysis",
       href: "/smart-hr-solutions",
-      text: "Integrate advanced HR automation tools with digital dashboards, streamlined payroll systems, and data-driven decision frameworks seamlessly.",
+      text: " AI-driven HR automation & On-Demand HR Leadership.",
     },
     {
       id: 6,
@@ -56,7 +56,7 @@ export const servicesOne = {
       image: "services-1-6.jpg",
       icon: "icon-creative-1",
       href: "/employee-engagement-catalyst",
-      text: "Boost team morale and productivity through innovative engagement strategies, continuous feedback mechanisms, and performance recognition programs.",
+      text: "Incubate HR Shared Services & build Centers of Excellence for global operations.",
     },
   ],
 };

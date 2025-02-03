@@ -75,19 +75,25 @@ export const navItems = [
   },
   {
     id: 4,
+    name: "Testimonials",
+    href: "/testimonials",
+
+  },
+  {
+    id: 5,
     name: "Cases",
     href: "#",
     comingSoon: true, // Custom property to indicate "Coming Soon"
 
   },
   {
-    id: 5,
+    id: 6,
     name: "Blog",
     href: "#",
     comingSoon: true, // Custom property to indicate "Coming Soon"
     },
   {
-    id: 6,
+    id: 7,
     name: "Contact",
     href: "/contact",
   },
