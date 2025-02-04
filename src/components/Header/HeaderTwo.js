@@ -39,7 +39,7 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
             <div className="main-header-two__top-left">
               <div className="main-header-two__logo">
                 <Link href="/">
-                  <Image src={logo.src} alt="" />
+                  <Image src={logo.src} alt="Logo" width={106} />
                 </Link>
               </div>
               <div className="main-header-two__top-social">

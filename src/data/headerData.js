@@ -8,40 +8,6 @@ const home = {
 
 
 
-// export const onePageNavItemsThree = [
-//   { ...home, href: "#home" },
-//   {
-//     id: 2,
-//     name: "Services",
-//     href: "#services",
-//   },
-//   {
-//     id: 3,
-//     name: "About",
-//     href: "#about",
-//   },
-//   {
-//     id: 4,
-//     name: "Cases",
-//     href: "#cases",
-//   },
-//   {
-//     id: 5,
-//     name: "Testimonial",
-//     href: "#testimonial",
-//   },
-//   {
-//     id: 6,
-//     name: "Contact",
-//     href: "#contact",
-//   },
-//   {
-//     id: 7,
-//     name: "News",
-//     href: "#news",
-//   },
-// ];
-
 export const servicesSubNavItems = [
   // { id: 1, name: "Services", href: "/services" },
   // { id: 2, name: "Services Two", href: "/services-2" },
@@ -65,7 +31,7 @@ export const navItems = [
     id: 3,
     name: "Services",
     href: "/services",
-    subNavItems: servicesSubNavItems,
+    // subNavItems: servicesSubNavItems,
   },
   {
     id: 3,
@@ -99,27 +65,15 @@ export const navItems = [
   },
 ];
 
+
+// provide social media links here
 const socials = [
-  {
-    id: 1,
-    icon: "fab fa-twitter",
-    href: "#",
-  },
-  {
-    id: 2,
-    icon: "fab fa-facebook-square",
-    href: "#",
-  },
-  {
-    id: 3,
-    icon: "fab fa-pinterest-p",
-    href: "#",
-  },
-  {
-    id: 4,
-    icon: "fab fa-instagram",
-    href: "#",
-  },
+  // {
+  //   id: 1,
+  //   icon: "fab fa-linkedin",
+  //   href: "https://www.linkedin.com/in/venkatesans/",
+  // },
+ 
 ];
 
 const headerData = {

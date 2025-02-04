@@ -14,14 +14,16 @@ const TeamOne = ({ id = "" }) => {
     <section ref={ref} className="team-one" id={id}>
       <div className="team-one__container">
         <Title title={title} tagline={tagline} className="text-center" />
-        <Row>
+        <Row className="justify-content-center">
           {teams.map((team) => (
             <Col
               xl={3}
-              lg={6}
+              lg={4}
               md={6}
+              sm={8}
+              xs={10}
               key={team.id}
-              className="animated fadeInUp"
+              className="animated fadeInUp text-center mb-4"
             >
               <SingleTeamOne team={team} />
             </Col>

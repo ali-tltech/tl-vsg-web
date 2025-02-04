@@ -8,24 +8,29 @@ const footerData = {
   socials: [
     {
       id: 1,
-      icon: "fab fa-twitter",
-      href: "#",
+      icon: "fab fa-linkedin",
+      href: "https://www.linkedin.com/in/venkatesans/",
     },
-    {
-      id: 2,
-      icon: "fab fa-facebook",
-      href: "#",
-    },
-    {
-      id: 3,
-      icon: "fab fa-pinterest-p",
-      href: "#",
-    },
-    {
-      id: 4,
-      icon: "fab fa-instagram",
-      href: "#",
-    },
+    // {
+    //   id: 1,
+    //   icon: "fab fa-twitter",
+    //   href: "#",
+    // },
+    // {
+    //   id: 2,
+    //   icon: "fab fa-facebook",
+    //   href: "#",
+    // },
+    // {
+    //   id: 3,
+    //   icon: "fab fa-pinterest-p",
+    //   href: "#",
+    // },
+    // {
+    //   id: 4,
+    //   icon: "fab fa-instagram",
+    //   href: "#",
+    // },
   ],
   links: [
     {
@@ -75,12 +80,14 @@ const footerData = {
     },
   ],
   newsletterText: "Subsrcibe for our upcoming latest articles and resources",
-  address: "No.102, Shaili Gardenia, Sainikpuri, Hyderabad - 87",
+  addressLine1: "No.102, Shaili Gardenia,",
+  addressLine2: "Sainikpuri, Hyderabad - 87",
   phone: "+91 9000334512",
   phoneHref: "+919000334512",
   email: "vsgenxsolutions@gmail.com ",
-  author: "TL Technologies",
-  year: new Date().getFullYear(),
+  author: "TL Technologies Private Limited",
+  // year: new Date().getFullYear(),
+  year: "2020-2025",
 };
 
 export default footerData;

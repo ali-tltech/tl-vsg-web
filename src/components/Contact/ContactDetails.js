@@ -28,8 +28,8 @@ const ContactDetails = () => {
                   <div className="contact-details__contact-icon">
                     <span className={contactIcon}></span>
                   </div>
-                  <h4 className="contact-details__contact-number-email ">
-                    <span>
+                  <h4 className="contact-details__contact-number-email flex">
+                    <span style={{fontSize: "20px", fontWeight: "600"}}>
 
                     Call/Whatsapp
                     </span>

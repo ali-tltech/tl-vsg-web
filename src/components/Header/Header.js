@@ -40,7 +40,7 @@ const Header = ({ mainMenuClass = "", navItems = items, onePage = false }) => {
           <div className="main-menu-wrapper__left">
             <div className="main-menu-wrapper__logo">
               <Link href="/">
-                <Image src={logo.src} alt="" />
+                <Image src={logo.src} alt="Logo" width={106}/>
               </Link>
             </div>
             <div className="main-menu-wrapper__main-menu">
