@@ -17,7 +17,8 @@ export default function NotFound() {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         minHeight: "100vh",
-        padding: "1rem",
+        width: "100%",
+        overflowX: "hidden",
       }}
     >
       <div

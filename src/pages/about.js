@@ -14,7 +14,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <Layout pageTitle="About">
+    <Layout pageTitle="VS GenX Solutions | About Us - Empowering Talent & Redefining HR" metaDescription="At VS GenX, we empower untapped talent by creating growth opportunities and delivering value-driven HR solutions. Discover our journey of redefining HR through equity, fairness, and transformative milestones, and learn about our mission, vision, and core values." metaKeywords="VS GenX Solutions, About Us, HR solutions, empowering talent, transformative HR, equity in HR, inclusive HR, HR journey, mission, vision, core values">
       <Header />
       <PageHeader page="About" title="About us" bgImage={bg_about} />
       <WorkTogetherTwo />
