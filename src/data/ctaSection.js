@@ -8,3 +8,7 @@ export const ctaContact = {
   href: "/contact",
 };
 
+export const ctaService = {
+  title: "Need a customized HR solution? Let’s talk!",
+  href: "/contact",
+};
