@@ -6,11 +6,13 @@ import React from "react";
 
 const NotFound = () => {
   return (
-    <Layout pageTitle="404 Error" footerClassName="site-footer-three">
-      <Header />
-      <PageHeader title="404 Error" />
+    // <Layout pageTitle="404 Error" footerClassName="site-footer-three">
+    <>
+      {/* <Header />
+      <PageHeader title="404 Error" /> */}
       <ErrorPage />
-    </Layout>
+      </>
+      // </Layout>
   );
 };
 
