@@ -1,15 +1,17 @@
-import React from "react";
-import { Col, Row } from "react-bootstrap";
-import { useForm } from "react-hook-form";
+
+
+import React from 'react';
+import { Col, Row } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
 
 const ContactForm = ({
   inputs = [],
-  formClassName = "comment-one__form",
-  inputClassName = "comment-form__input-box",
-  messageClassName = "text-message-box",
-  btnBoxClassName = "btn-box",
-  btnClassName = "comment-form__btn",
-  btnText = "Send a message",
+  formClassName = 'comment-one__form',
+  inputClassName = 'comment-form__input-box',
+  messageClassName = 'text-message-box',
+  btnBoxClassName = 'btn-box',
+  btnClassName = 'comment-form__btn',
+  btnText = 'Send a message',
 }) => {
   const {
     register,
@@ -17,7 +19,27 @@ const ContactForm = ({
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        // Handle successful form submission (e.g., display a success message)
+        console.log('Form submitted successfully.');
+      } else {
+        // Handle form submission error
+        console.error('Form submission failed.');
+      }
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
+  };
 
   return (
     <form
@@ -50,8 +72,13 @@ const ContactForm = ({
             <textarea
               name="message"
               placeholder="Write a Message"
-              {...register("message")}
+              {...register('message', { required: true })}
             ></textarea>
+            {errors.message && (
+              <label htmlFor="message" className="error">
+                This field is required.
+              </label>
+            )}
           </div>
           <div className={btnBoxClassName}>
             <button type="submit" className={`thm-btn ${btnClassName}`}>
