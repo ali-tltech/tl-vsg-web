@@ -20,7 +20,7 @@ import CaseTwo from "@/components/CaseSection/CaseTwo";
 
 const Home2 = () => {
   return (
-    <Layout pageTitle="Home Two">
+    <Layout pageTitle="VS GenX Solutions | Empowering Talent, Transforming HR Futures" metaKeywords="VS GenX Solutions, HR Solutions, Empowering Talent, Transforming HR Futures, Purpose-Driven HR, Inclusive Growth, Scalable HR Solutions, Underprivileged Talent, Startup HR, HR Foundations Accelerator, Talent Edge Solutions, Leadership Horizon Hub, Innovative HR, Equity-Driven, 24/7 HR Support, Dynamic Leadership">
      
       <HeaderTwo />
       <MainSlider

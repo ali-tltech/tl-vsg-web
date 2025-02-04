@@ -9,12 +9,12 @@ import SiteFooter from "../SiteFooter/SiteFooter";
 
 const Layout = ({
   children,
-  pageTitle = "VS Genx Solutions - HR Consulting & Recruitment",
+  pageTitle ,
   footerClassName = "",
   navItems,
   onePage = false,
-  metaDescription = "Default meta description for SEO",
-  metaKeywords = "HR, Consulting, Recruitment",
+  metaDescription = "Discover purpose-driven HR solutions at VS GenX Solutions. We empower underprivileged talent with scalable strategies and innovative leadership. Ignite imagination, elevate ambition, and unleash creativity with our HR Foundations Accelerator, Talent Edge Solutions, and Leadership Horizon Hub. Enjoy 24/7 support and transformative HR that drives equity, growth, and sustainable success for startups and dynamic organizations.",
+  metaKeywords = "VS GenX Solutions, HR Solutions, Empowering Talent, Transforming HR Futures, Purpose-Driven HR, Inclusive Growth, Scalable HR Solutions, Underprivileged Talent, Startup HR, HR Foundations Accelerator, Talent Edge Solutions, Leadership Horizon Hub, Innovative HR, Equity-Driven, 24/7 HR Support, Dynamic Leadership",
   canonicalUrl = "https://tl-vsg-web.vercel.app/",
   ogUrl = "https://tl-vsg-web.vercel.app/",
   ogType = "website",
