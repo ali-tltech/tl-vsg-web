@@ -1,4 +1,5 @@
 import CtaOne from "@/components/CtaSection/CtaOne";
+import CtaService from "@/components/CtaSection/CtaService";
 import Header from "@/components/Header/Header";
 import Layout from "@/components/Layout/Layout";
 import PageHeader from "@/components/Reuseable/PageHeader";
@@ -22,7 +23,8 @@ const HrFoundations = () => {
         bgImage={bg_service}
       />
       <ServiceDetails service={HrFoundation} />
-      <CtaOne />
+      <CtaService/>
+      {/* <CtaOne /> */}
     </Layout>
   );
 };
