@@ -9,10 +9,21 @@ import SiteFooter from "../SiteFooter/SiteFooter";
 
 const Layout = ({
   children,
-  pageTitle = "",
+  pageTitle = "VS Genx Solutions - HR Consulting & Recruitment",
   footerClassName = "",
   navItems,
   onePage = false,
+  metaDescription = "Default meta description for SEO",
+  metaKeywords = "HR, Consulting, Recruitment",
+  canonicalUrl = "https://tl-vsg-web.vercel.app/",
+  ogUrl = "https://tl-vsg-web.vercel.app/",
+  ogType = "website",
+  ogImage = "https://opengraph.b-cdn.net/production/images/f15d7b2b-e5f3-4fee-81f3-55db261d764c.jpg?token=YDW7c9UAWiE4ZU0eBDRa8pYY8LTfxC_anBKLxng-2uo&height=800&width=1200&expires=33274649395",
+  twitterTitle = "Home Two || VS Genx Solutions - HR Consulting & Recruitment",
+  twitterDescription = "Oslim NextJS Template For Business",
+  twitterImage = "https://opengraph.b-cdn.net/production/images/f15d7b2b-e5f3-4fee-81f3-55db261d764c.jpg?token=YDW7c9UAWiE4ZU0eBDRa8pYY8LTfxC_anBKLxng-2uo&height=800&width=1200&expires=33274649395",
+  twitterCard = "summary_large_image",
+  twitterSite = "@YourTwitterHandle", // Replace with your actual Twitter handle
 }) => {
   const [loading, setLoading] = useState(true);
   const { scrollTop } = useScroll(100);
@@ -21,18 +32,35 @@ const Layout = ({
     const timeoutId = setTimeout(() => {
       setLoading(false);
     }, 400);
-
     return () => clearTimeout(timeoutId);
   }, []);
 
   return (
     <>
       <Head>
+        {/* General SEO Tags */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>
-          {pageTitle} || VS Genx solutions - HR Consulting & Recruitment
-        </title>
+        <meta name="description" content={metaDescription} />
+        <meta name="keywords" content={metaKeywords} />
+        <title>{pageTitle}</title>
+        {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+
+        {/* Open Graph Meta Tags (Facebook, LinkedIn, etc.) */}
+        <meta property="og:url" content={ogUrl} />
+        <meta property="og:type" content={ogType} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:image" content={ogImage} />
+
+        {/* Twitter Meta Tags */}
+        <meta name="twitter:card" content={twitterCard} />
+        <meta name="twitter:site" content={twitterSite} />
+        <meta name="twitter:url" content={ogUrl} />
+        <meta name="twitter:title" content={twitterTitle} />
+        <meta name="twitter:description" content={twitterDescription} />
+        <meta name="twitter:image" content={twitterImage} />
       </Head>
+
       <Preloader loading={loading} />
       <main
         id="wrapper"
