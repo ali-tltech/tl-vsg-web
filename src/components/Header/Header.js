@@ -7,6 +7,8 @@ import Link from "../Reuseable/Link";
 import MenuList from "./MenuList";
 
 const { logo, navItems: items, callText, phone, phoneHref } = headerData;
+const message = "Hello, I'm interested in VS GenX Solutions' HR services. Could you share more details?";  
+const whatsappLink = `https://wa.me/${phoneHref}?text=${encodeURIComponent(message)}`;
 
 const Header = ({ mainMenuClass = "", navItems = items, onePage = false }) => {
   const { scrollTop } = useScroll(100);
@@ -40,7 +42,7 @@ const Header = ({ mainMenuClass = "", navItems = items, onePage = false }) => {
           <div className="main-menu-wrapper__left">
             <div className="main-menu-wrapper__logo">
               <Link href="/">
-                <Image src={logo.src} alt="" />
+                <Image src={logo.src} alt="Logo" width={106}/>
               </Link>
             </div>
             <div className="main-menu-wrapper__main-menu">
@@ -58,7 +60,7 @@ const Header = ({ mainMenuClass = "", navItems = items, onePage = false }) => {
               <div className="main-menu-wrapper__call-number">
                 <p>{callText}</p>
                 <h5>
-                  <a href={`tel:${phoneHref}`}>{phone}</a>
+                  <a href={whatsappLink}>{phone}</a>
                 </h5>
               </div>
             </div>

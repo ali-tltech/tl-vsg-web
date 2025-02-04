@@ -23,6 +23,7 @@ const WorkTogetherTwo = () => {
             <div className="work-together-two__right">
               <Title
                 title={workTogetherTwo.title}
+                title2={workTogetherTwo.title2}
                 tagline={workTogetherTwo.tagline}
                 className="text-left"
               />

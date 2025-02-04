@@ -48,7 +48,7 @@
 body {
   font-family: var(--oslim-font);
   color: var(--oslim-gray);
-  font-size: 18px;
+  font-size: 20px;
   line-height: 34px;
   font-weight: 400;
 }
@@ -897,7 +897,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .main-header-two__top-inner {
   position: relative;
   display: block;
-  padding: 26px 0;
+  padding: 10px 0;
 }
 
 .main-header-two__top-left {
@@ -2240,7 +2240,7 @@ input[type="search"]::-webkit-search-results-decoration {
   position: relative;
   display: block;
   background-color: var(--oslim-black);
-  padding: 120px 0 120px;
+  padding: 600px 0 120px;
   z-index: 1;
 }
 
@@ -2569,7 +2569,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .work-together {
   position: relative;
   display: block;
-  padding: 120px 0 120px;
+  padding: 60px 0 120px;
 }
 
 .work-together__left {
@@ -3332,7 +3332,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .team-one {
   position: relative;
   display: block;
-  padding: 120px 0 90px;
+  padding: 60px 0 90px;
 }
 
 .team-one__container {
@@ -3670,8 +3670,8 @@ input[type="search"]::-webkit-search-results-decoration {
 # Testimonials Page
 --------------------------------------------------------------*/
 .testimonials-page {
-  padding-top: 120px;
-  padding-bottom: 120px;
+padding: 60px 0 120px;
+background-color: #FEFAF9;
 }
 
 .testimonials-page .row {
@@ -4400,7 +4400,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .welcome-two {
   position: relative;
   display: block;
-  padding: 120px 0 120px;
+  padding: 60px 0 120px;
 }
 
 .welcome-two__left {
@@ -4632,7 +4632,7 @@ input[type="search"]::-webkit-search-results-decoration {
   position: relative;
   display: block;
   background-color: var(--oslim-extra);
-  padding: 120px 0 120px;
+  padding: 60px 0 120px;
   overflow: hidden;
   z-index: 1;
 }
@@ -4893,7 +4893,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .services-one {
   position: relative;
   display: block;
-  padding: 120px 0 90px;
+  padding: 60px 0 90px;
 }
 
 .services-one__single {
@@ -5177,7 +5177,7 @@ input[type="search"]::-webkit-search-results-decoration {
   position: relative;
   display: block;
   background-color: var(--oslim-extra);
-  padding: 109px 0 100px;
+  padding: 60px 0 100px;
   overflow: hidden;
   z-index: 1;
 }
@@ -6346,7 +6346,7 @@ input[type="search"]::-webkit-search-results-decoration {
   position: relative;
   display: block;
   background-color: var(--oslim-extra);
-  padding: 120px 0 120px;
+  padding: 60px 0 120px;
   overflow: hidden;
   z-index: 1;
 }
@@ -6926,7 +6926,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .news-page {
   position: relative;
   display: block;
-  padding: 120px 0 120px;
+  padding: 60px 0 120px;
 }
 
 .news-page .blog-pagination {
@@ -6977,7 +6977,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .news-sidebar {
   position: relative;
   display: block;
-  padding: 120px 0 120px;
+  padding: 60px 0 120px;
 }
 
 @media (min-width: 992px) {
@@ -7486,7 +7486,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .news-details {
   position: relative;
   display: block;
-  padding: 120px 0 120px;
+  padding: 60px 0 120px;
 }
 
 .news-details__left {
@@ -8145,7 +8145,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .service-details {
   position: relative;
   display: block;
-  padding: 120px 0 50px;
+  padding: 60px 0 50px;
 }
 
 .service-details__sidebar {
@@ -8510,7 +8510,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .work-together-two {
   position: relative;
   display: block;
-  padding: 120px 0 120px;
+  padding: 60px 0 120px;
 }
 
 .work-together-two__left {
@@ -8597,7 +8597,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .faq-page {
   position: relative;
   display: block;
-  padding: 80px 0 80px;
+  padding: 60px 0 80px;
   background-color: var(--oslim-extra);
 }
 
@@ -8617,7 +8617,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .contact-page {
   position: relative;
   display: block;
-  padding: 120px 0 120px;
+  padding: 60px 0 120px;
 }
 
 .contact-page .container {
@@ -8744,7 +8744,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .contact-details {
   position: relative;
   display: block;
-  padding: 120px 0 0;
+  padding: 60px 0 0;
 }
 
 .contact-details__inner {
@@ -8796,6 +8796,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .contact-details__text {
   font-weight: 500;
   line-height: 36px;
+  font-size: 20px;
   margin: 0;
 }
 

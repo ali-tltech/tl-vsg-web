@@ -9,7 +9,8 @@ import shape from "@/images/shapes/work-together-shape-1.png";
 export const workTogetherTwo = {
   image: image3,
   tagline: "Get to Know Us",
-  title: "Our Story: From Vision to Impact",
+  title: "Our Story:",
+  title2: "From Vision to Impact",
   icon: "icon-recruit",
 
   // First Four Paragraphs (Shortened)

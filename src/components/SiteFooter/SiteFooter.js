@@ -12,7 +12,8 @@ const {
   links,
   socials,
   newsletterText,
-  address,
+  addressLine1,
+  addressLine2,
   phone,
   phoneHref,
   email,
@@ -24,6 +25,10 @@ const SiteFooter = ({ footerClassName = "" }) => {
     const formData = new FormData(e.target);
     console.log(formData.get("email"));
   };
+
+const message = "Hello, I'm interested in VS GenX Solutions' HR services. Could you share more details?";  
+const whatsappLink = `https://wa.me/${phoneHref}?text=${encodeURIComponent(message)}`;
+
 
   return (
     <footer className={`site-footer ${footerClassName}`}>
@@ -38,7 +43,7 @@ const SiteFooter = ({ footerClassName = "" }) => {
               <div className="footer-widget__column footer-widget__about">
                 <div className="footer-widget__logo">
                   <Link href="/">
-                    <Image src={logo.src} alt="" />
+                    <Image src={logo.src} alt="Logo" width={200} height={90}/>
                   </Link>
                 </div>
                 <div className="footer-widget__about-text-box">
@@ -102,10 +107,12 @@ const SiteFooter = ({ footerClassName = "" }) => {
             <Col xl={3} lg={6} md={6} className="animated fadeInUp">
               <div className="footer-widget__column footer-widget__contact clearfix">
                 <h3 className="footer-widget__title">Contact</h3>
-                <p className="footer-widget__contact-text">{address}</p>
+                <p className="footer-widget__contact-text">{addressLine1}</p>
+                <p className="footer-widget__contact-text">{addressLine2}</p>
                 <h4 className="footer-widget__contact-info">
                   <a
-                    href={`tel:${phoneHref}`}
+                    // href={`tel:${phoneHref}`}
+                    href={whatsappLink}
                     className="footer-widget__contact-number"
                   >
                     {phone}
@@ -128,7 +135,7 @@ const SiteFooter = ({ footerClassName = "" }) => {
             <Col xl={12}>
               <div className="site-footer__bottom-inner">
                 <p className="site-footer__bottom-text">
-                  © Copyright {year} by <a href="https://tltechnologies.net/" target="_blank" rel="noreferrer"> {author}</a>
+                 All rights reserved © Copyright {year} by <a href="https://tltechnologies.net/" target="_blank" rel="noreferrer"> {author}</a>
                 </p>
               </div>
             </Col>

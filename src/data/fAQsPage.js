@@ -26,12 +26,46 @@ const faqs = [
   },
   {
     id: 6,
+    title: "What makes VS GenX Solutions different from other HR service providers?",
+    text: "VS GenX Solutions focuses on creating customized, scalable HR solutions that directly align with your organizational goals, ensuring you have the tools and strategies to thrive in a competitive business environment.",
+  },
+];
+
+const moreFaqs = [
+  {
+    id: 7,
+    title: "What are the benefits of implementing HR Foundations Accelerator?",
+    text: "By utilizing the HR Foundations Accelerator, your organization can establish a robust HR infrastructure, ensuring compliance, minimizing risks, and creating a positive employee experience that fosters retention and long-term growth.",
+  },
+  {
+    id: 8,
+    title: "How do I ensure that Talent Edge Solutions align with my business goals?",
+    text: "Our experts collaborate closely with you to understand your business needs, aligning our recruitment strategies and onboarding processes with your organization’s objectives, ensuring a seamless fit that drives success.",
+  },
+  {
+    id: 9,
+    title: "What results can I expect from Leadership Horizon Hub?",
+    text: "Through customized leadership coaching and training programs, you can expect enhanced leadership capabilities, improved decision-making, and a more engaged workforce that drives innovation and fosters a positive organizational culture.",
+  },
+  {
+    id: 10,
+    title: "How long does it take to see results from the Cultural Transformation Studio?",
+    text: "Our programs are designed for long-term impact, but clients often see noticeable improvements in team dynamics, morale, and communication within the first few months of implementation.",
+  },
+  {
+    id: 11,
+    title: "Are Smart HR Solutions customizable for my business?",
+    text: "Yes! Our Smart HR Solutions can be tailored to fit the specific needs of your organization, ensuring you get the most out of our automation tools and data-driven insights to optimize HR functions.",
+  },
+  {
+    id: 12,
     title: "How can I get started with VS GenX Solutions?",
     text: "Getting started is simple—contact us via our website or call our support team. We'll help you choose the best HR solution tailored to your organization's unique needs, paving the way for transformative growth.",
   },
 ];
 
 
-const fAQsPage = [faqs, faqs];
+
+const fAQsPage = [faqs, moreFaqs];
 
 export default fAQsPage;
