@@ -5,7 +5,8 @@ import GoogleMap from "../GoogleMap/GoogleMap";
 
 const { phone, phoneHref, email, title, text, address, contactIcon } =
   contactDetails;
-
+  const message = "Hello, I'm interested in VS GenX Solutions' HR services. Could you share more details?";  
+  const whatsappLink = `https://wa.me/${phoneHref}?text=${encodeURIComponent(message)}`;
 const ContactDetails = () => {
   return (
     <section className="contact-details">
@@ -34,7 +35,7 @@ const ContactDetails = () => {
                     Call/Whatsapp
                     </span>
                     <a
-                      href={`tel:${phoneHref}`}
+                      href={whatsappLink}
                       className="contact-details__contact-number"
                     >
                       {phone}

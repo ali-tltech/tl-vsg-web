@@ -15,6 +15,9 @@ const {
   socials,
 } = headerData;
 
+const message = "Hello, I'm interested in VS GenX Solutions' HR services. Could you share more details?";  
+const whatsappLink = `https://wa.me/${phoneHref}?text=${encodeURIComponent(message)}`;
+
 const HeaderTwo = ({ navItems = items, onePage = false }) => {
   const { scrollTop } = useScroll(100);
   const { toggleMenu, toggleSearch } = useRootContext();
@@ -58,7 +61,7 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
                 <div className="main-header-two__top-call-number">
                   <p>{callText}</p>
                   <h5>
-                    <a href={`tel:${phoneHref}`}>{phone}</a>
+                    <a href={whatsappLink}>{phone}</a>
                   </h5>
                 </div>
               </div>
