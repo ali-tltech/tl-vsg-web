@@ -31,7 +31,7 @@ const Layout = ({
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setLoading(false);
-    }, 400);
+    }, 2000);
     return () => clearTimeout(timeoutId);
   }, []);
 
