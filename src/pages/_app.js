@@ -19,7 +19,7 @@ import "@/styles/responsive.css";
 const MyApp = ({ Component, pageProps }) => {
   return (
     <ContextProvider>
-      <Toaster position="top-right" reverseOrder={false} />
+      <Toaster position="bottom-center" reverseOrder={false} />
       <Component {...pageProps} />
     </ContextProvider>
   );
