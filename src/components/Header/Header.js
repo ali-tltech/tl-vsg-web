@@ -60,7 +60,7 @@ const Header = ({ mainMenuClass = "", navItems = items, onePage = false }) => {
               <div className="main-menu-wrapper__call-number">
                 <p>{callText}</p>
                 <h5>
-                  <a href={whatsappLink}>{phone}</a>
+                  <a href={whatsappLink} target="_blank" rel="noreferrer">{phone}</a>
                 </h5>
               </div>
             </div>

@@ -61,7 +61,7 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
                 <div className="main-header-two__top-call-number">
                   <p>{callText}</p>
                   <h5>
-                    <a href={whatsappLink}>{phone}</a>
+                    <a href={whatsappLink} target="_blank" rel="noreferrer">{phone}</a>
                   </h5>
                 </div>
               </div>

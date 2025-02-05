@@ -37,6 +37,7 @@ const ContactDetails = () => {
                     <a
                       href={whatsappLink}
                       className="contact-details__contact-number"
+                      target="_blank" rel="noreferrer"
                     >
                       {phone}
                     </a>

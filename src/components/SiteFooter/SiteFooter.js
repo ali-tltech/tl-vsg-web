@@ -53,7 +53,7 @@ const whatsappLink = `https://wa.me/${phoneHref}?text=${encodeURIComponent(messa
                 </div>
                 <div className="site-footer__social">
                   {socials.map(({ id, href, icon }) => (
-                    <a key={id} href={href}>
+                    <a key={id} href={href} target="_blank" rel="noreferrer">
                       <i className={icon}></i>
                     </a>
                   ))}
@@ -116,6 +116,7 @@ const whatsappLink = `https://wa.me/${phoneHref}?text=${encodeURIComponent(messa
                     // href={`tel:${phoneHref}`}
                     href={whatsappLink}
                     className="footer-widget__contact-number"
+                    target="_blank" rel="noreferrer"
                   >
                     {phone}
                   </a>{" "}
