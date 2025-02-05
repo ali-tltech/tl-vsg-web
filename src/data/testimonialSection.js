@@ -8,7 +8,7 @@ export const testimonialOne = [
     image: "testimonial-1-client-img-1.jpg",
     text: "VS GenX Solutions streamlined our HR policies & talent acquisition. Their AI-driven solutions saved us time & cost!",
     name: "Venkat R",
-    title: "xyz solutions",
+    title: "Confidential",
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ export const testimonialOne = [
     image: "testimonial-1-client-img-2.jpg",
     text: "The ‘Ready for Next’ leadership program was a game-changer. Our managers are now more confident & strategic!",
     name: "Anjali M",
-    title: "origino solutions",
+    title: "TL Technologies Private Limited",
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ export const testimonialOne = [
     image: "testimonial-1-client-img-3.jpg",
     text: "With their on-demand HR leadership, we successfully scaled our business without an in-house HR team.",
     name: " Meera S",
-    title: "MTS-builders",
+    title: "Confidential",
   },
 ];
 
@@ -37,7 +37,7 @@ export const testimonialThree = {
       text: "VS GenX Solutions streamlined our HR policies & talent acquisition. Their AI-driven solutions saved us time & cost!",
       image: "testimonial-1-client-img-1.jpg",
       name: "Venkat R",
-      title: "xyz solutions",
+      title: "Confidential",
       quote: quote2,
     },
     {
@@ -45,7 +45,7 @@ export const testimonialThree = {
       text: "The ‘Ready for Next’ leadership program was a game-changer. Our managers are now more confident & strategic!",
       image: "testimonial-1-client-img-2.jpg",
       name: "Anjali M",
-      title: "origino solutions",
+      title: "TL Technologies Private Limited",
       quote: quote2,
     },
     {
@@ -53,7 +53,7 @@ export const testimonialThree = {
       text: "With their on-demand HR leadership, we successfully scaled our business without an in-house HR team.",
       image: "testimonial-1-client-img-3.jpg",
       name: " Meera S",
-      title: "MTS-builders",
+      title: "Confidential",
       quote: quote2,
     },
     // {
