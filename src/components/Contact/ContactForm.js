@@ -1,11 +1,9 @@
-
-
-import React from 'react';
+import React, { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 
 const ContactForm = ({
-  inputs = [],
   formClassName = 'comment-one__form',
   inputClassName = 'comment-form__input-box',
   messageClassName = 'text-message-box',
@@ -17,6 +15,7 @@ const ContactForm = ({
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
   const onSubmit = async (data) => {
@@ -29,15 +28,16 @@ const ContactForm = ({
         body: JSON.stringify(data),
       });
 
+      const responseData = await response.json();
+
       if (response.ok) {
-        // Handle successful form submission (e.g., display a success message)
-        console.log('Form submitted successfully.');
+        reset(); // Reset form after submission
+        toast.success('Submitted Successfully!');
       } else {
-        // Handle form submission error
-        console.error('Form submission failed.');
+        toast.error(responseData.message || 'Form submission failed.');
       }
     } catch (error) {
-      console.error('An error occurred:', error);
+      toast.error('An error occurred. Please try again.');
     }
   };
 
@@ -47,39 +47,81 @@ const ContactForm = ({
       className={`${formClassName} contact-form-validated`}
     >
       <Row>
-        {inputs.map(({ name, placeholder, type, required }) => (
-          <Col key={name} xl={6}>
-            <div className={inputClassName}>
-              <input
-                type={type}
-                placeholder={placeholder}
-                name={name}
-                id={name}
-                {...register(name, { required })}
-              />
-              {required && errors[name] && (
-                <label htmlFor={name} className="error">
-                  This field is required.
-                </label>
-              )}
-            </div>
-          </Col>
-        ))}
+        {/* Name Field */}
+        <Col xl={6}>
+          <div className={inputClassName}>
+            <input
+              type="text"
+              placeholder="Your Name"
+              {...register('name', { required: 'This field is required.' })}
+            />
+            {errors.name && <label className="error">{errors.name.message}</label>}
+          </div>
+        </Col>
+
+        {/* Subject Field */}
+        <Col xl={6}>
+          <div className={inputClassName}>
+            <input
+              type="text"
+              placeholder="Subject"
+              {...register('subject', { required: 'This field is required.' })}
+            />
+            {errors.subject && <label className="error">{errors.subject.message}</label>}
+          </div>
+        </Col>
       </Row>
+
+      <Row>
+        {/* Email Field */}
+        <Col xl={6}>
+          <div className={inputClassName}>
+            <input
+              type="email"
+              placeholder="Your Email"
+              {...register('email', {
+                required: 'This field is required.',
+                pattern: {
+                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                  message: 'Enter a valid email.',
+                },
+              })}
+            />
+            {errors.email && <label className="error">{errors.email.message}</label>}
+          </div>
+        </Col>
+
+        {/* Phone Number Field */}
+        <Col xl={6}>
+          <div className={inputClassName}>
+            <input
+              type="tel"
+              placeholder="Phone Number"
+              {...register('phoneNumber', {
+                required: 'This field is required.',
+                pattern: {
+                  value: /^\+1 \(\d{3}\) \d{3}-\d{4}$/, // Matches +1 (XXX) XXX-XXXX
+                  message: 'Enter a valid phone number.',
+                },
+              })}
+            />
+            {errors.phoneNumber && <label className="error">{errors.phoneNumber.message}</label>}
+          </div>
+        </Col>
+      </Row>
+
       <Row>
         <Col xl={12}>
+          {/* Message Field */}
           <div className={`${inputClassName} ${messageClassName}`}>
             <textarea
-              name="message"
               placeholder="Write a Message"
-              {...register('message', { required: true })}
+              {...register('message', { required: 'This field is required.' })}
             ></textarea>
-            {errors.message && (
-              <label htmlFor="message" className="error">
-                This field is required.
-              </label>
-            )}
+            {errors.message && <label className="error">{errors.message.message}</label>}
           </div>
+
+          {/* Submit Button */}
           <div className={btnBoxClassName}>
             <button type="submit" className={`thm-btn ${btnClassName}`}>
               {btnText}
