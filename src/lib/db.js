@@ -2,10 +2,10 @@ import sql from "mssql";
 
 // ✅ Configure MSSQL Connection
 const config = {
-  user: "your_db_user",
-  password: "your_db_password",
-  server: "your_db_server", // e.g., localhost or Azure SQL Server
-  database: "your_database",
+  user: "db_aa5acd_vsg_admin",
+  password: "Tltech2025", // Replace with actual password
+  server: "SQL9001.site4now.net", // Your SQL Server
+  database: "db_aa5acd_vsg",
   options: {
     encrypt: true, // Use encryption if connecting to Azure
     trustServerCertificate: true, // Required for local development
