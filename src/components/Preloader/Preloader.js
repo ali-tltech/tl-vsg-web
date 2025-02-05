@@ -10,7 +10,7 @@ const Preloader = ({ loading = true }) => {
       }}
       className={`preloader animated${loading ? "" : " fadeOut"}`}
     >
-      <Image className="preloader__image" width={60} src={image.src} alt="" />
+      <Image className="preloader__image" width={200} src={image.src} alt="" />
     </div>
   );
 };
