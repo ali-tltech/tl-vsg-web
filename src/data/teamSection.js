@@ -1,30 +1,30 @@
-// export const socials = [
-//   {
-//     id: 1,
-//     href: "#",
-//     icon: "fab fa-linkedin",
-//   },
-//   // {
-//   //   id: 2,
-//   //   href: "#",
-//   //   icon: "fab fa-whatsapp",
-//   // },
-//   // {
-//   //   id: 2,
-//   //   href: "#",
-//   //   icon: "fab fa-facebook",
-//   // },
-//   // {
-//   //   id: 3,
-//   //   href: "#",
-//   //   icon: "fab fa-pinterest-p",
-//   // },
-//   // {
-//   //   id: 4,
-//   //   href: "#",
-//   //   icon: "fab fa-instagram",
-//   // },
-// ];
+export const socials = [
+  {
+    id: 1,
+    href: "#",
+    icon: "fab fa-linkedin",
+  },
+  // {
+  //   id: 2,
+  //   href: "#",
+  //   icon: "fab fa-whatsapp",
+  // },
+  // {
+  //   id: 2,
+  //   href: "#",
+  //   icon: "fab fa-facebook",
+  // },
+  // {
+  //   id: 3,
+  //   href: "#",
+  //   icon: "fab fa-pinterest-p",
+  // },
+  // {
+  //   id: 4,
+  //   href: "#",
+  //   icon: "fab fa-instagram",
+  // },
+];
 
 export const teamOne = {
   tagline: "professional people",
