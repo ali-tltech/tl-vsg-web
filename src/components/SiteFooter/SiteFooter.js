@@ -2,6 +2,7 @@ import footerData from "@/data/siteFooter";
 import React from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import Link from "../Reuseable/Link";
+import toast from "react-hot-toast";
 
 const {
   bg,
@@ -24,6 +25,7 @@ const SiteFooter = ({ footerClassName = "" }) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     console.log(formData.get("email"));
+    toast.success("You have subscribed successfully!");
   };
 
 const message = "Hello, I'm interested in VS GenX Solutions' HR services. Could you share more details?";  

@@ -10,6 +10,7 @@ import "node_modules/swiper/swiper-bundle.min.css";
 import "react-modal-video/css/modal-video.css";
 import "jarallax/dist/jarallax.css";
 import "tiny-slider/dist/tiny-slider.css";
+import { Toaster } from 'react-hot-toast';
 
 // extra css
 import "@/styles/style.css";
@@ -18,6 +19,7 @@ import "@/styles/responsive.css";
 const MyApp = ({ Component, pageProps }) => {
   return (
     <ContextProvider>
+      <Toaster position="bottom-center" reverseOrder={false} />
       <Component {...pageProps} />
     </ContextProvider>
   );
