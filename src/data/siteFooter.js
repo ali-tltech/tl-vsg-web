@@ -9,28 +9,23 @@ const footerData = {
     {
       id: 1,
       icon: "fab fa-linkedin",
-      href: "https://www.linkedin.com/in/venkatesans/",
+      href: "https://www.linkedin.com/company/vs-genx-solutions/",
     },
-    // {
-    //   id: 1,
-    //   icon: "fab fa-twitter",
-    //   href: "#",
-    // },
-    // {
-    //   id: 2,
-    //   icon: "fab fa-facebook",
-    //   href: "#",
-    // },
-    // {
-    //   id: 3,
-    //   icon: "fab fa-pinterest-p",
-    //   href: "#",
-    // },
-    // {
-    //   id: 4,
-    //   icon: "fab fa-instagram",
-    //   href: "#",
-    // },
+    {
+      id: 2,
+      icon: "fab fa-youtube",
+      href: "https://www.youtube.com/@VSGenXSolutions",
+    },
+    {
+      id: 3,
+      icon: "fab fa-facebook",
+      href: " https://www.facebook.com/share/18TnFLMZo3/",
+    },
+    {
+      id: 4,
+      icon: "fab fa-instagram",
+      href: "https://www.instagram.com/vsgenxsolutions?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    },
   ],
   links: [
     {

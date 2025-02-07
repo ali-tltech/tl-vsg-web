@@ -69,3 +69,6 @@ export const teamOne = {
   ]
 };
 
+export const ExpersDetails = {
+  
+}
