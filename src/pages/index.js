@@ -17,6 +17,7 @@ import Layout from "@/components/Layout/Layout";
 import { mainSliderTwo } from "@/data/mainSlider";
 import TestimonialThree from "@/components/TestimonialSection/TestimonialThree";
 import CaseTwo from "@/components/CaseSection/CaseTwo";
+import ServicesOneCarousel from "@/components/ServicesSection/ServicesOneCarousel";
 
 const Home2 = () => {
   return (
@@ -32,7 +33,8 @@ const Home2 = () => {
       {/* <CaseTwo /> */}
       <QualityWork />
       <Experience />
-      <ServicesOne serviceCount={3} />
+      {/* <ServicesOne serviceCount={3} /> */}
+      <ServicesOneCarousel/>
       <TestimonialOne className="testimonial-two" />
       {/* <TestimonialThree className="testimonial-two" /> */}
       {/* <BrandOne /> */}

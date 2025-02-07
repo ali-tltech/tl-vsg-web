@@ -9,13 +9,13 @@ const TestimonialsPage = () => {
   return (
     <section className="testimonials-page">
       <Container>
-        <Row>
           {testimonials.map((testimonial) => (
-            <Col key={testimonial.id} md={6}>
+        <Row key={testimonial.id} md={12}>
+            <Col  >
               <SingleTestimonialThree testimonial={testimonial} />
             </Col>
-          ))}
         </Row>
+          ))}
       </Container>
     </section>
   );

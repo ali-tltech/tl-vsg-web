@@ -5,7 +5,7 @@ import TextSplit from "../Reuseable/TextSplit";
 import Title from "../Reuseable/Title";
 import SingleTab from "./SingleTab";
 
-const { tagline, title, tabs, points } = qualityWork;
+const { tagline, title, tabs, points,subtitle } = qualityWork;
 
 const QualityWork = () => {
   const [current, setCurrent] = useState("Journey");
@@ -21,6 +21,7 @@ const QualityWork = () => {
               <Title tagline={tagline} className="text-left">
                 <TextSplit text={title} />
               </Title>
+              <p style={{marginBottom:"50px"}}>{subtitle}</p>
               <div className="quality-work__tab-box tabs-box">
                 <ul className="tab-buttons clearfix list-unstyled">
                   {tabs.map(({ id, tagline }) => (

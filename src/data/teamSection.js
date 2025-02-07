@@ -28,7 +28,7 @@ export const socials = [
 
 export const teamOne = {
   tagline: "professional people",
-  title: "Meet Our Experts",
+  title: "Meet Our Team",
   teams: [
     {
       id: 1,

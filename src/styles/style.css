@@ -8600,6 +8600,67 @@ background-color: #FEFAF9;
   margin-top: 51px;
 }
 
+/* ======== Service carousel ========= */
+
+/* Add these to your existing services-one styles */
+.services-slider-wrapper {
+  position: relative;
+  padding-bottom: 60px;
+  overflow: hidden;
+}
+
+/* Navigation dots styling */
+.services-slider-wrapper .tns-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 10;
+  margin-top: 30px;
+}
+
+.services-slider-wrapper .tns-nav button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(var(--oslim-black-rgb), 0.2);
+  border: none;
+  margin: 0 5px;
+  padding: 0;
+  transition: all 500ms ease;
+}
+
+.services-slider-wrapper .tns-nav button.tns-nav-active {
+  background-color: var(--oslim-base);
+}
+
+/* Ensure proper spacing between slides */
+.services-slider-wrapper .tns-item {
+  padding: 0 15px;
+}
+
+/* Fix for slide heights */
+.services-slider-wrapper .services-one__single {
+  margin-bottom: 30px;
+}
+
+/* Add smooth transitions */
+.services-slider-wrapper .tns-slider {
+  transition: all 0.3s ease;
+}
+
+/* Make sure slides are clickable */
+.services-slider-wrapper .services-one__single {
+  cursor: grab;
+}
+
+.services-slider-wrapper .services-one__single:active {
+  cursor: grabbing;
+}
+
+/* ======== Service carousel End========= */
+
 /*--------------------------------------------------------------
 ## Work Together Two
 --------------------------------------------------------------*/
