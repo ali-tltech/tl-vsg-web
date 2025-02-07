@@ -3,8 +3,7 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import GoogleMap from "../GoogleMap/GoogleMap";
 
-const { phone, phoneHref, email, title, text, address, contactIcon } =
-  contactDetails;
+const { phone, phoneHref, email, title, text, address1,address2,address3,address4, contactIcon } = contactDetails;
   const message = "Hello, I'm interested in VS GenX Solutions' HR services. Could you share more details?";  
   const whatsappLink = `https://wa.me/${phoneHref}?text=${encodeURIComponent(message)}`;
 const ContactDetails = () => {
@@ -24,7 +23,10 @@ const ContactDetails = () => {
                   <h4 className="contact-details__title">{title}</h4>
                   <p className="contact-details__text">{text}</p>
                 </div>
-                <p className="contact-details__address">{address}</p>
+                <p className="contact-details__address">{address1}</p>
+                <p className="contact-details__address">{address2}</p>
+                <p className="contact-details__address">{address3}</p>
+                <p className="contact-details__address">{address4}</p>
                 <div className="contact-details__contact-info">
                   <div className="contact-details__contact-icon">
                     <span className={contactIcon}></span>

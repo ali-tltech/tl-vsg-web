@@ -1,10 +1,8 @@
 import React from "react";
-import { Image, } from "react-bootstrap";
-
+import { Image } from "react-bootstrap";
 
 const ServiceDetailsRight = ({ service = {} }) => {
-  const { image, icon, title, text, text2, text3, contents, } =
-    service;
+  const { image, icon, title, text, text2, text3, contents } = service;
 
   return (
     <div className="service-details__right">
@@ -19,19 +17,18 @@ const ServiceDetailsRight = ({ service = {} }) => {
           <h3 className="service-details__title">{title}</h3>
         </div>
         <p className="service-details__text-1">{text}</p>
-        <p className="service-details__text-2">{text2}</p>
+        {text2 && <p className="service-details__text-2">{text2}</p>}
       </div>
-      <ul className="service-details__two-icons list-unstyled">
+      <div className="service-details__two-icons">
         {contents.map((text, i) => (
-          <li key={i} className="service-details__two-icon-single">
+          <div key={i} className="service-details__two-icon-single service-details__two-icon-full-width">
             <div className="service-details__two-icon">
               <span className="icon-right-arrow"></span>
             </div>
             <p className="service-details__two-icon-content">{text}</p>
-          </li>
+          </div>
         ))}
-      </ul>
-      <p className="service-details__text-3">{text3}</p>
+      </div>
     </div>
   );
 };
