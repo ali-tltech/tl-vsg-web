@@ -39,7 +39,9 @@ const QualityWork = () => {
                   ))}
                 </div>
               </div>
+
             </div>
+
           </Col>
           <Col xl={5} lg={5}>
             <div className="quality-work__right">

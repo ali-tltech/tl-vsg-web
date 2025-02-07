@@ -30,32 +30,41 @@ const WorkTogetherTwo = () => {
 
               {/* First Four Paragraphs */}
               <div className="work-together-two__intro">
-                {workTogetherTwo.intro.map((paragraph, index) => (
+                {workTogetherTwo.intro.slice(0,2).map((paragraph, index) => (
                   <p key={index}>{paragraph}</p>
                 ))}
               </div>
 
               {/* Milestones List */}
-              <div className="work-together-two__milestones">
+             
+
+              {/* Final Paragraph */}
+              
+
+              {/* CTA Button */}
+              
+            </div>
+          
+          </Col>
+        </Row>
+        <div className="work-together-two__intro" style={{marginTop: "20px"}}>
+                {workTogetherTwo.intro.slice(2).map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+              </div>
+         <div className="work-together-two__milestones">
                 <ul>
                   {workTogetherTwo.milestones.map((milestone, index) => (
                     <li key={index}>{milestone}</li>
                   ))}
                 </ul>
               </div>
-
-              {/* Final Paragraph */}
-              <p className="work-together-two__conclusion">
+        <div><p className="work-together-two__conclusion">
                 {workTogetherTwo.conclusion}
-              </p>
-
-              {/* CTA Button */}
+              </p></div>
               <Link href="/contact" className="thm-btn work-together-two__btn">
                 CONTACT US
               </Link>
-            </div>
-          </Col>
-        </Row>
       </Container>
     </section>
   );
