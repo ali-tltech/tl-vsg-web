@@ -17,7 +17,7 @@ const ContactDetails = () => {
               <GoogleMap
                 containerClassName="contact-details__map-box"
                 mapClassName="contact-details__map"
-                mapSrc = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.1339699560526!2d78.54752879999998!3d17.50111709999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9bd68c0d95fb%3A0x3e8539e53166acce!2sSharada%20Sree%20Nivas%2C%20102%2C%20Shaili%20Gardenia%20-%20Water%20Tank%20Rd%2C%20Shaili%20Gardens%2C%20Sainikpuri%2C%20Secunderabad%2C%20Telangana%20500094!5e0!3m2!1sen!2sin!4v1738556056875!5m2!1sen!2sin"
+                mapSrc = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3136.262764299715!2d78.5475288!3d17.5011171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2cb2414a5fab1a8d%3A0x5ec4ad603c12d6f4!2sVS%20GENX%20Solutions%20LLP!5e1!3m2!1sen!2sin!4v1738842791725!5m2!1sen!2sin"
                 />
               <div className="contact-details__content">
                 <div className="contact-details__title-box">

@@ -1,3 +1,28 @@
+    // <======================================== NOTES START ==============================================>
+
+  // Libraries used :   "react-bootstrap" for css
+  // Read the documentaion in their respective sites for the above mentioned libraries before making changes in the code.
+  // To run the code: npm run dev
+  // First install all dependencies :- npm intsall
+  // Then run the code :- npm run dev
+  // to build code :-  npm run build
+  // created date : 22-1-2025 || created by : Arjun N  || module : 1 ||
+  // modified date : 1/2/2025 || modified by : Arjun N || module : 1 ||
+  // modified date : 1/2/2025 || modified by : Arjun N  || module : 1 ||
+  // Technical summary(Pre-setups) created date/by :  Arjun N || Ali
+  // Domain :   || 
+  // Hosting :   ||
+  // SSL :   ||
+  // Database :  ||
+
+  // Phase summary :   || created date/by :  Arjun N  ||
+  // Phase 1 :  Git hub creation  ||  
+  // Phase 2 :  Development/Main page creation ||
+  // Phase 3 :  Production  ||
+
+  // <======================================== NOTES END ==============================================>
+
+
 import ContextProvider from "@/context/ContextProvider";
 import "@/vendors/animate/animate.min.css";
 import "@/vendors/animate/custom-animate.css";

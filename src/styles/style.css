@@ -3549,6 +3549,97 @@ input[type="search"]::-webkit-search-results-decoration {
   border-color: var(--oslim-base);
   opacity: 1;
 }
+/*--------------------------------------------------------------
+# Expers Details One
+--------------------------------------------------------------*/
+
+/* Team Member Section Animations and Styles */
+.team-member-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.content-wrapper,
+.image-wrapper {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.6s ease-out;
+}
+
+.content-wrapper.visible,
+.image-wrapper.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.slide-up-delay-1 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+  transition-delay: 0.2s;
+}
+
+.slide-up-delay-2 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+  transition-delay: 0.4s;
+}
+
+.slide-up-delay-3 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+  transition-delay: 0.6s;
+}
+
+.slide-up.visible,
+.slide-up-delay-1.visible,
+.slide-up-delay-2.visible,
+.slide-up-delay-3.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.image-container:hover {
+  transform: translateY(-5px);
+}
+
+.team-image {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image-container:hover .team-image {
+  transform: scale(1.05);
+}
+
+.stat-item {
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
 
 /*--------------------------------------------------------------
 # Testimonial One
