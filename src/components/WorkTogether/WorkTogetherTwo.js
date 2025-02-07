@@ -34,15 +34,6 @@ const WorkTogetherTwo = () => {
                   <p key={index}>{paragraph}</p>
                 ))}
               </div>
-
-              {/* Milestones List */}
-             
-
-              {/* Final Paragraph */}
-              
-
-              {/* CTA Button */}
-              
             </div>
           
           </Col>
@@ -62,7 +53,7 @@ const WorkTogetherTwo = () => {
         <div><p className="work-together-two__conclusion">
                 {workTogetherTwo.conclusion}
               </p></div>
-              <Link href="/contact" className="thm-btn work-together-two__btn">
+              <Link href="/contact" className="thm-btn work-together-two__btn" style={{marginTop: "30px"}}>
                 CONTACT US
               </Link>
       </Container>

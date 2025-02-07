@@ -28,7 +28,7 @@ export const socials = [
 
 export const teamOne = {
   tagline: "professional people",
-  title: "Meet Our Experts",
+  title: "Meet Our Team",
   teams: [
     {
       id: 1,
@@ -38,14 +38,10 @@ export const teamOne = {
       socials: [
         {
           id: 1,
-          href: "https://www.linkedin.com/in/venkatesans/",
+          href: "https://www.linkedin.com/company/vs-genx-solutions/",
           icon: "fab fa-linkedin"
         },
-        // {
-        //   id: 2,
-        //   href: "https://wa.me/+1234567890",
-        //   icon: "fab fa-whatsapp"
-        // }
+
       ]
     },
     {

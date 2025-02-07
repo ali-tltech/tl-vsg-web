@@ -4,6 +4,8 @@ import { Container } from "react-bootstrap";
 import SwiperCore, { Autoplay, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SingleServiceOne from "./SingleServiceOne";
+import useActive from "@/hooks/useActive";
+import Title from "../Reuseable/Title";
 
 SwiperCore.use([Autoplay, Pagination]);
 
@@ -39,12 +41,17 @@ const options = {
   },
 };
 
-const { services } = servicesOne;
+const { tagline, title, services } = servicesOne;
 
-const ServicesOneCarousel = () => {
+const ServicesOneCarousel = ({id = "", hideTitle = false, serviceCount}) => {
+  const ref = useActive(id);
+
   return (
-    <section className="services-one">
+    <section ref={ref} className="services-one">
       <Container>
+      {!hideTitle && (
+          <Title title={title} tagline={tagline} className="text-center" />
+        )}
         <Swiper {...options} className="thm-swiper__slider service-carousel">
           <div className="swiper-wrapper">
             {services.map((service) => (

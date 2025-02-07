@@ -8,7 +8,7 @@ import { servicesSubNavItems } from "./headerData";
 
 export const servicesOne = {
   tagline: "Our Services",
-  title: "Our Core HR Services",
+  title: "Our Services",
   services: [
     {
       id: 1,

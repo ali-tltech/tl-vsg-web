@@ -6,7 +6,7 @@ const SingleTestimonialThree = ({ testimonial = {} }) => {
 
   return (
     <div>
-      <div className="testimonial-three__single">
+      <div className="testimonial-three__single" style={{ marginBottom: "20px" }}>
         <p className="testimonial-three__text">{text}</p>
         <div className="testimonial-three__client-info">
           <div className="testimonial-three__client-img">

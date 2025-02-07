@@ -68,12 +68,26 @@ export const navItems = [
 
 // provide social media links here
 const socials = [
-  // {
-  //   id: 1,
-  //   icon: "fab fa-linkedin",
-  //   href: "https://www.linkedin.com/in/venkatesans/",
-  // },
- 
+  {
+    id: 1,
+    icon: "fab fa-linkedin",
+    href: "https://www.linkedin.com/company/vs-genx-solutions/",
+  },
+  {
+    id: 2,
+    icon: "fab fa-youtube",
+    href: "https://www.youtube.com/@VSGenXSolutions",
+  },
+  {
+    id: 3,
+    icon: "fab fa-facebook",
+    href: " https://www.facebook.com/share/18TnFLMZo3/",
+  },
+  {
+    id: 4,
+    icon: "fab fa-instagram",
+    href: "https://www.instagram.com/vsgenxsolutions?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+  },
 ];
 
 const headerData = {
