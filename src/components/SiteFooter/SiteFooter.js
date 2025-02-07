@@ -15,6 +15,8 @@ const {
   newsletterText,
   addressLine1,
   addressLine2,
+  addressLine3,
+  addressLine4,
   phone,
   phoneHref,
   email,
@@ -111,6 +113,8 @@ const whatsappLink = `https://wa.me/${phoneHref}?text=${encodeURIComponent(messa
                 <h3 className="footer-widget__title">Contact</h3>
                 <p className="footer-widget__contact-text">{addressLine1}</p>
                 <p className="footer-widget__contact-text">{addressLine2}</p>
+                <p className="footer-widget__contact-text">{addressLine3}</p>
+                <p className="footer-widget__contact-text">{addressLine4}</p>
                 <h4 className="footer-widget__contact-info">
                   <a
                     // href={`tel:${phoneHref}`}

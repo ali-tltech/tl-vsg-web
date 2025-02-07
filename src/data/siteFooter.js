@@ -76,12 +76,13 @@ const footerData = {
   ],
   newsletterText: "Subsrcibe for our upcoming latest articles and resources",
   addressLine1: "102, Shaili Gardenia ",
-  addressLine2: "- Water Tank Rd, Shaili Gardens, Yapral, Hyderabad, Secunderabad, Telangana 500087",
+  addressLine2: "- Water Tank Rd, Shaili Gardens,",
+  addressLine3: "Yapral, Secunderabad,",
+  addressLine4: " Hyderabad, Telangana - 500087",
   phone: "+91 9000334512",
   phoneHref: "+919000334512",
   email: "vsgenxsolutions@gmail.com ",
   author: "TL Technologies Private Limited",
-  // year: new Date().getFullYear(),
   year: "2020-2025",
 };
 

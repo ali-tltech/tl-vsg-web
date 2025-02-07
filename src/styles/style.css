@@ -8456,11 +8456,18 @@ background-color: #FEFAF9;
 
 .service-details__text-1 {
   margin: 0;
-  padding-bottom: 35px;
+  padding-bottom: 10px;
+  color: var(--oslim-black);
+  font-weight: 400;
+  font-size: 20px;
+
 }
 
 .service-details__text-2 {
   margin: 0;
+  color: var(--oslim-black);
+  font-weight: 400;
+  font-size: 20px;
 }
 
 .service-details__two-icons {
@@ -8506,7 +8513,7 @@ background-color: #FEFAF9;
 .service-details__two-icon-content {
   font-size: 20px;
   color: var(--oslim-black);
-  font-weight: 700;
+  font-weight: 400;
   line-height: 36px;
   margin: 0;
 }
@@ -8514,6 +8521,17 @@ background-color: #FEFAF9;
 .service-details__text-3 {
   margin: 0;
   padding-bottom: 53px;
+}
+
+.service-details__two-icon-full-width {
+  max-width: 100% !important;
+  float: none !important;
+  padding-left: 90px;
+  margin-bottom: 20px;
+}
+
+.service-details__two-icon-single + .service-details__two-icon-single {
+  margin-left: 0 !important;
 }
 
 .service-details__how-help {
