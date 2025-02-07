@@ -53,7 +53,8 @@ export const welcomeTwo = {
     "   HR solutions designed for Startups and SMEs—scalable, cost-effective, and impact-driven.",
   text2:
     "At VS GenX Solutions, we go beyond HR consulting—we empower businesses with strategic, tech-driven HR solutions that drive sustainable growth, nurture talent, and build inclusive workplaces. Our mission extends beyond corporate success—we are committed to enabling talented individuals from underprivileged backgrounds, helping them achieve their full potential. ",
-  points: [
+  text3:"Expert-Led | Cost-Effective | Future-Ready HR Strategies",
+    points: [
     "2012: Founded with a commitment to equity and HR transformation.",
     "2014: Expanded services to empower underprivileged talent across diverse industries.",
     "2016: Launched scalable HR solutions tailored for startups and growing businesses.",

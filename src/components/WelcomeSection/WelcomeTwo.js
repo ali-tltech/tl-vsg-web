@@ -6,7 +6,7 @@ import Link from "../Reuseable/Link";
 import TextSplit from "../Reuseable/TextSplit";
 import Title from "../Reuseable/Title";
 
-const { image, tagline, title, text1, text2, points, iconText } = welcomeTwo;
+const { image, tagline, title, text1, text2,text3, points, iconText } = welcomeTwo;
 
 const WelcomeTwo = ({ id = "" }) => {
   const ref = useActive(id);
@@ -47,8 +47,9 @@ const WelcomeTwo = ({ id = "" }) => {
                 </div>
               </div>
               <p className="welcome-two__text-2">{text2}</p>
-              <Link href="/about" className="thm-btn welcome-two__btn">
-              More About Us
+              <p className="welcome-two__text-3">{text3}</p>
+              <Link href="/contact" className="thm-btn welcome-two__btn">
+              Book a Free Consultation
               </Link>
             </div>
           </Col>
