@@ -17,7 +17,7 @@ const TeamMemberContent = ({ name, role, description, stats }) => {
         <h4 className={`text-primary mb-4 slide-up-delay-1 ${isVisible ? 'visible' : ''}`}>{role}</h4>
         <p className={`lead mb-4 slide-up-delay-2 ${isVisible ? 'visible' : ''}`}>{description}</p>
         
-        <TeamMemberStats stats={stats} isVisible={isVisible} />
+        {/* <TeamMemberStats stats={stats} isVisible={isVisible} /> */}
       </div>
     </Col>
   );

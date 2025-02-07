@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container, Row } from 'react-bootstrap';
-import TeamMemberContent from './TeamMemberContent';
 import TeamMemberImage from './TeamMemberImage';
 import { ExpersDetails } from "@/data/teamSection";
+import TeamMemberContent from './TeamMemberContent';
 
 const TeamMember = () => {
   const { name, role, description, stats, imagePath } = ExpersDetails;
