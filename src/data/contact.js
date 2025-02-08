@@ -80,7 +80,7 @@ export const contactDetails = {
   title: "Get in Touch with VSG",
   text: "At VSG, we're dedicated to your success and ready to help you every step of the way. Whether you have a question, need support, or want to discuss our services, our team is here to assist you with prompt and personalized care.",
   address1: "102, Shaili Gardenia ",
-  address2: "- Water Tank Rd, Shaili Gardens,",
+  address2: " Water Tank Rd, Shaili Gardens,",
   address3: "Yapral, Secunderabad,",
   address4: " Hyderabad, Telangana - 500087",
   contactIcon: "icon-phone1",
