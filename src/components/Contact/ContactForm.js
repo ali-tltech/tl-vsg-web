@@ -93,21 +93,22 @@ const ContactForm = ({
 
         {/* Phone Number Field */}
         <Col xl={6}>
-          <div className={inputClassName}>
-            <input
-              type="tel"
-              placeholder="Phone Number"
-              {...register('phoneNumber', {
-                required: 'This field is required.',
-                pattern: {
-                  value: /^\+1 \(\d{3}\) \d{3}-\d{4}$/, // Matches +1 (XXX) XXX-XXXX
-                  message: 'Enter a valid phone number.',
-                },
-              })}
-            />
-            {errors.phoneNumber && <label className="error">{errors.phoneNumber.message}</label>}
-          </div>
-        </Col>
+  <div className={inputClassName}>
+    <input
+      type="tel"
+      placeholder="Phone Number"
+      {...register("phoneNumber", {
+        required: "This field is required.",
+        pattern: {
+          value: /^[0-9]{10}$/, // ✅ Allows only 10-digit numbers (no spaces, dashes, or country code)
+          message: "Enter a valid 10-digit phone number.",
+        },
+      })}
+    />
+    {errors.phoneNumber && <label className="error">{errors.phoneNumber.message}</label>}
+  </div>
+</Col>
+
       </Row>
 
       <Row>

@@ -7911,7 +7911,8 @@ background-color: #FEFAF9;
 }
 
 .comment-form__input-box input[type="text"],
-.comment-form__input-box input[type="email"] {
+.comment-form__input-box input[type="email"],
+.comment-form__input-box input[type="tel"] {
   height: 70px;
   width: 100%;
   border: none;
