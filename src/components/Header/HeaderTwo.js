@@ -47,7 +47,7 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
               </div>
               <div className="main-header-two__top-social">
                 {socials.map(({ id, icon, href }) => (
-                  <a key={id} href={href}>
+                  <a key={id} target="_blank" rel="noreferrer" href={href}>
                     <i className={icon}></i>
                   </a>
                 ))}
