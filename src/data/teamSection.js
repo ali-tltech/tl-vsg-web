@@ -33,7 +33,7 @@ export const teamOne = {
     {
       id: 1,
       name: "Venkatesan Srinivasan",
-      title: "Founder &  CEO",
+      title: "Founder",
       image: "team-1-1.jpg",
       socials: [
         {

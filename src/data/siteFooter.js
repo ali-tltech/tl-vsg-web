@@ -1,6 +1,9 @@
 import logo from "@/images/resources/logo-1.png";
 import bg from "@/images/shapes/site-footer-shape-1.png";
 
+const message = "Hello, I'm interested in VS GenX Solutions' HR services. Could you share more details?";  
+const phoneHref= "+919000334512"
+
 const footerData = {
   bg,
   logo,
@@ -25,6 +28,11 @@ const footerData = {
       id: 4,
       icon: "fab fa-instagram",
       href: "https://www.instagram.com/vsgenxsolutions?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    },
+    {
+      id: 4,
+      icon: "fab fa-whatsapp",
+      href: `https://wa.me/${phoneHref}?text=${encodeURIComponent(message)}`,
     },
   ],
   links: [
