@@ -1,8 +1,8 @@
 import videoBg from "@/images/backgrounds/welcome-one-video-link-bg.jpg";
 import videoBg2 from "@/images/resources/welcome-three-video-bg.jpg";
-import image from "@/images/resources/welcome-two-img-1.jpg";
+import image from "@/images/resources/timeline-web.jpg";
 import bg from "@/images/shapes/welcome-one-shape.png";
-
+import mobileImage from "@/images/resources/timeline-mobile.jpg";
 // export const welcomeOne = {
 //   bg,
 //   videoBg,
@@ -47,6 +47,7 @@ import bg from "@/images/shapes/welcome-one-shape.png";
 
 export const welcomeTwo = {
   image,
+  mobileImage,
   tagline: "our introduction",
   title: " Empowering Businesses. Transforming Lives.",
   text1:
