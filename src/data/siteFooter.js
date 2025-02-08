@@ -76,7 +76,7 @@ const footerData = {
   ],
   newsletterText: "Subsrcibe for our upcoming latest articles and resources",
   addressLine1: "102, Shaili Gardenia ",
-  addressLine2: "- Water Tank Rd, Shaili Gardens,",
+  addressLine2: " Water Tank Rd, Shaili Gardens,",
   addressLine3: "Yapral, Secunderabad,",
   addressLine4: " Hyderabad, Telangana - 500087",
   phone: "+91 9000334512",
