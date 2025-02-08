@@ -1,5 +1,5 @@
 import footerData from "@/data/siteFooter";
-import React from "react";
+import React, { useState } from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import Link from "../Reuseable/Link";
 import toast from "react-hot-toast";
@@ -23,16 +23,44 @@ const {
 } = footerData;
 
 const SiteFooter = ({ footerClassName = "" }) => {
-  const handleSubmit = (e) => {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubscribe = async (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    console.log(formData.get("email"));
-    toast.success("You have subscribed successfully!");
+    if (!email.trim()) {
+      toast.error("Please enter a valid email.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success("You have subscribed successfully!");
+        setEmail(""); // Clear input field
+      } else {
+        toast.error(data.error || "Subscription failed.");
+      }
+    } catch (error) {
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
-const message = "Hello, I'm interested in VS GenX Solutions' HR services. Could you share more details?";  
-const whatsappLink = `https://wa.me/${phoneHref}?text=${encodeURIComponent(message)}`;
-
+  const message =
+    "Hello, I'm interested in VS GenX Solutions' HR services. Could you share more details?";
+  const whatsappLink = `https://wa.me/${phoneHref}?text=${encodeURIComponent(
+    message
+  )}`;
 
   return (
     <footer className={`site-footer ${footerClassName}`}>
@@ -47,7 +75,7 @@ const whatsappLink = `https://wa.me/${phoneHref}?text=${encodeURIComponent(messa
               <div className="footer-widget__column footer-widget__about">
                 <div className="footer-widget__logo">
                   <Link href="/">
-                    <Image src={logo.src} alt="Logo" width={200} height={90}/>
+                    <Image src={logo.src} alt="Logo" width={200} height={90} />
                   </Link>
                 </div>
                 <div className="footer-widget__about-text-box">
@@ -87,20 +115,20 @@ const whatsappLink = `https://wa.me/${phoneHref}?text=${encodeURIComponent(messa
                 <p className="footer-widget__newsletter-text">
                   {newsletterText}
                 </p>
-                <form
-                  onSubmit={handleSubmit}
-                  className="footer-widget__newsletter-form"
-                >
+                <form onSubmit={handleSubscribe} className="footer-widget__newsletter-form">
                   <div className="footer-widget__newsletter-input-box">
                     <input
                       type="email"
                       placeholder="Email address"
                       name="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       required
                     />
                     <button
                       type="submit"
                       className="footer-widget__newsletter-btn"
+                      disabled={loading}
                     >
                       <i className="far fa-paper-plane"></i>
                     </button>
@@ -117,10 +145,10 @@ const whatsappLink = `https://wa.me/${phoneHref}?text=${encodeURIComponent(messa
                 <p className="footer-widget__contact-text">{addressLine4}</p>
                 <h4 className="footer-widget__contact-info">
                   <a
-                    // href={`tel:${phoneHref}`}
                     href={whatsappLink}
                     className="footer-widget__contact-number"
-                    target="_blank" rel="noreferrer"
+                    target="_blank"
+                    rel="noreferrer"
                   >
                     {phone}
                   </a>{" "}
@@ -142,7 +170,14 @@ const whatsappLink = `https://wa.me/${phoneHref}?text=${encodeURIComponent(messa
             <Col xl={12}>
               <div className="site-footer__bottom-inner">
                 <p className="site-footer__bottom-text">
-                 All rights reserved © Copyright {year} by <a href="https://tltechnologies.net/" target="_blank" rel="noreferrer"> {author}</a>
+                  All rights reserved © Copyright {year} by{" "}
+                  <a
+                    href="https://tltechnologies.net/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {author}
+                  </a>
                 </p>
               </div>
             </Col>
