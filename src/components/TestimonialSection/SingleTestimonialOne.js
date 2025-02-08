@@ -6,13 +6,13 @@ const SingleTestimonialOne = ({ testimonial = {} }) => {
 
   return (
     <div>
-      <div style={{ userSelect: "none" }} className="testimonial-one__single">
+      <div style={{ userSelect: "none", paddingTop:"20px"}} className="testimonial-one__single">
         <div className="testimonial-one__client-info">
           <div className="testimonial-one__client-img">
-            <Image
+            {/* <Image
               src={require(`@/images/testimonial/${image}`).default.src}
               alt=""
-            />
+            /> */}
             <div className="testimonial-one__quote">
               <Image src={quote.src} alt="" />
             </div>

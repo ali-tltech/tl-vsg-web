@@ -18,14 +18,23 @@ export const testimonialOne = [
     name: "Stacy Parker",
     title: " Vice President, Verrazano R&D",
   },
-  // {
-  //   id: 3,
-  //   quote,
-  //   image: "testimonial-1-client-img-3.jpg",
-  //   text: "With their on-demand HR leadership, we successfully scaled our business without an in-house HR team.",
-  //   name: " Meera S",
-  //   title: "Confidential",
-  // },
+  {
+    id: 3,
+    quote,
+    text: "Working with VS GenX was a breath of fresh air. Their commitment to equity and growth is evident in every solution they offer. Our company experienced remarkable improvements in employee engagement and productivity.",
+    image: "testimonial-1-client-img-3.jpg",
+    name: " Anjali M",
+    title: "Confidential",
+  
+  },
+  {
+    id: 4,
+    quote,
+    text: "VS GenX Solutions revolutionized our HR department with proactive strategies and deep expertise, significantly enhancing our workflow and operational efficiency.",
+    image: "testimonial-3-client-img-4.png",
+    name: "Ravi P",
+    title: "Confidential",
+  },
 ];
 
 export const testimonialThree = {
@@ -48,22 +57,22 @@ export const testimonialThree = {
       title: " Vice President, Verrazano R&D",
       quote: quote2,
     },
-    // {
-    //   id: 3,
-    //   text: "With their on-demand HR leadership, we successfully scaled our business without an in-house HR team.",
-    //   image: "testimonial-1-client-img-3.jpg",
-    //   name: " Meera S",
-    //   title: "Confidential",
-    //   quote: quote2,
-    // },
-    // {
-    //   id: 4,
-    //   text: "I was impresed by the company services, not lorem ipsum is simply free text of used. Neque porro est qui dolorem ipsum quia.",
-    //   image: "testimonial-3-client-img-4.png",
-    //   name: "Mike Hardson",
-    //   title: "Customer",
-    //   quote: quote2,
-    // },
+    {
+      id: 3,
+      text: "Working with VS GenX was a breath of fresh air. Their commitment to equity and growth is evident in every solution they offer. Our company experienced remarkable improvements in employee engagement and productivity.",
+      image: "testimonial-1-client-img-3.jpg",
+      name: " Anjali M",
+      title: "Confidential",
+      quote: quote2,
+    },
+    {
+      id: 4,
+      text: "VS GenX Solutions revolutionized our HR department with proactive strategies and deep expertise, significantly enhancing our workflow and operational efficiency.",
+      image: "testimonial-3-client-img-4.png",
+      name: "Ravi P",
+      title: "Confidential",
+      quote: quote2,
+    },
     // {
     //   id: 5,
     //   text: "I was impresed by the company services, not lorem ipsum is simply free text of used. Neque porro est qui dolorem ipsum quia.",

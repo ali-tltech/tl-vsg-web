@@ -9,12 +9,12 @@ const SingleTestimonialThree = ({ testimonial = {} }) => {
       <div className="testimonial-three__single" style={{ marginBottom: "20px" }}>
         <p className="testimonial-three__text">{text}</p>
         <div className="testimonial-three__client-info">
-          <div className="testimonial-three__client-img">
+          {/* <div className="testimonial-three__client-img">
             <Image
               src={require(`@/images/testimonial/${image}`).default.src}
               alt=""
             />
-          </div>
+          </div> */}
           <div className="testimonial-three__client-details">
             <h4 className="testimonial-three__client-name">{name}</h4>
             <p className="testimonial-three__client-title">{title}</p>
