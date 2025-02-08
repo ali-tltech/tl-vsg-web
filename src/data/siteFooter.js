@@ -89,7 +89,7 @@ const footerData = {
   addressLine4: " Hyderabad, Telangana - 500087",
   phone: "+91 9000334512",
   phoneHref: "+919000334512",
-  email: "vsgenxsolutions@gmail.com ",
+  email: "enablement@vsgenxsolutions.com ",
   author: "TL Technologies Private Limited",
   year: "2020-2025",
 };
