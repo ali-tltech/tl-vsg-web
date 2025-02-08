@@ -66,6 +66,8 @@ export const navItems = [
 ];
 
 
+const message = "Hello, I'm interested in VS GenX Solutions' HR services. Could you share more details?";  
+const phoneHref= "+919000334512"
 // provide social media links here
 const socials = [
   {
@@ -87,6 +89,11 @@ const socials = [
     id: 4,
     icon: "fab fa-instagram",
     href: "https://www.instagram.com/vsgenxsolutions?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+  },
+  {
+    id: 4,
+    icon: "fab fa-whatsapp",
+    href: `https://wa.me/${phoneHref}?text=${encodeURIComponent(message)}`,
   },
 ];
 
