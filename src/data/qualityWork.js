@@ -30,7 +30,7 @@ export const qualityWork = {
     {
       id: 1,
       icon: "icon-checking",
-      title: "Purpose",
+      title: "Our Purpose",
       text: "To empower talent from underprivileged communities by creating equal opportunities and enabling sustainable career growth. Through strategic and scalable HR solutions, we help businesses build inclusive workplaces, foster leadership, and unlock the full potential of diverse talent.",
     },
     {

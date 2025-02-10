@@ -4430,7 +4430,7 @@ background-color: #FEFAF9;
 }
 
 .footer-widget__contact-number {
-  font-size: 30px;
+  font-size: 20px;
   color: var(--oslim-white);
   font-weight: 500;
   -webkit-transition: all 500ms ease;
@@ -9017,7 +9017,7 @@ background-color: #FEFAF9;
 }
 
 .contact-details__contact-number {
-  font-size: 30px;
+  font-size: 20px;
   color: var(--oslim-black);
   font-weight: 500;
   display: block;
