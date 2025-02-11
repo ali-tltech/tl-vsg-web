@@ -3,7 +3,7 @@ import image from "@/images/resources/tab-content-img-1.jpg";
 export const qualityWork = {
   tagline: "meet our agency",
   title: "Work that Meet \n your Expectations",
-  subtitle: "Redefining HR with Equity, Innovation, and Impact to Empower Businesses, Foster Inclusive Workplaces, and Create Meaningful Opportunities for Diverse Talent Growth.",
+  // subtitle: "Redefining HR with Equity, Innovation, and Impact to Empower Businesses, Foster Inclusive Workplaces, and Create Meaningful Opportunities for Diverse Talent Growth.",
   tabs: [
     {
       id: "Journey",
@@ -27,20 +27,20 @@ export const qualityWork = {
     },
   ],
   points: [
+    // {
+    //   id: 1,
+    //   icon: "icon-checking",
+    //   title: "Our Purpose",
+    //   text: "To empower talent from underprivileged communities by creating equal opportunities and enabling sustainable career growth. Through strategic and scalable HR solutions, we help businesses build inclusive workplaces, foster leadership, and unlock the full potential of diverse talent.",
+    // },
     {
       id: 1,
-      icon: "icon-checking",
-      title: "Our Purpose",
-      text: "To empower talent from underprivileged communities by creating equal opportunities and enabling sustainable career growth. Through strategic and scalable HR solutions, we help businesses build inclusive workplaces, foster leadership, and unlock the full potential of diverse talent.",
-    },
-    {
-      id: 2,
       icon: "icon-checking",
       title: "Our Vision",
       text: "To be the go-to HR partner for Startups and SMEs, empowering them to scale efficiently with the right, cost-effective, and future-ready HR strategies. We strive to redefine HR as a catalyst for business growth, innovation, and equity.",
     },
     {
-      id: 3,
+      id: 2,
       icon: "icon-conversation",
       title: "Our Mission",
       text: "We empower businesses with scalable, strategic, and cost-effective HR solutions tailored to their growth journey. Our mission is to enable talent from underprivileged communities with meaningful career opportunities, bridge the HR capability gap for startups and SMEs, and leverage HR technology to enhance efficiency. We foster a purpose-driven work culture that aligns business goals with human capital excellence.",

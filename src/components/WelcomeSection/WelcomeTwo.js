@@ -1,49 +1,60 @@
 import { welcomeTwo } from "@/data/welcomeSection";
 import useActive from "@/hooks/useActive";
-import React, { useState, useEffect } from "react";
-import { Image } from "react-bootstrap";
+import React from "react";
+import { Col, Container, Image, Row } from "react-bootstrap";
+import Link from "../Reuseable/Link";
+import TextSplit from "../Reuseable/TextSplit";
+import Title from "../Reuseable/Title";
 
-const { image, mobileImage } = welcomeTwo;
+const { image, tagline, title, text, } = welcomeTwo;
 
 const WelcomeTwo = ({ id = "" }) => {
   const ref = useActive(id);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 1024); // Tablet breakpoint
-    };
-    
-    window.addEventListener("resize", handleResize);
-    handleResize(); // Call it initially
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   return (
-    <section
-      ref={ref}
-      className="welcome-two"
-      id={id}
-      style={{
-        paddingTop: "0px",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-    >
-      {isMobile ? (
-        <Image
-          src={mobileImage.src}
-          alt="Mobile Timeline"
-          style={{ width: "100%", height: "auto", padding: "30px" }}
-        />
-      ) : (
-        <Image
-          src={image.src}
-          alt="Timeline"
-          style={{ width: "1200px", height: "auto", padding: "60px" }}
-        />
-      )}
+    <section ref={ref} className="welcome-two" id={id}>
+      <Container>
+        <Row>
+          <Col xl={5}>
+            <div className="welcome-two__left animated slideInLeft">
+              <div className="welcome-two__img">
+                {/* <Image src={image.src} alt="" /> */}
+              </div>
+            </div>
+          </Col>
+          <Col xl={7}>
+            <div className="welcome-two__right">
+              <Title title={title} tagline={tagline} className="text-left" />
+              <p className="welcome-two__text-2">{text}</p>
+              {/* <div className="welcome-two__content"> */}
+                {/* <ul className="list-unstyled welcome-two__points">
+                  {points.map((point, i) => (
+                    <li key={i}>
+                      <div className="icon">
+                        <i className="fa fa-arrow-right"></i>
+                      </div>
+                      <div className="text">
+                        <p>{point}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul> */}
+                {/* <div className="welcome-two__icon-box">
+                  <span className="icon-help"></span>
+                  <p className="welcome-two__icon-box-text">
+                    <TextSplit text={iconText} />
+                  </p>
+                </div> */}
+              {/* </div> */}
+              {/* <p className="welcome-two__text-2">{text2}</p>
+              <p className="welcome-two__text-3">{text3}</p> */}
+              {/* <Link href="/contact" className="thm-btn welcome-two__btn">
+              Book a Free Consultation
+              </Link> */}
+            </div>
+          </Col>
+        </Row>
+      </Container>
     </section>
   );
 };
