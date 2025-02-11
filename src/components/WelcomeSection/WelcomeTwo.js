@@ -18,13 +18,13 @@ const WelcomeTwo = ({ id = "" }) => {
           <Col xl={5}>
             <div className="welcome-two__left animated slideInLeft">
               <div className="welcome-two__img">
-                {/* <Image src={image.src} alt="" /> */}
+                <Image src={image.src} alt="" />
               </div>
             </div>
           </Col>
           <Col xl={7}>
             <div className="welcome-two__right">
-              <Title title={title} tagline={tagline} className="text-left" />
+              <Title title={title} tagline={tagline} className="text-left" style={{ fontSize:"40px" }} />
               <p className="welcome-two__text-2">{text}</p>
               {/* <div className="welcome-two__content"> */}
                 {/* <ul className="list-unstyled welcome-two__points">
