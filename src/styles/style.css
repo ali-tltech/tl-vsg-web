@@ -4543,6 +4543,9 @@ background-color: #FEFAF9;
 
 .welcome-two__right .section-title {
   margin-bottom: 10px;
+  margin-top: 9rem;
+
+
 }
 
 .welcome-two__text-1 {
@@ -4636,6 +4639,8 @@ background-color: #FEFAF9;
 .welcome-two__text-2 {
   margin: 0;
   padding-bottom: 10px;
+  font-size: 28px;
+  font-weight: 400;
 }
 .welcome-two__text-3 {
   margin: 0;
