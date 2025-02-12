@@ -24,8 +24,8 @@ const WelcomeTwo = ({ id = "" }) => {
           </Col>
           <Col xl={7}>
             <div className="welcome-two__right">
-              <Title title={title} tagline={tagline} className="text-left" style={{ fontSize:"40px" }} />
-              <p className="welcome-two__text-2">{text}</p>
+              <Title title={title} tagline={tagline} className="text-left" />
+              <p className="">{text}</p>
               {/* <div className="welcome-two__content"> */}
                 {/* <ul className="list-unstyled welcome-two__points">
                   {points.map((point, i) => (
