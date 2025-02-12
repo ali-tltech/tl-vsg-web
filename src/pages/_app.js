@@ -89,7 +89,7 @@
           }}
         />
         
-        <Toaster position="bottom-center" reverseOrder={false} />
+        <Toaster position="top-right" reverseOrder={false} />
         <Component {...pageProps} />
       </ContextProvider>
     );

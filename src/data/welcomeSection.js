@@ -50,7 +50,7 @@ export const welcomeTwo = {
   mobileImage,
   tagline: "",
   title: " Our Purpose",
-  text:"At VS GenX Solutions, our purpose is to empower talented individuals from underprivileged communities across India by creating sustainable growth opportunities and enabling long-term career success. Through our strategic HR solutions and services, we help businesses build inclusive workplaces while dedicating 5% of our earnings to this cause.",
+  text:"At VS GenX Solutions, our purpose is to empower talented individuals from underprivileged communities across India by creating sustainable growth opportunities and enabling long-term career success. \n Through our strategic HR solutions and services, we help businesses build inclusive workplaces while dedicating 5% of our earnings to this cause.",
 };
 // export const welcomeTwo = {
 //   image,
