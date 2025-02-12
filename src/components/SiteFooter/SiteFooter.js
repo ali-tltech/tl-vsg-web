@@ -152,12 +152,7 @@ const SiteFooter = ({ footerClassName = "" }) => {
                   >
                     {phone}
                   </a>{" "}
-                  <a
-                    href={`mailto:${email}`}
-                    className="footer-widget__contact-email"
-                  >
-                    {email}
-                  </a>
+                 
                 </h4>
               </div>
             </Col>
