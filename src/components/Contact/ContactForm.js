@@ -55,7 +55,7 @@ const ContactForm = ({
               placeholder="Your Name"
               {...register('name', { required: 'This field is required.' })}
             />
-            {errors.name && <label className="error">{errors.name.message}</label>}
+            {errors.name && <label className="error" style={{color:"red"}}>{errors.name.message}</label>}
           </div>
         </Col>
 
@@ -67,7 +67,7 @@ const ContactForm = ({
               placeholder="Subject"
               {...register('subject', { required: 'This field is required.' })}
             />
-            {errors.subject && <label className="error">{errors.subject.message}</label>}
+            {errors.subject && <label className="error" style={{color:"red"}}>{errors.subject.message}</label>}
           </div>
         </Col>
       </Row>
@@ -87,7 +87,7 @@ const ContactForm = ({
                 },
               })}
             />
-            {errors.email && <label className="error">{errors.email.message}</label>}
+            {errors.email && <label className="error" style={{color:"red"}}>{errors.email.message}</label>}
           </div>
         </Col>
 
@@ -105,7 +105,7 @@ const ContactForm = ({
         },
       })}
     />
-    {errors.phoneNumber && <label className="error">{errors.phoneNumber.message}</label>}
+    {errors.phoneNumber && <label className="error" style={{color:"red"}}>{errors.phoneNumber.message}</label>}
   </div>
 </Col>
 
@@ -119,7 +119,7 @@ const ContactForm = ({
               placeholder="Write a Message"
               {...register('message', { required: 'This field is required.' })}
             ></textarea>
-            {errors.message && <label className="error">{errors.message.message}</label>}
+            {errors.message && <label className="error" style={{color:"red"}}>{errors.message.message}</label>}
           </div>
 
           {/* Submit Button */}
