@@ -2,67 +2,6 @@ import { connectDB } from "../../lib/db";
 import sql from "mssql";
 import nodemailer from "nodemailer";
 
-// Configure email transporter
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: process.env.SMTP_PORT,
-  secure: true,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASSWORD,
-  },
-});
-console.log("envv",transporter);
-
-// Simple, organized email template for company notification
-const createNotificationEmail = (formData) => {
-  const { name, subject, email, phoneNumber, message } = formData;
-  const date = new Date().toLocaleString();
-  
-  return `
-    <!DOCTYPE html>
-    <html>
-      <body style="font-family: Arial, sans-serif; padding: 20px;">
-        <h2>New Website Enquiry</h2>
-        <p>You have received a new enquiry from your website contact form.</p>
-        
-        <div style="margin: 20px 0; padding: 20px; background-color: #f5f5f5;">
-          <h3>Enquiry Details:</h3>
-          <table style="width: 100%; border-collapse: collapse;">
-            <tr>
-              <td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Date:</strong></td>
-              <td style="padding: 8px; border-bottom: 1px solid #ddd;">${date}</td>
-            </tr>
-            <tr>
-              <td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Name:</strong></td>
-              <td style="padding: 8px; border-bottom: 1px solid #ddd;">${name}</td>
-            </tr>
-            <tr>
-              <td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Email:</strong></td>
-              <td style="padding: 8px; border-bottom: 1px solid #ddd;">${email}</td>
-            </tr>
-            <tr>
-              <td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Phone:</strong></td>
-              <td style="padding: 8px; border-bottom: 1px solid #ddd;">${phoneNumber}</td>
-            </tr>
-            <tr>
-              <td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Subject:</strong></td>
-              <td style="padding: 8px; border-bottom: 1px solid #ddd;">${subject}</td>
-            </tr>
-          </table>
-          
-          <div style="margin-top: 20px;">
-            <h4>Message:</h4>
-            <p style="background-color: white; padding: 15px; border-radius: 4px;">${message}</p>
-          </div>
-        </div>
-        
-        <p style="color: #666; font-size: 14px;">This is an automated notification from your website contact form.</p>
-      </body>
-    </html>
-  `;
-};
-
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Method Not Allowed" });
@@ -75,8 +14,9 @@ export default async function handler(req, res) {
   }
 
   try {
-    // 1. Save to database
     const pool = await connectDB();
+
+    // Insert into database
     await pool
       .request()
       .input("name", sql.NVarChar, name)
@@ -88,20 +28,128 @@ export default async function handler(req, res) {
         "INSERT INTO Contacts (name, subject, email, phoneNumber, message) VALUES (@name, @subject, @email, @phoneNumber, @message)"
       );
 
-    // 2. Send notification email to company
-    const mailOptions = {
-      from: process.env.SMTP_FROM_EMAIL,
-      to: "enablement@vsgenxsolutions.com",
-      subject: "New Website Enquiry Received",
-      html: createNotificationEmail(req.body),
-      replyTo: email // Allows direct reply to the enquirer
-    };
+    // Create Nodemailer transporter
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: "vsgenx33@gmail.com",
+        pass: "mdgm nrge hnlh leek", // App password
+      },
+    });
 
-    await transporter.sendMail(mailOptions);
+    // Email content
+    // const mailOptions = {
+    //   from: "vsgenx33@gmail.com",
+    //   to: "vsgenx33@gmail.com", // Company email
+    //   subject: `New Contact Form Submission: ${subject}`,
+    //   text: `
+    //     New contact form submission details:
+    //     Name: ${name}
+    //     Subject: ${subject}
+    //     Email: ${email}
+    //     Phone: ${phoneNumber}
+    //     Message: ${message}
+    //   `,
+    // };
+
+    const mailOptions = {
+      from: "vsgenx33@gmail.com",
+      replyTo: email,
+      to: "vsgenx33@gmail.com", // Company email
+      subject: `Website Contact Form Submission by ${name}`,
+      html: `
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <style>
+              body {
+                font-family: Arial, sans-serif;
+                padding: 20px;
+                background-color: #f9f9f9;
+              }
+              .container {
+                max-width: 600px;
+                margin: 0 auto;
+                background: #ffffff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+              }
+              h2 {
+                color: #333;
+                text-align: center;
+              }
+              table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+              }
+              td {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+              }
+              .message-box {
+                background: #f5f5f5;
+                padding: 15px;
+                border-radius: 5px;
+                margin-top: 15px;
+              }
+              .footer {
+                font-size: 12px;
+                color: #666;
+                text-align: center;
+                margin-top: 20px;
+              }
+            </style>
+          </head>
+          <body>
+            <div class="container">
+              <h2>New Contact Form Submission</h2>
+              <p>A new inquiry has been received through your website contact form.</p>
+              
+              <table>
+                <tr>
+                  <td><strong>Name:</strong></td>
+                  <td>${name}</td>
+                </tr>
+                <tr>
+                  <td><strong>Email:</strong></td>
+                  <td>${email}</td>
+                </tr>
+                <tr>
+                  <td><strong>Phone:</strong></td>
+                  <td>${phoneNumber}</td>
+                </tr>
+                <tr>
+                  <td><strong>Subject:</strong></td>
+                  <td>${subject}</td>
+                </tr>
+              </table>
+    
+              <div class="message-box">
+                <h4>Message:</h4>
+                <p>${message}</p>
+              </div>
+    
+              <p class="footer">This is an automated notification from your website contact form.</p>
+            </div>
+          </body>
+        </html>
+      `,
+    };
+    
+
+    // Send email
+    try {
+      await transporter.sendMail(mailOptions);
+      console.log("Notification email sent successfully");
+    } catch (emailError) {
+      console.error("Error sending notification email:", emailError);
+    }
 
     return res.status(200).json({ message: "Contact submitted successfully!" });
   } catch (error) {
-    console.error("Error:", error);
+    console.error("Database error:", error);
     return res.status(500).json({ message: "Internal Server Error" });
   }
 }
