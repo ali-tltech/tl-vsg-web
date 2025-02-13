@@ -106,38 +106,31 @@ export const teamMember2={
   "title": "Strategic Advisor",
   "image": "team-1-2.jpg",
   "bio": {
-    "intro": "A distinguished leadership mentor, organizational strategist, and culture transformation expert with over four decades of experience in shaping leaders, teams, and organizations.",
+    "intro": "A distinguished leadership mentor, organizational strategist, and culture transformation expert, Raja Krishnamoorthy (Raja Sir) brings over four decades of experience in shaping leaders, teams, and organizations.",
     "sections": [
       {
         "title": "A Legacy of Leadership & Transformation",
-        "content": "Raja Sir has held key leadership roles at Mukund Iron & Steel, ITC WelcomGroup, Enfield India, and Polaris Software Lab Ltd. As an independent consultant, he has guided leaders across industries, institutions, NGOs, and public sector enterprises—driving leadership transformation, culture-building, and high-performance ecosystems."
+        "content": "Raja Sir has held key leadership roles at Mukund Iron & Steel, ITC WelcomGroup, Enfield India, and Polaris Software Lab Ltd. As an independent consultant, he has guided leaders across industries, institutions, NGOs, and public sector enterprises—driving leadership transformation, culture-building, and high-performance ecosystems.",
+        "content2": "Beyond corporate consulting, he is a renowned speaker, coach, and storyteller, known for his profound insights into leadership, human behavior, and organizational excellence. His philosophy—Self-Awareness as the foundation for human evolution—empowers individuals to unlock their full potential and create lasting impact.",
       },
       {
-        "title": "Leadership Philosophy",
-        "content": "The 5S Transformational Leadership Model:",
+        "title": "The 5S Transformational Leadership Model",
+        "content": "At the heart of Raja Sir’s leadership philosophy is the 5S Transformational Leadership Model, a framework that aligns seamlessly with VS GenX’s mission of fostering ethical, people-centric leadership:",
         "model": [
           "Sensitivity – Understanding people, emotions, and organizational dynamics.",
           "Social Accountability – Leading with responsibility, ethics, and societal well-being.",
           "Share – Fostering collaboration and knowledge-sharing.",
           "Simplicity – Embracing clarity and authenticity in leadership.",
           "Self-Awareness – Leading with purpose, humility, and impact."
-        ]
+        ],
+        "content3": "VS GenX's commitment to empowering underprivileged talent aligns perfectly with Raja Sir’s passion for mentorship and talent development—helping us create a more inclusive and equitable future."
       },
       {
-        "title": "Beyond Leadership",
-        "content": "A celebrated actor known as Kitty, Raja Sir has appeared in films across four languages over the past 35 years. His work as a writer and director adds a unique dimension to his leadership philosophy—emphasizing the power of storytelling, emotional intelligence, and creative expression in shaping exceptional leaders."
+        "title": "Beyond Leadership: Actor, Director & Storyteller",
+        "content": "A celebrated actor known as Kitty, Raja Sir has appeared in films across four languages over the past 35 years. His work as a writer and director adds a unique dimension to his leadership philosophy—emphasizing the power of storytelling, emotional intelligence, and creative expression in shaping exceptional leaders. ",
+        "content4": "With Raja Sir as a guiding force, VS GenX Solutions is poised to redefine leadership and HR excellence."
       }
     ]
   },
-  "experience": [
-    "Mukund Iron & Steel",
-    "ITC WelcomGroup",
-    "Enfield India",
-    "Polaris Software Lab Ltd"
-  ],
-  "socialLinks": {
-    "linkedin": "#",
-    "twitter": "#",
-    "email": "mailto:contact@vsgenx.com"
-  }
+
 }
