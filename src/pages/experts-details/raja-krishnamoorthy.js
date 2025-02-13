@@ -3,6 +3,8 @@ import React from 'react'
 import { teamMember2 } from "@/data/teamSection";
 import TeamMemberDetails2 from '@/components/TeamSection/TeamMemberDetails2';
 import HeaderTwo from '@/components/Header/HeaderTwo';
+import Layout from '@/components/Layout/Layout';
+import TeamPageHeader from '@/components/Reuseable/TeamPageHeader';
 
 export default function TeamMemberPage2() {
   return (

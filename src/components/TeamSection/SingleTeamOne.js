@@ -4,13 +4,21 @@ import { Image } from "react-bootstrap";
 
 const SingleTeamOne = ({ team = {} }) => {
   const router = useRouter();
-  const handleClcick = () => {
-    router.push(`/experts-details/venkatesan-srinivasan`);
-    }
+
   const { name, title, image, socials } = team;
 
+    // Function to generate a URL-friendly slug
+    const generateSlug = (name) => {
+      return name.toLowerCase().replace(/\s+/g, "-");
+    };
+  
+    const handleClick = () => {
+      const slug = generateSlug(name); // Convert name to slug format
+      router.push(`/experts-details/${slug}`);
+    };
+
   return (
-    <div className="team-one__single" onClick={handleClcick}>
+    <div className="team-one__single" onClick={handleClick}>
       <div className="team-one__img">
         <Image src={require(`@/images/team/${image}`).default.src} alt="" />
         <div className="team-one__content">
