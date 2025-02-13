@@ -7,7 +7,7 @@ import SingleTeamOne from "./SingleTeamOne";
 
 const { tagline, title, teams } = teamOne;
 
-const TeamOne = ({ id = "" }) => {
+const TeamOne = ({ id = "" }) => {  
   const ref = useActive(id);
 
   return (
