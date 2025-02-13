@@ -1,11 +1,16 @@
+import { useRouter } from "next/router";
 import React from "react";
 import { Image } from "react-bootstrap";
 
 const SingleTeamOne = ({ team = {} }) => {
+  const router = useRouter();
+  const handleClcick = () => {
+    router.push(`/experts-details/venkatesan-srinivasan`);
+    }
   const { name, title, image, socials } = team;
 
   return (
-    <div className="team-one__single">
+    <div className="team-one__single" onClick={handleClcick}>
       <div className="team-one__img">
         <Image src={require(`@/images/team/${image}`).default.src} alt="" />
         <div className="team-one__content">
