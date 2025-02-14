@@ -12,7 +12,7 @@ export default function TeamMemberPage1() {
     <>
     <Layout pageTitle="VS GenX Solutions " metaDescription="" metaKeywords="" footerClassName="site-footer-three">
       <HeaderTwo />
-      <TeamPageHeader page="Person Details" title="" bgImage={""}/>
+      <TeamPageHeader page="Venkatesan Srinivasan" title="" bgImage={""}/>
       <TeamMemberDetails1 member={teamMember1} />;
       </Layout>
 

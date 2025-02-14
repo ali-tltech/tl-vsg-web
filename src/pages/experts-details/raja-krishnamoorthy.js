@@ -11,7 +11,7 @@ export default function TeamMemberPage2() {
     <div>
           <Layout pageTitle="VS GenX Solutions " metaDescription="" metaKeywords="" footerClassName="site-footer-three">
           <HeaderTwo />
-      <TeamPageHeader page="Person Details" title="" bgImage={""}/>
+      <TeamPageHeader page="Raja Krishnamoorthy" title="" bgImage={""}/>
       <TeamMemberDetails2 teamMember2={teamMember2}/>
       </Layout>
 
