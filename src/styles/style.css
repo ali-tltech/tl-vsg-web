@@ -3823,10 +3823,10 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .testimonial-one__text {
-  font-size: 34px;
+  font-size: 20px;
   color: var(--oslim-black);
   margin: 0;
-  line-height: 54px;
+  line-height: 34px;
   padding-bottom: 36px;
 }
 
