@@ -57,7 +57,7 @@ const SiteFooter = ({ footerClassName = "" }) => {
   };
 
   const message =
-    "Hello, I'm interested in VS GenX Solutions' HR services. Could you share more details?";
+    "Hello, I'm interested in VS GenX Solutions HR services. Could you share more details?";
   const whatsappLink = `https://wa.me/${phoneHref}?text=${encodeURIComponent(
     message
   )}`;
