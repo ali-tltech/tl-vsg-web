@@ -27,37 +27,53 @@ const TeamMemberDetails2 = ({ teamMember2 }) => {
             <div key={index} className="mb-4">
               <h4 className="fw-bold">{section.title}</h4>
               <p>{section.content}</p>
-              <p>{section.content2}</p>
-              {section.model && (
-                <ul className="list-unstyled">
-                  {section.model.map((item, i) => (
-                    <li key={i} className="mb-2">
-                      <i className="bi bi-chevron-right text-primary me-2"></i>
-                      {item}
-                    </li>
-                  ))}
-                  <p>{section.content3}</p>
-                </ul>
+              {section.content2 && <p>{section.content2}</p>}
 
-              )}
+              {/* Mapping over model if it exists */}
+             {/* Mapping over model if it exists */}
+{section.model && (
+  <ul className="list-disc ">
+    {section.model.map((item, i) => (
+        <li key={i} className="mb-2" style={{ display: "flex", alignItems: "start" }}>
+        <div
+          style={{
+            background: "#434176",
+            borderRadius: "8px", // Use 8px for a square look, adjust as needed
+            marginRight: "10px",
+            height: "35px", // Fixed height
+            width: "35px", // Fixed width (same as height)
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <span
+            className="icon-right-arrow"
+            style={{
+              color: "white",
+              fontSize: "18px", // Uniform size
+              width: "18px",
+              height: "18px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          ></span>
+        </div>
+        <div style={{width:"80%",background:"#ededf3",color:"#191825",padding:"5px",borderRadius:"8px"}}>{item}</div>
+      </li>
+    ))}
+  </ul>
+)}
+
+
+              {/* Ensure content3 and content4 are displayed properly */}
+              {section.content3 && <p>{section.content3}</p>}
+              {section.content4 && <p>{section.content4}</p>}
             </div>
           ))}
         </Col>
       </Row>
-
-      {/* Key Leadership Experience */}
-      {/* <Row className="mt-4">
-        <Col md={12}>
-          <h4 className="fw-bold">Key Leadership Experience</h4>
-          <div className="d-flex flex-wrap gap-3">
-            {teamMember2.experience.map((company, index) => (
-              <span key={index} className="badge bg-light text-dark p-3">
-                {company}
-              </span>
-            ))}
-          </div>
-        </Col>
-      </Row> */}
     </Container>
   );
 };
