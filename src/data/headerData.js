@@ -66,7 +66,7 @@ export const navItems = [
 ];
 
 
-const message = "Hello, I'm interested in VS GenX Solutions' HR services. Could you share more details?";  
+const message = "Hello, I'm interested in VS GenX Solutions HR services. Could you share more details?";  
 const phoneHref= "+919000334512"
 // provide social media links here
 const socials = [

@@ -1,7 +1,7 @@
 import logo from "@/images/resources/logo-1.png";
 import bg from "@/images/shapes/site-footer-shape-1.png";
 
-const message = "Hello, I'm interested in VS GenX Solutions' HR services. Could you share more details?";  
+const message = "Hello, I'm interested in VS GenX Solutions HR services. Could you share more details?";  
 const phoneHref= "+919000334512"
 
 const footerData = {
