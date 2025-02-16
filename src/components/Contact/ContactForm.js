@@ -49,14 +49,25 @@ const ContactForm = ({
       <Row>
         {/* Name Field */}
         <Col xl={6}>
-          <div className={inputClassName}>
-            <input
-              type="text"
-              placeholder="Your Name"
-              {...register('name', { required: 'This field is required.' })}
-            />
-            {errors.name && <label className="error" style={{color:"red"}}>{errors.name.message}</label>}
-          </div>
+        <div className={inputClassName}>
+  <input
+    type="text"
+    placeholder="Your Name"
+    {...register('name', {
+      required: 'This field is required.',
+      minLength: {
+        value: 3,
+        message: 'Name must be at least 3 characters long.',
+      },
+      pattern: {
+        value: /^[A-Za-z\s]+$/, // Only allows letters and spaces
+        message: 'Name should contain only letters.',
+      },
+    })}
+  />
+  {errors.name && <label className="error" style={{ color: "red" }}>{errors.name.message}</label>}
+</div>
+
         </Col>
 
         {/* Subject Field */}
@@ -115,21 +126,35 @@ const ContactForm = ({
         <Col xl={12}>
           {/* Message Field */}
           <div className={`${inputClassName} ${messageClassName}`}>
-            <textarea
-              placeholder="Write a Message"
-              {...register('message', { required: 'This field is required.' })}
-            ></textarea>
-            {errors.message && <label className="error" style={{color:"red"}}>{errors.message.message}</label>}
-          </div>
+  <textarea
+    placeholder="Write a Message"
+    {...register('message', {
+      required: 'This field is required.',
+      minLength: {
+        value: 10,
+        message: 'Message must be at least 10 characters long.',
+      },
+      maxLength: {
+        value: 100,
+        message: 'Message cannot exceed 100 characters.',
+      },
+    })}
+  ></textarea>
+  {errors.message && <label className="error" style={{ color: "red" }}>{errors.message.message}</label>}
+</div>
 
           {/* Submit Button */}
-          <div className={btnBoxClassName}>
-            <button type="submit" className={`thm-btn ${btnClassName}`}>
-              {btnText}
-            </button>
-          </div>
+        
         </Col>
       </Row>
+      <Row>
+        <Col xl={12}>  <div className={btnBoxClassName} style={{marginTop:"30px"}}>
+            <button type="submit" className={`thm-btn  ${btnClassName}`}>
+              {btnText}
+            </button>
+          </div></Col>
+        </Row>
+
     </form>
   );
 };
