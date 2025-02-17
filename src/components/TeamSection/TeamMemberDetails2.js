@@ -21,7 +21,7 @@ const TeamMemberDetails2 = ({ teamMember2 }) => {
           <h2 className="section-team__title">
             Meet {teamMember2.name} – {teamMember2.title}
           </h2>
-          <p className="lead mt-2">{teamMember2.bio.intro}</p>
+          <p className=" mt-2">{teamMember2.bio.intro}</p>
 
           {teamMember2.bio.sections.map((section, index) => (
             <div key={index} className="mb-4">
