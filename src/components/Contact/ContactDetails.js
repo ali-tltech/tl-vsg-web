@@ -1,12 +1,27 @@
 import { contactDetails } from "@/data/contact";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import GoogleMap from "../GoogleMap/GoogleMap";
+import { contact } from "src/api/api";
 
 const { phone, phoneHref, email, title, text, address1,address2,address3,address4, contactIcon } = contactDetails;
   const message = "Hello, I'm interested in VS GenX Solutions HR services. Could you share more details?";  
   const whatsappLink = `https://wa.me/${phoneHref}?text=${encodeURIComponent(message)}`;
 const ContactDetails = () => {
+  const [contactDetails,setContactDetails]=useState()
+  useEffect(()=>{
+   const fetchdata =async()=>{
+    try {
+      const contactData = await contact()
+      if(contactData){
+        
+      }
+    } catch (error) {
+      console.error(error);
+      
+    }
+   }
+  })
   return (
     <section className="contact-details">
       <Container>
