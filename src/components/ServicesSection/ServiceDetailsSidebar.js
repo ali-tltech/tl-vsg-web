@@ -1,13 +1,37 @@
 import { serviceDetailsSidebar } from "@/data/servicesSection";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "../Reuseable/Link";
 import TextSplit from "../Reuseable/TextSplit";
+import { organization } from "src/api/api";
 
 const { navItems, title, phoneIcon, text, phone, phoneHref } =
   serviceDetailsSidebar;
 
 const ServiceDetailsSidebar = () => {
+  const [organizationDetails, setOrganizationDetails] = useState([])
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const contactData = await organization();
+          if (contactData.data) {
+    
+            const fullAddress = contactData.data.data.location;
+    
+            const addressParts = fullAddress.split(/(.*?,.*?,)/g).filter(Boolean);
+    
+            setOrganizationDetails({
+              ...contactData.data.data,
+              formattedAddress: addressParts, // Store as an array
+            });
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      };
+      fetchData();
+    }, []);
+    
   const { pathname } = useRouter();
 
   return (
@@ -34,7 +58,7 @@ const ServiceDetailsSidebar = () => {
         </div>
         <div className="service-details__need-help-contact">
           <p>{text}</p>
-          <a href={`tel:${phoneHref}`}>{phone}</a>
+          <a href={`tel:+91${organizationDetails.phone}`}>+91 {organizationDetails.phone}</a>
         </div>
       </div>
     </div>

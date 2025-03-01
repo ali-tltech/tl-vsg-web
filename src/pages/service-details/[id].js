@@ -37,6 +37,7 @@ const ServiceDetailsPage = () => {
     }
   }, [id]);
   
+  
   // Show loading state while data is being fetched
   if (!serviceDetails) {
     return (

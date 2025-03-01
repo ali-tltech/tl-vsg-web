@@ -36,3 +36,13 @@ export const singleService =async(id)=>{
         
     }
 }
+
+export const team =async(id)=>{
+    try {
+        const response = await axiosInstance.get(`/team/get-team/${id}`)
+        return response
+    } catch (error) {
+        console.error(error);
+        
+    }
+}

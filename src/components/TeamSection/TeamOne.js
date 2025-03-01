@@ -1,6 +1,6 @@
 import { teamOne } from "@/data/teamSection";
 import useActive from "@/hooks/useActive";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import Title from "../Reuseable/Title";
 import SingleTeamOne from "./SingleTeamOne";
@@ -16,10 +16,10 @@ const TeamOne = ({ id = "" }) => {
         try {
           const response = await getTeamDetails();
   
-          if (Array.isArray(response?.data.data)) {
-            setTeamData(response.data.data);
+          if (Array.isArray(response?.data.team)) {            
+            setTeamData(response.data.team);
           } else {
-            console.error("Expected an array but got:", response.data.data);
+            console.error("Expected an array but got:", response.data.team);
             setTeamData([]);
           }
         } catch (error) {
@@ -36,7 +36,7 @@ const TeamOne = ({ id = "" }) => {
       <div className="team-one__container">
         <Title title={title} tagline={tagline} className="text-center" />
         <Row className="justify-content-center">
-          {teams.map((team) => (
+          {teamData.map((team) => (
             <Col
               xl={3}
               lg={4}
