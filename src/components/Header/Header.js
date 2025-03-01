@@ -1,10 +1,11 @@
 import { useRootContext } from "@/context/context";
 import headerData from "@/data/headerData";
 import useScroll from "@/hooks/useScroll";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Image } from "react-bootstrap";
 import Link from "../Reuseable/Link";
 import MenuList from "./MenuList";
+import { organization } from "src/api/api";
 
 const { logo, navItems: items, callText, phone, phoneHref } = headerData;
 const message = "Hello, I'm interested in VS GenX Solutions HR services. Could you share more details?";  
@@ -13,6 +14,9 @@ const whatsappLink = `https://wa.me/${phoneHref}?text=${encodeURIComponent(messa
 const Header = ({ mainMenuClass = "", navItems = items, onePage = false }) => {
   const { scrollTop } = useScroll(100);
   const { toggleMenu, toggleSearch } = useRootContext();
+  const [organizationDetails, setOrganizationDetails] = useState([])
+
+
 
   const handleToggleSearch = () => {
     toggleSearch();
@@ -24,6 +28,31 @@ const Header = ({ mainMenuClass = "", navItems = items, onePage = false }) => {
     document.body.classList.toggle("locked");
     toggleMenu();
   };
+
+    
+      useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const contactData = await organization();
+            if (contactData.data) {
+      
+              const fullAddress = contactData.data.data.location;
+      
+              // Split the address after every two commas while keeping the commas
+              const addressParts = fullAddress.split(/(.*?,.*?,)/g).filter(Boolean);
+      
+              setOrganizationDetails({
+                ...contactData.data.data,
+                formattedAddress: addressParts, // Store as an array
+              });
+            }
+          } catch (error) {
+            console.error(error);
+          }
+        };
+        fetchData();
+      }, []);
+      
 
   return (
     <header className="main-header clearfix">
@@ -42,7 +71,7 @@ const Header = ({ mainMenuClass = "", navItems = items, onePage = false }) => {
           <div className="main-menu-wrapper__left">
             <div className="main-menu-wrapper__logo">
               <Link href="/">
-                <Image src={logo.src} alt="Logo" width={106}/>
+                <Image src={organizationDetails.logo} alt="Logo" width={106}/>
                 {/* <h2 style={{fontSize:"2rem",color:"white"}}>Vs Genx Solutions</h2> */}
               </Link>
             </div>
@@ -61,7 +90,7 @@ const Header = ({ mainMenuClass = "", navItems = items, onePage = false }) => {
               <div className="main-menu-wrapper__call-number">
                 <p>{callText}</p>
                 <h5>
-                  <a href={whatsappLink} target="_blank" rel="noreferrer">{phone}</a>
+                  <a href={whatsappLink} target="_blank" rel="noreferrer">+91 {organizationDetails?.phone}</a>
                 </h5>
               </div>
             </div>
