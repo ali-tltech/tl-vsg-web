@@ -12,6 +12,7 @@ const TermsOfUsePolicy = () => {
     const fetchTerms = async () => {
       try {
         const response = await getTerms();
+        console.log(response  ,"ressss")
         if (response?.data?.document) {
           const documentData = response.data.document;
           setTermsData(documentData);
@@ -42,7 +43,7 @@ const TermsOfUsePolicy = () => {
     let extractedHeader = "";
     let extractedDate = "N/A";
     let cleanedContent = htmlContent;
-
+  
     // Match and remove the first <h2> (header title)
     const headerRegex = /<h2[^>]*>(.*?)<\/h2>/i;
     const headerMatch = cleanedContent.match(headerRegex);
@@ -50,24 +51,24 @@ const TermsOfUsePolicy = () => {
       extractedHeader = headerMatch[1].trim();
       cleanedContent = cleanedContent.replace(headerRegex, ""); // Remove the <h2> tag from content
     }
-
-    // Match and remove <p>Last Updated: [date]</p>
-    const dateRegex = /<p[^>]*>\s*Last Updated:\s*([\w\s,]+)\s*<\/p>/i;
+  
+    // Match and remove the "Last Updated" paragraph
+    const dateRegex = /<p[^>]*>\s*<em>\s*Last Updated:\s*([\w\s\d,]+)\s*<\/em>\s*<\/p>/i;
     const dateMatch = cleanedContent.match(dateRegex);
     if (dateMatch) {
       extractedDate = dateMatch[1].trim();
       cleanedContent = cleanedContent.replace(dateRegex, ""); // Remove the "Last Updated" <p> tag
     }
-
+  
     return { extractedHeader, extractedDate, cleanedContent };
   };
-
+  
   if (!termsData) {
     return <p className="text-center mt-10 text-gray-600">Loading Terms and Conditions...</p>;
   }
 
   return (
-    <div style={{ padding: "20px", color: "#333", lineHeight: "1.8", maxWidth: "900px", margin: "auto" }}>
+    <div style={{ padding: "20px", color: "#333", lineHeight: "1.8", maxWidth: "1200px", margin: "auto" }}>
       <h2 style={{ textAlign: "center", color: "#007BFF", marginBottom: "10px", marginTop: "80px" }}>
         {headerTitle || "Terms and Conditions & Disclaimer"}
       </h2>
