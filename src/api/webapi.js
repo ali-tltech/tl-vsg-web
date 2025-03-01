@@ -64,3 +64,11 @@ export const getTeamDetails =async()=>{
         
     }
 }
+export const getSEO = async (pageTitle) => {
+    try {
+      const response = await axiosInstance.get(`/seo/get-seo/${pageTitle}`);
+      return response;
+    } catch (error) {
+      console.error("Error fetching SEO data:", error);
+    }
+  };

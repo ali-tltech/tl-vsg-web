@@ -5,12 +5,47 @@ import Layout from "@/components/Layout/Layout";
 import PrivacyPolicy from "@/components/PrivacyPolicy";
 import PageHeader from "@/components/Reuseable/PageHeader";
 import bg_privacy from "@/images/backgrounds/privacy-banner-image.jpg";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getSEO } from "src/api/webapi";
 
 const Privacy = () => {
+  const [seoData, setSeoData] = useState(null);
+  useEffect(() => {
+    const fetchSEO = async () => {
+      try {
+        // Update the API call to include the pageTitle parameter
+        const response = await getSEO("privacy-policy");
+        console.log(response.data);
+        if (response?.data) {
+          // Store the SEO data
+          setSeoData(response.data);
+        } else {
+          console.error("Unexpected response format:", response);
+        }
+      } catch (error) {
+        console.error("Failed to fetch SEO data:", error);
+      }
+    };
+
+    fetchSEO();
+  }, []);
+
+
+  const pageTitle = seoData?.title || "VS GenX Solutions | Privacy Policy"
+  const metaDescription = seoData?.description
+  const metaKeywords = seoData?.keywords
+  const ogImage = seoData?.ogImage
   return (
-    <Layout pageTitle="VS GenX Solutions | Privacy Policy" metaDescription="At VS GenX Solutions, your privacy is our priority. Learn how we collect, use, and safeguard your personal information. Visit our Contact Us page for more details." metaKeywords="Privacy Policy, VS GenX Solutions, data security, personal information, privacy, GDPR, legal compliance, secure data">
-      <Header />
+    <Layout
+      pageTitle={pageTitle}
+      metaDescription={metaDescription}
+      metaKeywords={metaKeywords}
+      ogImage={ogImage}
+      twitterImage={ogImage}
+      twitterTitle={pageTitle}
+      twitterDescription={metaDescription}
+    >      
+     <Header />
       <PageHeader title="Privacy Policy" bgImage={bg_privacy} />
       <PrivacyPolicy />
       {/* <ContactPage /> */}

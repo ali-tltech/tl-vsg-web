@@ -872,6 +872,18 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 /*--------------------------------------------------------------
+# cookie
+--------------------------------------------------------------*/
+
+.cookie-popup {
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.cookie-popup.show {
+  transform: translateY(0);
+}
+/*--------------------------------------------------------------
 # Navigations Two
 --------------------------------------------------------------*/
 .main-header-two {

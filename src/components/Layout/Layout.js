@@ -9,7 +9,7 @@ import SiteFooter from "../SiteFooter/SiteFooter";
 
 const Layout = ({
   children,
-  pageTitle ,
+  pageTitle,
   footerClassName = "",
   navItems,
   onePage = false,

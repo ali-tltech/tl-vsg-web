@@ -10,11 +10,47 @@ import TeamOne from "@/components/TeamSection/TeamOne";
 import TestimonialOne from "@/components/TestimonialSection/TestimonialOne";
 import WorkTogetherTwo from "@/components/WorkTogether/WorkTogetherTwo";
 import bg_about from "@/images/backgrounds/aboutus-banner-image.jpg";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getSEO } from "src/api/webapi";
 
 const About = () => {
+
+  const [seoData, setSeoData] = useState(null);
+  useEffect(() => {
+    const fetchSEO = async () => {
+      try {
+        // Update the API call to include the pageTitle parameter
+        const response = await getSEO("about");
+        console.log(response.data);
+        if (response?.data) {
+          // Store the SEO data
+          setSeoData(response.data);
+        } else {
+          console.error("Unexpected response format:", response);
+        }
+      } catch (error) {
+        console.error("Failed to fetch SEO data:", error);
+      }
+    };
+
+    fetchSEO();
+  }, []);
+
+
+  const pageTitle = seoData?.title || "VS GenX Solutions | About Us - Empowering Talent & Redefining HR"
+  const metaDescription = seoData?.description
+  const metaKeywords = seoData?.keywords
+  const ogImage = seoData?.ogImage
   return (
-    <Layout pageTitle="VS GenX Solutions | About Us - Empowering Talent & Redefining HR" metaDescription="At VS GenX, we empower untapped talent by creating growth opportunities and delivering value-driven HR solutions. Discover our journey of redefining HR through equity, fairness, and transformative milestones, and learn about our mission, vision, and core values." metaKeywords="VS GenX Solutions, About Us, HR solutions, empowering talent, transformative HR, equity in HR, inclusive HR, HR journey, mission, vision, core values">
+    <Layout
+      pageTitle={pageTitle}
+      metaDescription={metaDescription}
+      metaKeywords={metaKeywords}
+      ogImage={ogImage}
+      twitterImage={ogImage}
+      twitterTitle={pageTitle}
+      twitterDescription={metaDescription}
+    >
       <Header />
       <PageHeader page="About" title="About us" bgImage={bg_about} />
       <WorkTogetherTwo />

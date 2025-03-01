@@ -5,11 +5,46 @@ import Header from "@/components/Header/Header";
 import Layout from "@/components/Layout/Layout";
 import PageHeader from "@/components/Reuseable/PageHeader";
 import bg_faq from "@/images/backgrounds/faq-banner-image.jpg";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getSEO } from "src/api/webapi";
 
 const Faq = () => {
+  const [seoData, setSeoData] = useState(null);
+  useEffect(() => {
+    const fetchSEO = async () => {
+      try {
+        // Update the API call to include the pageTitle parameter
+        const response = await getSEO("services");
+        console.log(response.data);
+        if (response?.data) {
+          // Store the SEO data
+          setSeoData(response.data);
+        } else {
+          console.error("Unexpected response format:", response);
+        }
+      } catch (error) {
+        console.error("Failed to fetch SEO data:", error);
+      }
+    };
+
+    fetchSEO();
+  }, []);
+
+
+  const pageTitle = seoData?.title || "VS GenX Solutions | FAQ – Frequently Asked Questions"
+  const metaDescription = seoData?.description
+  const metaKeywords = seoData?.keywords
+  const ogImage = seoData?.ogImage
   return (
-    <Layout pageTitle="VS GenX Solutions | FAQ  Frequently Asked Questions" metaKeywords="VS GenX Solutions, FAQ, Frequently Asked Questions, HR Services, HR Foundations Accelerator, Talent Edge Solutions, Leadership Horizon Hub, Cultural Transformation Studio, Smart HR Solutions, Employee Engagement Catalyst" metaDescription="Find answers to your questions about VS GenX Solutions comprehensive HR services. Learn about our HR Foundations Accelerator, Talent Edge Solutions, Leadership Horizon Hub, Cultural Transformation Studio, Smart HR Solutions, and Employee Engagement Catalyst.">
+    <Layout
+      pageTitle={pageTitle}
+      metaDescription={metaDescription}
+      metaKeywords={metaKeywords}
+      ogImage={ogImage}
+      twitterImage={ogImage}
+      twitterTitle={pageTitle}
+      twitterDescription={metaDescription}
+    > 
      
       <Header />
       <PageHeader title="FAQs" bgImage={bg_faq} />

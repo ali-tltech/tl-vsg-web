@@ -9,11 +9,39 @@ import bg_service from "@/images/backgrounds/service-banner-image.jpg";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { singleService } from "src/api/api";
+import { getSEO } from "src/api/webapi";
 
 const ServiceDetailsPage = () => {
   const router = useRouter();
   const { id } = router.query;
   const [serviceDetails, setServiceDetails] = useState(null);
+
+    const [seoData, setSeoData] = useState(null);
+    useEffect(() => {
+      const fetchSEO = async () => {
+        try {
+          // Update the API call to include the pageTitle parameter
+          const response = await getSEO("services");
+          console.log(response.data);
+          if (response?.data) {
+            // Store the SEO data
+            setSeoData(response.data);
+          } else {
+            console.error("Unexpected response format:", response);
+          }
+        } catch (error) {
+          console.error("Failed to fetch SEO data:", error);
+        }
+      };
+  
+      fetchSEO();
+    }, []);
+  
+  
+    const pageTitle = seoData?.title || "VS GenX Solutions | Popular Services - Empowering HR Solutions"
+    const metaDescription = seoData?.description
+    const metaKeywords = seoData?.keywords
+    const ogImage = seoData?.ogImage
   
   useEffect(() => {
     if (id) {
@@ -51,7 +79,15 @@ const ServiceDetailsPage = () => {
   }
 
   return (
-    <Layout pageTitle={serviceDetails.title || "Service Details"}>
+    <Layout
+    pageTitle={pageTitle}
+    metaDescription={metaDescription}
+    metaKeywords={metaKeywords}
+    ogImage={ogImage}
+    twitterImage={ogImage}
+    twitterTitle={pageTitle}
+    twitterDescription={metaDescription}
+  >  
       <Header />
       <PageHeader
         page="Service Details"
