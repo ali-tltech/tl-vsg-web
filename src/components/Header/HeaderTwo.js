@@ -1,10 +1,11 @@
 import { useRootContext } from "@/context/context";
 import headerData from "@/data/headerData";
 import useScroll from "@/hooks/useScroll";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Image } from "react-bootstrap";
 import Link from "../Reuseable/Link";
 import MenuList from "./MenuList";
+import { organization } from "src/api/api";
 
 const {
   logo,
@@ -31,7 +32,30 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
   const handleToggleMenu = () => {
     document.body.classList.toggle("locked");
     toggleMenu();
-  };
+  };  const [organizationDetails, setOrganizationDetails] = useState([])
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const contactData = await organization();
+          if (contactData.data) {
+    
+            const fullAddress = contactData.data.data.location;
+    
+            // Split the address after every two commas while keeping the commas
+            const addressParts = fullAddress.split(/(.*?,.*?,)/g).filter(Boolean);
+    
+            setOrganizationDetails({
+              ...contactData.data.data,
+              formattedAddress: addressParts, // Store as an array
+            });
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      };
+      fetchData();
+    }, []);
+    
 
   return (
     <header className="main-header-two clearfix">
@@ -42,7 +66,7 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
             <div className="main-header-two__top-left">
               <div className="main-header-two__logo">
                 <Link href="/">
-                  <Image src={logo.src} alt="Logo" width={106} />
+                  <Image src={organizationDetails.logo} alt="Logo" width={106} />
                 </Link>
               </div>
               <div className="main-header-two__top-social">
@@ -61,7 +85,7 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
                 <div className="main-header-two__top-call-number">
                   <p>{callText}</p>
                   <h5>
-                    <a href={whatsappLink} target="_blank" rel="noreferrer">{phone}</a>
+                    <a href={whatsappLink} target="_blank" rel="noreferrer">+91 {organizationDetails?.phone}</a>
                   </h5>
                 </div>
               </div>

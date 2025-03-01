@@ -1,8 +1,9 @@
 import React from "react";
 import { Image } from "react-bootstrap";
+import quote from "@/images/icon/quote-icon.png";
 
 const SingleTestimonialOne = ({ testimonial = {} }) => {
-  const { quote, image, text, name, title } = testimonial;
+  const {  text,position, author } = testimonial;
 
   return (
     <div>
@@ -20,8 +21,8 @@ const SingleTestimonialOne = ({ testimonial = {} }) => {
         </div>
         <div className="testimonial-one__content">
           <p className="testimonial-one__text">{text}</p>
-          <h4 className="testimonial-one__client-name">{name}</h4>
-          <p className="testimonial-one__client-title">{title}</p>
+          <h4 className="testimonial-one__client-name">{author}</h4>
+          <p className="testimonial-one__client-title">{position}</p>
         </div>
       </div>
     </div>
