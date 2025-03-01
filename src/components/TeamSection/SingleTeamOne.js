@@ -5,7 +5,7 @@ import { Image } from "react-bootstrap";
 const SingleTeamOne = ({ team = {} }) => {
   const router = useRouter();
 
-  const { name, title, image, socials } = team;
+  const { name, position, image, linkedin,id } = team;
 
     // Function to generate a URL-friendly slug
     const generateSlug = (name) => {
@@ -13,26 +13,23 @@ const SingleTeamOne = ({ team = {} }) => {
     };
   
     const handleClick = () => {
-      const slug = generateSlug(name); // Convert name to slug format
-      router.push(`/experts-details/${slug}`);
+      router.push(`/experts-details/${id}`);
     };
 
   return (
     <div className="team-one__single" onClick={handleClick}>
       <div className="team-one__img">
-        <Image src={require(`@/images/team/${image}`).default.src} alt="" />
+        <Image src={image} alt="" />
         <div className="team-one__content">
           <h3 className="team-one__name">{name}</h3>
-          <p className="team-one__title">{title}</p>
+          <p className="team-one__title">{position}</p>
         </div>
         <ul className="list-unstyled team-one__social">
-          {socials.map(({ id, href, icon }) => (
-            <li key={id}>
-              <a href={href} target="_blank" rel="noreferrer">
-                <i className={icon}></i>
+            <li >
+              <a href={linkedin} target="_blank" rel="noreferrer">
+                <i className="fab fa-linkedin"></i>
               </a>
             </li>
-          ))}
         </ul>
       </div>
     </div>
