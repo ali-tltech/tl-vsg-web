@@ -1,8 +1,9 @@
 import footerData from "@/data/siteFooter";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import Link from "../Reuseable/Link";
 import toast from "react-hot-toast";
+import { organization } from "src/api/api";
 
 const {
   bg,
@@ -55,7 +56,29 @@ const SiteFooter = ({ footerClassName = "" }) => {
       setLoading(false);
     }
   };
-
+  const [organizationDetails, setOrganizationDetails] = useState([])
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const contactData = await organization();
+        if (contactData.data) {  
+          const fullAddress = contactData.data.data.location;
+  
+          // Split the address after every two commas while keeping the commas
+          const addressParts = fullAddress.split(/(.*?,.*?,)/g).filter(Boolean);
+  
+          setOrganizationDetails({
+            ...contactData.data.data,
+            formattedAddress: addressParts, // Store as an array
+          });
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
+  
   const message =
     "Hello, I'm interested in VS GenX Solutions HR services. Could you share more details?";
   const whatsappLink = `https://wa.me/${phoneHref}?text=${encodeURIComponent(
@@ -75,7 +98,7 @@ const SiteFooter = ({ footerClassName = "" }) => {
               <div className="footer-widget__column footer-widget__about">
                 <div className="footer-widget__logo">
                   <Link href="/">
-                    <Image src={logo.src} alt="Logo" width={200} height={90} />
+                    <Image src={organizationDetails?.logo} alt="Logo" width={200} height={90} />
                   </Link>
                 </div>
                 <div className="footer-widget__about-text-box">
@@ -139,10 +162,13 @@ const SiteFooter = ({ footerClassName = "" }) => {
             <Col xl={3} lg={6} md={6} className="animated fadeInUp">
               <div className="footer-widget__column footer-widget__contact clearfix">
                 <h3 className="footer-widget__title">Contact</h3>
-                <p className="footer-widget__contact-text">{addressLine1}</p>
+                {organizationDetails?.formattedAddress?.map((line, index) => (
+                  <p key={index} className="contact-details__address text-white">{line}</p>
+                ))}
+                {/* <p className="footer-widget__contact-text">{addressLine1}</p>
                 <p className="footer-widget__contact-text">{addressLine2}</p>
                 <p className="footer-widget__contact-text">{addressLine3}</p>
-                <p className="footer-widget__contact-text">{addressLine4}</p>
+                <p className="footer-widget__contact-text">{addressLine4}</p> */}
                 <h4 className="footer-widget__contact-info">
                   <a
                     href={whatsappLink}
@@ -150,7 +176,7 @@ const SiteFooter = ({ footerClassName = "" }) => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    {phone}
+                   +91 {organizationDetails?.phone}
                   </a>{" "}
                  
                 </h4>

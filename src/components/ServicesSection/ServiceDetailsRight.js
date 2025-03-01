@@ -1,26 +1,79 @@
-import React from "react";
+import React, { useState } from "react";
 import { Image } from "react-bootstrap";
 
 const ServiceDetailsRight = ({ service = {} }) => {
-  const { image, icon, title, text, text2, text3, contents } = service;
+  const {
+    title = "",
+    shortDescription = "",
+    tagline = "",
+    image = "",
+    taglineDescription = "",
+    servicePoints = [],
+    points = []
+  } = service || {};
+    const [icons] = useState({
+      hrFoundations: "icon-creative",
+      talentEdge: "icon-business",
+      leadershipHorizon: "icon-global",
+      culturalTransformation: "icon-mobile-analytics",
+      smartHR: "icon-analysis",
+      employeeEngagement: "icon-creative-1",
+    });
+    const getIconClass = () => {
+      // if (icon && typeof icon === 'string') {
+      //   return icon;
+      // }
+      
+      if (title && title.length > 0) {
+        const cleanTitle = title.trim();
+        const firstLetter = cleanTitle.charAt(0).toLowerCase();
+        
+        if (cleanTitle.toLowerCase().includes("employee engagement")) {
+          return icons.employeeEngagement;
+        }
+        
+        switch(firstLetter) {
+          case 'h':
+            return icons.hrFoundations;
+          case 't':
+            return icons.talentEdge;
+          case 'l':
+            return icons.leadershipHorizon;
+          case 'c':
+            return icons.culturalTransformation;
+          case 's':
+            return icons.smartHR;
+          case 'e':
+            return icons.employeeEngagement;
+          default:
+            return icons.smartHR;
+        }
+      }
+      
+      return icons.smartHR;
+    };
 
+  // Determine which points array to use and ensure we're working with strings
+  const displayPoints = points.length > 0 
+    ? (typeof points[0] === 'string' ? points : points.map(point => point.text || ""))
+    : servicePoints.map(point => point.text || "");
   return (
     <div className="service-details__right">
       <div className="service-details__img">
-        <Image src={image.src} alt="Service image" />
-      </div>
+{      image &&  <Image src={image} alt="Service image" />
+}      </div>
       <div className="service-details__content">
         <div className="service-details__title-box">
           <div className="service-details__title-icon">
-            <span className={icon}></span>
+            <span className={getIconClass()}></span>
           </div>
           <h3 className="service-details__title">{title}</h3>
         </div>
-        <p className="service-details__text-1">{text}</p>
-        {text2 && <p className="service-details__text-2">{text2}</p>}
+        {tagline && <p className="service-details__text-1">{tagline}</p>}
+        {taglineDescription && <p className="service-details__text-2">{taglineDescription}</p>}
       </div>
       <div className="mt-5">
-      {contents.map((text, i) => (
+      {points && points.map((text, i) => (
   <div key={i} style={{ display: "flex", alignItems: "start", marginBottom: "10px" }}>
       <div
           style={{
