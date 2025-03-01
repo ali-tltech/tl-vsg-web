@@ -49,7 +49,6 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
     const fetchSocial = async () => {
       try {
         const response = await getSocial();
-        console.log(response,"resss");
         if (response?.data?.data) {
           const formattedLinks=response.data.data.filter((item)=>item.isActive).map((item)=>({
             id: item.id,
@@ -74,7 +73,6 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
     
             const fullAddress = contactData.data.data.location;
     
-            // Split the address after every two commas while keeping the commas
             const addressParts = fullAddress.split(/(.*?,.*?,)/g).filter(Boolean);
     
             setOrganizationDetails({

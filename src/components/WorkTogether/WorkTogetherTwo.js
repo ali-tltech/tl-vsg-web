@@ -30,62 +30,62 @@ const WorkTogetherTwo = () => {
 
               {/* First Four Paragraphs */}
               <div className="work-together-two__intro">
-                {workTogetherTwo.intro.slice(0,2).map((paragraph, index) => (
+                {workTogetherTwo.intro.slice(0, 2).map((paragraph, index) => (
                   <p key={index}>{paragraph}</p>
                 ))}
               </div>
             </div>
-          
+
           </Col>
         </Row>
-        <div className="work-together-two__intro" style={{marginTop: "20px"}}>
-                {workTogetherTwo.intro.slice(2).map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
-                ))}
-              </div>
-         <div className="work-together-two__milestones">
-         <ul>
-  {workTogetherTwo.milestones.map((milestone, index) => (
-    <li key={index} style={{ display: "flex", alignItems: "start", marginBottom: "10px" }}>
-      <div
-        style={{
-          background: "#434176",
-          borderRadius: "8px",
-          marginRight: "10px",
-          height: "35px",
-          width: "35px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <span
-          className="icon-right-arrow"
-          style={{
-            color: "white",
-            fontSize: "18px",
-            width: "18px",
-            height: "18px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        ></span>
-      </div>
-      <div style={{width:"80%",background:"#ededf3",color:"#191825",padding:"5px",borderRadius:"8px"}}>{milestone}</div>
+        <div className="work-together-two__intro" style={{ marginTop: "20px" }}>
+          {workTogetherTwo.intro.slice(2).map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
+        </div>
+        <div className="work-together-two__milestones">
+          <ul>
+            {workTogetherTwo.milestones.map((milestone, index) => (
+              <li key={index} style={{ display: "flex", alignItems: "start", marginBottom: "10px" }}>
+                <div
+                  style={{
+                    background: "#434176",
+                    borderRadius: "8px",
+                    marginRight: "10px",
+                    height: "35px",
+                    width: "35px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <span
+                    className="icon-right-arrow"
+                    style={{
+                      color: "white",
+                      fontSize: "18px",
+                      width: "18px",
+                      height: "18px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  ></span>
+                </div>
+                <div style={{ width: "80%", background: "#ededf3", color: "#191825", padding: "5px", borderRadius: "8px" }}>{milestone}</div>
 
-      
-    </li>
-  ))}
-</ul>
 
-              </div>
+              </li>
+            ))}
+          </ul>
+
+        </div>
         <div><p className="work-together-two__conclusion">
-                {workTogetherTwo.conclusion}
-              </p></div>
-              <Link href="/contact" className="thm-btn work-together-two__btn" style={{marginTop: "30px"}}>
-                CONTACT US
-              </Link>
+          {workTogetherTwo.conclusion}
+        </p></div>
+        <Link href="/contact" className="thm-btn work-together-two__btn" style={{ marginTop: "30px" }}>
+          CONTACT US
+        </Link>
       </Container>
     </section>
   );

@@ -36,7 +36,6 @@ const TestimonialOne = ({ className = "", id = "" }) => {
       try {
         const testimonialsData = await testimonials();
         if (testimonialsData.data) {
-          console.log(testimonialsData.data.data);
           setTestimonialsDetails(testimonialsData.data.data);
         }
       } catch (error) {
