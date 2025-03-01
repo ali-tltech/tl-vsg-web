@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import Link from "../Reuseable/Link";
 import toast from "react-hot-toast";
+import { Subscribe } from "../../api/webapi";
 
 const {
   bg,
@@ -35,19 +36,12 @@ const SiteFooter = ({ footerClassName = "" }) => {
 
     setLoading(true);
     try {
-      const response = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
+      const response = await Subscribe(email);
+      if (response.data.success) {
         toast.success("You have subscribed successfully!");
         setEmail(""); // Clear input field
       } else {
-        toast.error(data.error || "Subscription failed.");
+        toast.error(response.data.message || "Subscription failed.");
       }
     } catch (error) {
       toast.error("Something went wrong. Please try again.");
@@ -152,7 +146,7 @@ const SiteFooter = ({ footerClassName = "" }) => {
                   >
                     {phone}
                   </a>{" "}
-                 
+
                 </h4>
               </div>
             </Col>
