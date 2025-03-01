@@ -41,7 +41,6 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
     
             const fullAddress = contactData.data.data.location;
     
-            // Split the address after every two commas while keeping the commas
             const addressParts = fullAddress.split(/(.*?,.*?,)/g).filter(Boolean);
     
             setOrganizationDetails({
