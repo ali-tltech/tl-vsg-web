@@ -67,7 +67,7 @@ export default function PrivacyPolicy() {
   }
 
   return (
-    <div className="p-5 text-gray-800 leading-relaxed max-w-4xl mx-auto">
+    <div className="p-5 text-gray-800 leading-relaxed " style={{ padding: "20px", color: "#333", lineHeight: "1.8", maxWidth: "1200px", margin: "auto" }}>
       <h2 className="text-center text-blue-600 mb-3 mt-20">
         {headerTitle || (policyData.title === "PRIVACY" && "Privacy Policy")}
       </h2>
