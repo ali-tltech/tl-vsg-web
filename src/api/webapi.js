@@ -39,7 +39,26 @@ export const getPrivacyPolicy =async()=>{
 export const getTerms =async()=>{
     try {
         const response = await axiosInstance.get('/document/get-terms')
-        console.log(response,"terms");
+        return response
+    } catch (error) {
+        console.error(error);
+        
+    }
+}
+export const getSocial =async()=>{
+    try {
+        const response = await axiosInstance.get('/social/get-social')
+        console.log(response,"social");
+        return response
+    } catch (error) {
+        console.error(error);
+        
+    }
+}
+export const getTeamDetails =async()=>{
+    try {
+        const response = await axiosInstance.get('/social/get-social')
+        console.log(response,"social");
         return response
     } catch (error) {
         console.error(error);
