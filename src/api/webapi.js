@@ -48,7 +48,6 @@ export const getTerms =async()=>{
 export const getSocial =async()=>{
     try {
         const response = await axiosInstance.get('/social/get-social')
-        console.log(response,"social");
         return response
     } catch (error) {
         console.error(error);
@@ -57,8 +56,8 @@ export const getSocial =async()=>{
 }
 export const getTeamDetails =async()=>{
     try {
-        const response = await axiosInstance.get('/social/get-social')
-        console.log(response,"social");
+        const response = await axiosInstance.get('/team/active-team')
+        console.log(response,"Teamss");
         return response
     } catch (error) {
         console.error(error);
