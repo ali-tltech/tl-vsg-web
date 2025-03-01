@@ -5,12 +5,47 @@ import Layout from "@/components/Layout/Layout";
 import PageHeader from "@/components/Reuseable/PageHeader";
 import TermsOfUsePolicy from "@/components/TermsOfUse/TermsOfUsePolicy";
 import bg_terms from "@/images/backgrounds/terms-banner-image.jpg";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getSEO } from "src/api/webapi";
 
 const TermsOfUse = () => {
+   const [seoData, setSeoData] = useState(null);
+    useEffect(() => {
+      const fetchSEO = async () => {
+        try {
+          // Update the API call to include the pageTitle parameter
+          const response = await getSEO("terms");
+          console.log(response.data);
+          if (response?.data) {
+            // Store the SEO data
+            setSeoData(response.data);
+          } else {
+            console.error("Unexpected response format:", response);
+          }
+        } catch (error) {
+          console.error("Failed to fetch SEO data:", error);
+        }
+      };
+  
+      fetchSEO();
+    }, []);
+  
+  
+    const pageTitle = seoData?.title || "VS GenX Solutions | Terms and Conditions & Disclaimer"
+    const metaDescription = seoData?.description
+    const metaKeywords = seoData?.keywords
+    const ogImage = seoData?.ogImage
   return (
-    <Layout pageTitle="VS GenX Solutions | Terms and Conditions & Disclaimer" metaDescription="Read the Terms and Conditions and Disclaimer for VS GenX Solutions. Understand our policies on website usage, intellectual property, data protection, and legal disclaimers." metaKeywords="Terms and Conditions, Disclaimer, VS GenX Solutions, website policies, legal terms, data protection, intellectual property, legal disclaimer">
-      <Header />
+    <Layout
+      pageTitle={pageTitle}
+      metaDescription={metaDescription}
+      metaKeywords={metaKeywords}
+      ogImage={ogImage}
+      twitterImage={ogImage}
+      twitterTitle={pageTitle}
+      twitterDescription={metaDescription}
+    >  
+          <Header />
       <PageHeader title="Terms and Conditions & Disclaimer" bgImage={bg_terms} />
       <TermsOfUsePolicy />
       {/* <ContactPage /> */}

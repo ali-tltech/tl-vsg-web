@@ -1,6 +1,6 @@
 import { teamOne } from "@/data/teamSection";
 import useActive from "@/hooks/useActive";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import Title from "../Reuseable/Title";
 import SingleTeamOne from "./SingleTeamOne";

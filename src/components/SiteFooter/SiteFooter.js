@@ -4,7 +4,7 @@ import { Col, Container, Image, Row } from "react-bootstrap";
 import Link from "../Reuseable/Link";
 import toast from "react-hot-toast";
 import { organization } from "src/api/api";
-import { Subscribe } from "../../api/webapi";
+import { getSocial, Subscribe } from "../../api/webapi";
 
 const {
   bg,
@@ -27,6 +27,34 @@ const {
 const SiteFooter = ({ footerClassName = "" }) => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
+  const [socialLink, setSocialLink] = useState([]);
+  const platformIcons = {
+    linkedin: "fab fa-linkedin",
+    youtube: "fab fa-youtube",
+    facebook: "fab fa-facebook",
+    instagram: "fab fa-instagram",
+    whatsapp: "fab fa-whatsapp",
+  };
+
+  useEffect(() => {
+      const fetchSocial = async () => {
+        try {
+          const response = await getSocial();
+          if (response?.data?.data) {
+            const formattedLinks=response.data.data.filter((item)=>item.isActive).map((item)=>({
+              id: item.id,
+              icon: platformIcons[item.platform.toLowerCase()] || "fas fa-globe", // Default icon if not found
+              href: item.url,
+            }) );
+            setSocialLink(formattedLinks);
+          }
+        } catch (error) {
+          console.error("Error fetching Social Links", error);
+        }
+      };
+  
+      fetchSocial();
+    }, []);
 
   const handleSubscribe = async (e) => {
     e.preventDefault();
@@ -99,10 +127,10 @@ const SiteFooter = ({ footerClassName = "" }) => {
                   <p className="footer-widget__about-text">{aboutText}</p>
                 </div>
                 <div className="site-footer__social">
-                  {socials.map(({ id, href, icon }) => (
-                    <a key={id} href={href} target="_blank" rel="noreferrer">
-                      <i className={icon}></i>
-                    </a>
+                     {socialLink.map((social) => (
+               <a key={social.id} href={social.href} target="_blank" rel="noopener noreferrer">
+               <i className={social.icon}></i>
+             </a>
                   ))}
                 </div>
               </div>
