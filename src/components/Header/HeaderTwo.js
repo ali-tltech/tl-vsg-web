@@ -6,6 +6,7 @@ import { Container, Image } from "react-bootstrap";
 import Link from "../Reuseable/Link";
 import MenuList from "./MenuList";
 import { organization } from "src/api/api";
+import { getSocial } from "src/api/webapi";
 
 const {
   logo,
@@ -22,6 +23,16 @@ const whatsappLink = `https://wa.me/${phoneHref}?text=${encodeURIComponent(messa
 const HeaderTwo = ({ navItems = items, onePage = false }) => {
   const { scrollTop } = useScroll(100);
   const { toggleMenu, toggleSearch } = useRootContext();
+  const [organizationDetails, setOrganizationDetails] = useState([])
+  const [socialLink, setSocialLink] = useState([]);
+  const platformIcons = {
+    linkedin: "fab fa-linkedin",
+    youtube: "fab fa-youtube",
+    facebook: "fab fa-facebook",
+    instagram: "fab fa-instagram",
+    whatsapp: "fab fa-whatsapp",
+  };
+
 
   const handleToggleSearch = () => {
     toggleSearch();
@@ -32,7 +43,29 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
   const handleToggleMenu = () => {
     document.body.classList.toggle("locked");
     toggleMenu();
-  };  const [organizationDetails, setOrganizationDetails] = useState([])
+  };  
+
+  useEffect(() => {
+    const fetchSocial = async () => {
+      try {
+        const response = await getSocial();
+        console.log(response,"resss");
+        if (response?.data?.data) {
+          const formattedLinks=response.data.data.filter((item)=>item.isActive).map((item)=>({
+            id: item.id,
+            icon: platformIcons[item.platform.toLowerCase()] || "fas fa-globe", // Default icon if not found
+            href: item.url,
+          }) );
+          setSocialLink(formattedLinks);
+        }
+      } catch (error) {
+        console.error("Error fetching Social Links", error);
+      }
+    };
+
+    fetchSocial();
+  }, []);
+  
     useEffect(() => {
       const fetchData = async () => {
         try {
@@ -56,6 +89,7 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
     }, []);
     
 
+  
   return (
     <header className="main-header-two clearfix">
       {/* Top navbar */}
@@ -69,10 +103,10 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
                 </Link>
               </div>
               <div className="main-header-two__top-social">
-                {socials.map(({ id, icon, href }) => (
-                  <a key={id} target="_blank" rel="noreferrer" href={href}>
-                    <i className={icon}></i>
-                  </a>
+                {socialLink.map((social) => (
+               <a key={social.id} href={social.href} target="_blank" rel="noopener noreferrer">
+               <i className={social.icon}></i>
+             </a>
                 ))}
               </div>
             </div>
