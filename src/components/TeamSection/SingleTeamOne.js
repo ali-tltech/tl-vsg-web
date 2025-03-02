@@ -17,7 +17,7 @@ const SingleTeamOne = ({ team = {} }) => {
     };
 
   return (
-    <div className="team-one__single" onClick={handleClick}>
+    <div className="team-one__single" style={{cursor:"pointer"}} onClick={handleClick}>
       <div className="team-one__img">
         <Image src={image} alt="" />
         <div className="team-one__content">
