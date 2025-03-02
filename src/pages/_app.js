@@ -29,6 +29,7 @@
   import { useRouter } from "next/router";
   import Script from "next/script";
   import ContextProvider from "@/context/ContextProvider";
+import FaviconUpdater from "@/components/FaviconUpdater/FaviconUpdater";
   
   // Google Analytics Tracking ID
   const GA_TRACKING_ID = "G-56XPSKHF5L"; // Replace with your actual Google Analytics ID
@@ -90,6 +91,8 @@
         />
         
         <Toaster position="top-right" reverseOrder={false} />
+        {/*------ favicon automation component ------*/}
+        {/* <FaviconUpdater /> */} 
         <Component {...pageProps} />
       </ContextProvider>
     );

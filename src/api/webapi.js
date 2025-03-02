@@ -57,7 +57,6 @@ export const getSocial =async()=>{
 export const getTeamDetails =async()=>{
     try {
         const response = await axiosInstance.get('/team/active-team')
-        console.log(response,"Teamss");
         return response
     } catch (error) {
         console.error(error);
