@@ -65,27 +65,31 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
     fetchSocial();
   }, []);
   
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const contactData = await organization();
-          if (contactData.data) {
-    
-            const fullAddress = contactData.data.data.location;
-    
-            const addressParts = fullAddress.split(/(.*?,.*?,)/g).filter(Boolean);
-    
-            setOrganizationDetails({
-              ...contactData.data.data,
-              formattedAddress: addressParts, // Store as an array
-            });
-          }
-        } catch (error) {
-          console.error(error);
-        }
-      };
-      fetchData();
-    }, []);
+     useEffect(() => {
+       const fetchData = async () => {
+         try {
+           const contactData = await organization();
+           if (contactData.data) {
+             const fullAddress = contactData.data.data.location;
+             const addressParts = fullAddress.split(/(.*?,.*?,)/g).filter(Boolean);
+     
+             // Format the phone number by adding a space only after the first two digits
+             const phone = contactData.data.data.phone;
+             const formattedPhone = phone.length > 2 ? phone.slice(0, 2) + " " + phone.slice(2) : phone;
+     
+             setOrganizationDetails({
+               ...contactData.data.data,
+               formattedAddress: addressParts, // Store as an array
+               phone: formattedPhone, // Store the formatted phone number
+             });
+           }
+         } catch (error) {
+           console.error(error);
+         }
+       };
+       fetchData();
+     }, []);
+     
     
 
   
@@ -117,7 +121,7 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
                 <div className="main-header-two__top-call-number">
                   <p>{callText}</p>
                   <h5>
-                    <a href={whatsappLink} target="_blank" rel="noreferrer">+91 {organizationDetails?.phone}</a>
+                    <a href={whatsappLink} target="_blank" rel="noreferrer">+{organizationDetails?.phone}</a>
                   </h5>
                 </div>
               </div>

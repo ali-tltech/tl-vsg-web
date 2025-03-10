@@ -10,27 +10,31 @@ const { navItems, title, phoneIcon, text, phone, phoneHref } =
 
 const ServiceDetailsSidebar = () => {
   const [organizationDetails, setOrganizationDetails] = useState([])
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const contactData = await organization();
-          if (contactData.data) {
-    
-            const fullAddress = contactData.data.data.location;
-    
-            const addressParts = fullAddress.split(/(.*?,.*?,)/g).filter(Boolean);
-    
-            setOrganizationDetails({
-              ...contactData.data.data,
-              formattedAddress: addressParts, // Store as an array
-            });
+      useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const contactData = await organization();
+            if (contactData.data) {
+              const fullAddress = contactData.data.data.location;
+              const addressParts = fullAddress.split(/(.*?,.*?,)/g).filter(Boolean);
+      
+              // Format the phone number by adding a space only after the first two digits
+              const phone = contactData.data.data.phone;
+              const formattedPhone = phone.length > 2 ? phone.slice(0, 2) + " " + phone.slice(2) : phone;
+      
+              setOrganizationDetails({
+                ...contactData.data.data,
+                formattedAddress: addressParts, // Store as an array
+                phone: formattedPhone, // Store the formatted phone number
+              });
+            }
+          } catch (error) {
+            console.error(error);
           }
-        } catch (error) {
-          console.error(error);
-        }
-      };
-      fetchData();
-    }, []);
+        };
+        fetchData();
+      }, []);
+      
     
   const { pathname } = useRouter();
 
@@ -58,7 +62,7 @@ const ServiceDetailsSidebar = () => {
         </div>
         <div className="service-details__need-help-contact">
           <p>{text}</p>
-          <a href={`tel:+91${organizationDetails.phone}`}>+91 {organizationDetails.phone}</a>
+          <a href={`tel:+${organizationDetails.phone}`}>+{organizationDetails.phone}</a>
         </div>
       </div>
     </div>

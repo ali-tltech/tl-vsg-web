@@ -9,30 +9,31 @@ const message = "Hello, I'm interested in VS GenX Solutions HR services. Could y
 const whatsappLink = `https://wa.me/${phoneHref}?text=${encodeURIComponent(message)}`;
 const ContactDetails = () => {
   const [organizationDetails, setOrganizationDetails] = useState()
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const contactData = await organization();
-        if (contactData.data) {
-          console.log(contactData.data.data);
-  
-          const fullAddress = contactData.data.data.location;
-  
-          // Split the address after every two commas while keeping the commas
-          const addressParts = fullAddress.split(/(.*?,.*?,)/g).filter(Boolean);
-  
-          setOrganizationDetails({
-            ...contactData.data.data,
-            formattedAddress: addressParts, // Store as an array
-          });
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchData();
-  }, []);
-  
+   useEffect(() => {
+     const fetchData = async () => {
+       try {
+         const contactData = await organization();
+         if (contactData.data) {
+           const fullAddress = contactData.data.data.location;
+           const addressParts = fullAddress.split(/(.*?,.*?,)/g).filter(Boolean);
+   
+           // Format the phone number by adding a space only after the first two digits
+           const phone = contactData.data.data.phone;
+           const formattedPhone = phone.length > 2 ? phone.slice(0, 2) + " " + phone.slice(2) : phone;
+   
+           setOrganizationDetails({
+             ...contactData.data.data,
+             formattedAddress: addressParts, // Store as an array
+             phone: formattedPhone, // Store the formatted phone number
+           });
+         }
+       } catch (error) {
+         console.error(error);
+       }
+     };
+     fetchData();
+   }, []);
+   
 
   return (
     <section className="contact-details">
@@ -69,7 +70,7 @@ const ContactDetails = () => {
                       className="contact-details__contact-number"
                       target="_blank" rel="noreferrer"
                     >
-                      +91 {organizationDetails?.phone}
+                      +{organizationDetails?.phone}
                     </a>
                     <a
                       href={`mailto:${organizationDetails?.email}`}

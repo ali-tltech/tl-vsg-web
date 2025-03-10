@@ -3,6 +3,9 @@ import { Col, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Enquery } from 'src/api/webapi';
+import 'react-phone-input-2/lib/style.css';
+import PhoneInput from 'react-phone-input-2';
+import { Controller } from "react-hook-form";
 
 const ContactForm = ({
   formClassName = 'comment-one__form',
@@ -14,6 +17,7 @@ const ContactForm = ({
 }) => {
   const {
     register,
+    control,
     handleSubmit,
     formState: { errors },
     reset,
@@ -96,7 +100,7 @@ const ContactForm = ({
         </Col>
 
         {/* Phone Number Field */}
-        <Col xl={6}>
+        {/* <Col xl={6}>
           <div className={inputClassName}>
             <input
               type="tel"
@@ -111,8 +115,37 @@ const ContactForm = ({
             />
             {errors.phoneNumber && <label className="error" style={{ color: "red" }}>{errors.phoneNumber.message}</label>}
           </div>
-        </Col>
-
+        </Col> */}
+ <Col xl={6}>
+  <div className={inputClassName}>
+ 
+  <Controller
+  name="phoneNumber"
+  control={control}  // Now this is properly defined
+  defaultValue=""
+  rules={{ required: "This field is required" }}
+  render={({ field }) => (
+    <PhoneInput
+      country={'in'}
+      value={field.value}
+      onChange={(phone) => field.onChange(phone)}
+      inputProps={{
+        name: "phoneNumber",
+        required: true,
+        placeholder: "Phone Number"
+      }}
+      containerStyle={{ width: "100%" }}
+      inputStyle={{ width: "100%", paddingLeft: "52px" }}
+      buttonStyle={{ width: "47px",border:'none',backgroundColor:"#fcf5f3" }}
+      dropdownStyle={{ width: "350px" }}
+      enableSearch={false}
+      disableLabel={true}
+    />
+  )}
+/>
+    {errors.phoneNumber && <label className="error" style={{ color: "red" }}>{errors.phoneNumber.message}</label>}
+  </div>
+</Col>
       </Row>
 
       <Row>
