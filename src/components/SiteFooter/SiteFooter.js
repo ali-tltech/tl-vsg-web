@@ -83,15 +83,18 @@ const SiteFooter = ({ footerClassName = "" }) => {
     const fetchData = async () => {
       try {
         const contactData = await organization();
-        if (contactData.data) {  
+        if (contactData.data) {
           const fullAddress = contactData.data.data.location;
-  
-          // Split the address after every two commas while keeping the commas
           const addressParts = fullAddress.split(/(.*?,.*?,)/g).filter(Boolean);
+  
+          // Format the phone number by adding a space only after the first two digits
+          const phone = contactData.data.data.phone;
+          const formattedPhone = phone.length > 2 ? phone.slice(0, 2) + " " + phone.slice(2) : phone;
   
           setOrganizationDetails({
             ...contactData.data.data,
             formattedAddress: addressParts, // Store as an array
+            phone: formattedPhone, // Store the formatted phone number
           });
         }
       } catch (error) {
@@ -100,6 +103,7 @@ const SiteFooter = ({ footerClassName = "" }) => {
     };
     fetchData();
   }, []);
+  
   
   const message =
     "Hello, I'm interested in VS GenX Solutions HR services. Could you share more details?";
@@ -198,7 +202,7 @@ const SiteFooter = ({ footerClassName = "" }) => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                   +91 {organizationDetails?.phone}
+                   +{organizationDetails?.phone}
                   </a>{" "}
 
                 </h4>
