@@ -4,20 +4,21 @@ import { getTerms } from "src/api/webapi";
 
 const TermsOfUsePolicy = () => {
   const [termsData, setTermsData] = useState(null);
-  const [lastUpdated, setLastUpdated] = useState("N/A"); // Store Last Updated separately
-  const [sanitizedContent, setSanitizedContent] = useState(""); // Store modified content
-  const [headerTitle, setHeaderTitle] = useState(""); // Store extracted header title
+  const [lastUpdated, setLastUpdated] = useState("N/A");
+  const [sanitizedContent, setSanitizedContent] = useState("");
+  const [headerTitle, setHeaderTitle] = useState("");
 
   useEffect(() => {
     const fetchTerms = async () => {
       try {
         const response = await getTerms();
-        console.log(response  ,"ressss")
+        console.log(response, "ressss");
+
         if (response?.data?.document) {
           const documentData = response.data.document;
           setTermsData(documentData);
 
-          // Extract and remove both the first header and "Last Updated" from content
+          // Extract and clean content
           const { extractedHeader, extractedDate, cleanedContent } = extractAndCleanContent(documentData.content);
 
           if (extractedHeader) {
@@ -27,7 +28,7 @@ const TermsOfUsePolicy = () => {
             setLastUpdated(extractedDate);
           }
 
-          // Set modified content without the extracted header and "Last Updated"
+          // Set sanitized content with decoded HTML entities
           setSanitizedContent(cleanedContent);
         }
       } catch (error) {
@@ -38,31 +39,41 @@ const TermsOfUsePolicy = () => {
     fetchTerms();
   }, []);
 
-  // Function to extract and remove the first <h2> and "Last Updated" line from HTML content
+  // Function to decode HTML entities like &amp; -> &
+  const decodeHtmlEntities = (text) => {
+    const textarea = document.createElement("textarea");
+    textarea.innerHTML = text;
+    return textarea.value;
+  };
+
+  // Function to extract and clean header & last updated
   const extractAndCleanContent = (htmlContent) => {
     let extractedHeader = "";
     let extractedDate = "N/A";
     let cleanedContent = htmlContent;
-  
+
     // Match and remove the first <h2> (header title)
     const headerRegex = /<h2[^>]*>(.*?)<\/h2>/i;
     const headerMatch = cleanedContent.match(headerRegex);
     if (headerMatch) {
-      extractedHeader = headerMatch[1].trim();
-      cleanedContent = cleanedContent.replace(headerRegex, ""); // Remove the <h2> tag from content
+      extractedHeader = decodeHtmlEntities(headerMatch[1].trim());
+      cleanedContent = cleanedContent.replace(headerRegex, "");
     }
-  
+
     // Match and remove the "Last Updated" paragraph
     const dateRegex = /<p[^>]*>\s*<em>\s*Last Updated:\s*([\w\s\d,]+)\s*<\/em>\s*<\/p>/i;
     const dateMatch = cleanedContent.match(dateRegex);
     if (dateMatch) {
       extractedDate = dateMatch[1].trim();
-      cleanedContent = cleanedContent.replace(dateRegex, ""); // Remove the "Last Updated" <p> tag
+      cleanedContent = cleanedContent.replace(dateRegex, "");
     }
-  
+
+    // Decode HTML entities for the entire cleaned content
+    cleanedContent = decodeHtmlEntities(cleanedContent);
+
     return { extractedHeader, extractedDate, cleanedContent };
   };
-  
+
   if (!termsData) {
     return <p className="text-center mt-10 text-gray-600">Loading Terms and Conditions...</p>;
   }
@@ -79,7 +90,7 @@ const TermsOfUsePolicy = () => {
       </p>
 
       <section className="mt-5">
-        {/* Render sanitized HTML content without the extracted header and Last Updated */}
+        {/* Render sanitized HTML content */}
         <div
           className="prose prose-blue max-w-none"
           dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(sanitizedContent) }}
