@@ -70,4 +70,27 @@ export const getSEO = async (pageTitle) => {
     } catch (error) {
       console.error("Error fetching SEO data:", error);
     }
+
+    
+  };
+
+  export const getBlog = async () => {
+    try {
+      const response = await axiosInstance.get(`/blog/get-all-blogs`);
+      console.log(response);
+      return response;
+    } catch (error) {
+      console.error("Error fetching Blog data:", error);
+    } 
+  };
+
+
+  export const getBlogById = async (id) => {
+    try {
+      const response = await axiosInstance.get(`/blog/get-blog/${id}`);
+      console.log(response);
+      return response;
+    } catch (error) {
+      console.error("Error fetching Blog data:", error);
+    } 
   };

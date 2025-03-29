@@ -1,11 +1,11 @@
+"use client";
 import { newsOne } from "@/data/newsSection";
 import useActive from "@/hooks/useActive";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Title from "../Reuseable/Title";
 import SingleNewsOne from "./SingleNewsOne";
-
-const { tagline, title, newsData } = newsOne;
+import { getBlog } from "src/api/webapi";
 
 const NewsOne = ({
   className = "news-one",
@@ -15,6 +15,27 @@ const NewsOne = ({
   children,
 }) => {
   const ref = useActive(id);
+  const [blogData, setBlogData] = useState([]); 
+  const { tagline, title } = newsOne;
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await getBlog();
+        if (Array.isArray(response?.data?.data)) {            
+          setBlogData(response.data.data);
+        } else {
+          console.error("Expected an array but got:", response.data.data);
+          setBlogData([]);
+        }
+      } catch (error) {
+        console.error("Failed to fetch Blog:", error);
+        setBlogData([]);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
 
   return (
     <section ref={ref} className={className} id={id}>
@@ -29,15 +50,15 @@ const NewsOne = ({
           <Title title={title} tagline={tagline} className="text-center" />
         )}
         <Row>
-          {newsData.slice(0, !hideTitle ? 3 : undefined).map((news) => (
+          {blogData.slice(0, !hideTitle ? 3 : undefined).map((blog) => (
             <Col
               xl={4}
               lg={hideTitle ? 6 : 4}
               md={hideTitle ? 6 : undefined}
-              key={news.id}
+              key={blog.id} 
               className="animated fadeInUp"
             >
-              <SingleNewsOne news={news} />
+              <SingleNewsOne blogData={blog} />
             </Col>
           ))}
         </Row>

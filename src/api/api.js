@@ -45,4 +45,5 @@ export const team =async(id)=>{
         console.error(error);
         
     }
+    
 }

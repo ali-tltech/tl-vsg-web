@@ -4183,7 +4183,7 @@ background-color: #FEFAF9;
 .news-one__sub-title {
   position: relative;
   display: inline-block;
-  background-color: var(--oslim-extra);
+  /* background-color: var(--oslim-extra); */
   font-size: 12px;
   color: var(--oslim-base);
   font-weight: 600;
@@ -9555,4 +9555,87 @@ background-color: #FEFAF9;
   animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
+}
+
+
+
+
+/* styles/sidebar.css */
+.sidebar-blog-swiper .swiper-pagination {
+  position: relative;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar-blog-swiper .swiper-pagination-bullet {
+  background-color: #888;
+  opacity: 0.5;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 5px;
+  transition: all 0.3s ease;
+}
+
+.sidebar-blog-swiper .swiper-pagination-bullet-active {
+  background-color: #007bff;
+  opacity: 1;
+  width: 15px;
+}
+
+.sidebar__post-item {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.sidebar__post-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.sidebar__post-image .post-image {
+  transition: transform 0.3s ease;
+}
+
+.sidebar__post-item:hover .post-image {
+  transform: scale(1.05);
+}
+
+.sidebar__post-title a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.sidebar__post-title a:hover {
+  color: #007bff;
+}
+
+.sidebar__search input {
+  padding-right: 40px;
+}
+
+.sidebar__search button {
+  right: 5px;
+  color: #6c757d;
+}
+
+.sidebar__search button:hover {
+  color: #007bff;
+}
+
+@media (max-width: 768px) {
+  .sidebar__post-item {
+    margin-bottom: 15px;
+  }
+  
+  .sidebar__post-image .post-image {
+    height: 200px !important;
+  }
 }

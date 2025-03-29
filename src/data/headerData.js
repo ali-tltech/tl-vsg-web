@@ -55,7 +55,7 @@ export const navItems = [
   {
     id: 6,
     name: "Blog",
-    href: "#",
+    href: "/blog",
     comingSoon: true, // Custom property to indicate "Coming Soon"
     },
   {
