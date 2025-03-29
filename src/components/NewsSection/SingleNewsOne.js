@@ -1,36 +1,48 @@
 import React from "react";
 import { Image } from "react-bootstrap";
 import Link from "../Reuseable/Link";
+import { useRouter } from "next/router";
 
-const SingleNewsOne = ({ news = {} }) => {
-  const { image, subtitle, title, date, comments } = news;
+const SingleNewsOne = ({ blogData = {} }) => {
+    const router = useRouter();
+  
+  const { image, content, title, date, excerpt,author,id } = blogData;
+
+  const formattedDate = date
+  ? new Date(date).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
+  : "Unknown Date";
+
+  const handleClick = () => {
+    router.push(`/blog/${id}`);
+  };
 
   return (
-    <div className="news-one__single">
+    <div className="news-one__single" onClick={handleClick}>
       <div className="news-one__img">
-        <Image src={require(`@/images/blog/${image}`).default.src} alt="" />
-        <Link href="/blog-details">
-          <span className="news-one__plus"></span>
-        </Link>
+        <Image src={image} alt="" />
       </div>
       <div className="news-one__content">
-        <p className="news-one__sub-title">{subtitle}</p>
-        <h3 className="news-one__title">
-          <Link href="/blog-details">{title}</Link>
-        </h3>
-        <ul className="list-unstyled news-one__meta">
+        <h3 className="news-one__title">{title}</h3>
+        <p className="news-one__sub-title">
+          <p>{excerpt}</p>
+        </p>
+        <ul className="list-unstyled news-one__meta" style={{fontSize:"1rem"}}>
           <li>
-            <Link href="/blog-details">
-              <i className="far fa-clock"></i> {date}
-            </Link>
+            <p >
+              <i className="far fa-clock"></i> {formattedDate}
+            </p>
           </li>
           <li>
             <span>/</span>
           </li>
           <li>
-            <Link href="/blog-details">
-              <i className="far fa-comments"></i> {comments} Comments
-            </Link>
+            <p>
+            <i className="far fa-user " ></i> Author: {author} 
+            </p>
           </li>
         </ul>
       </div>

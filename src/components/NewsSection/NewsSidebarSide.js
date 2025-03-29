@@ -1,91 +1,162 @@
-import React, { Fragment } from "react";
-import handleSubmit from "src/utils/handleSubmit";
-import Link from "../Reuseable/Link";
-import TextSplit from "../Reuseable/TextSplit";
-import SidebarSinglePost from "./SidebarSinglePost";
+import React, { useState, useEffect } from "react";
+import { Image } from "react-bootstrap";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import { getBlog } from "src/api/webapi";
 
-const SidebarCommentsIcon = ({ icon = "" }) => {
+// Import Swiper
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+
+const SidebarSinglePost = ({ post }) => {
+  const { image, date, title, id, excerpt } = post;
+  console.log(post);
+  const formattedDate = date
+    ? new Date(date).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      })
+    : "Unknown Date";
+
   return (
-    <div className="sidebar__comments-icon">
-      <i className={icon}></i>
+    <div className="sidebar__post-item position-relative">
+      <div className="sidebar__post-image overflow-hidden">
+        <Image 
+          src={image} 
+          alt={title} 
+          className="w-100 post-image transition" 
+          style={{ 
+            height: '250px', 
+            objectFit: 'cover' 
+          }} 
+        />
+      </div>
+      <div className="sidebar__post-content mt-3 px-3">
+        <div className="sidebar__post-meta d-flex align-items-center mb-2">
+          <span className="text-muted me-2">
+            <i className="far fa-clock me-1"></i>
+            {formattedDate}
+          </span>
+        </div>
+        <h4 className="sidebar__post-title mb-2">
+          <Link href={`/blog/${id}`}>
+            <a className="text-dark text-decoration-none">{title}</a>
+          </Link>
+        </h4>
+        <p className="sidebar__post-excerpt text-muted">
+          {excerpt && excerpt.length > 100 
+            ? `${excerpt.substring(0, 100)}...` 
+            : excerpt}
+        </p>
+        <Link href={`/blog/${id}`}>
+          <a className="btn btn-link p-0 text-primary">
+            Read More <i className="fa fa-arrow-right ms-2"></i>
+          </a>
+        </Link>
+      </div>
     </div>
   );
 };
 
-const NewsSidebarSide = ({
-  posts = [],
-  categories = [],
-  tags = [],
-  comments = [],
-}) => {
-  const onSubmit = (data) => console.log(data);
+const NewsSidebarSide = () => {
+  const [posts, setPosts] = useState([]);
+  const router = useRouter();
+  const { id: currentBlogId } = router.query;
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await getBlog();
+        if (response?.data?.data) {
+          // Filter out the current blog from the list
+          const filteredPosts = response.data.data.filter(
+            blog => blog.id !== currentBlogId
+          );
+          
+          setPosts(filteredPosts);
+        }
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+        // Optional: Add error handling toast or message
+      }
+    };
+
+    // Only fetch if currentBlogId is available
+    if (currentBlogId) {
+      fetchBlogs();
+    }
+  }, [currentBlogId]);
 
   return (
     <div className="sidebar">
-      <div className="sidebar__single sidebar__search">
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="sidebar__search-form"
-        >
-          <input type="search" placeholder="Search" name="search" />
-          <button type="submit">
+      {/* Search Section */}
+      {/* <div className="sidebar__single sidebar__search mb-4">
+        <form className="position-relative">
+          <input 
+            type="search" 
+            placeholder="Search blogs" 
+            className="form-control rounded-pill" 
+            name="search" 
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                e.preventDefault();
+                // Implement search functionality
+                // Example: router.push(`/search?query=${e.target.value}`)
+              }
+            }}
+          />
+          <button 
+            type="submit" 
+            className="btn position-absolute top-50 end-0 translate-middle-y"
+            onClick={(e) => {
+              e.preventDefault();
+              // Implement search functionality
+            }}
+          >
             <i className="icon-magnifying-glass"></i>
           </button>
         </form>
-      </div>
+      </div> */}
+
+      {/* Recent Posts Section */}
       <div className="sidebar__single sidebar__post">
-        <h3 className="sidebar__title">Recent Posts</h3>
-        <ul className="sidebar__post-list list-unstyled">
-          {posts.map((post) => (
-            <SidebarSinglePost post={post} key={post.id} />
-          ))}
-        </ul>
-      </div>
-      <div className="sidebar__single sidebar__category">
-        <h3 className="sidebar__title">Categories</h3>
-        <ul className="sidebar__category-list list-unstyled">
-          {categories.map(({ id, href, name }) => (
-            <li className={id === 2 ? "active" : ""} key={id}>
-              <Link href={href}>
-                {name} <span className="fa fa-angle-right"></span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className="sidebar__single sidebar__tags">
-        <h3 className="sidebar__title">Tags</h3>
-        <div className="sidebar__tags-list">
-          {tags.map(({ id, name, href }) => (
-            <a key={id} href={href}>
-              {name}
-            </a>
-          ))}
-        </div>
-      </div>
-      <div className="sidebar__single sidebar__comments">
-        <h3 className="sidebar__title">comments</h3>
-        <ul className="sidebar__comments-list list-unstyled">
-          {comments.map(({ id, message, name, icon }) => (
-            <Fragment key={id}>
-              <li>
-                <SidebarCommentsIcon icon={icon} />
-                <div className="sidebar__comments-text-box">
-                  <p>
-                    <TextSplit text={message} />
-                  </p>
-                </div>
-              </li>
-              <li>
-                <SidebarCommentsIcon icon={icon} />
-                <div className="sidebar__comments-text-box">
-                  <p>{name} on Template:</p>
-                  <h5>Comments</h5>
-                </div>
-              </li>
-            </Fragment>
-          ))}
-        </ul>
+        <h3 className="sidebar__title mb-4">Recent Posts</h3>
+        
+        {posts.length > 0 && (
+          <Swiper
+            modules={[Autoplay, Pagination]}
+            spaceBetween={20}
+            slidesPerView={1}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            pagination={{ 
+              clickable: true,
+              dynamicBullets: true 
+            }}
+            loop={true}
+            className="sidebar-blog-swiper"
+          >
+            {posts.map((post) => (
+              <SwiperSlide key={post.id}>
+                <SidebarSinglePost post={post} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        )}
+
+        {/* No posts placeholder */}
+        {posts.length === 0 && (
+          <div className="text-center text-muted py-4">
+            No recent posts available
+          </div>
+        )}
       </div>
     </div>
   );
