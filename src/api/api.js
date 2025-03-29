@@ -47,3 +47,13 @@ export const team =async(id)=>{
     }
     
 }
+export const caseById =async(id)=>{
+    try {
+        const response = await axiosInstance.get(`/casestudy/get-casestudy/${id}`)
+        return response
+    } catch (error) {
+        console.error(error);
+        
+    }
+    
+}
