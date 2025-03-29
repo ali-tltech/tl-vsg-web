@@ -23,7 +23,7 @@ const CaseDetailsImg = ({
 }) => {
   return (
     <div className="case-details__img">
-      <Image src={image.src} alt="" />
+      <Image src={image} alt="" />
       <div className="case-details__details-box">
         <ul className="list-unstyled case-details__details">
           <CaseDetail

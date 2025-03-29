@@ -48,15 +48,15 @@ export const navItems = [
   {
     id: 5,
     name: "Cases",
-    href: "#",
-    comingSoon: true, // Custom property to indicate "Coming Soon"
+    href: "/cases",
+    // Custom property to indicate "Coming Soon"
 
   },
   {
     id: 6,
     name: "Blog",
     href: "/blog",
-    comingSoon: true, // Custom property to indicate "Coming Soon"
+    // Custom property to indicate "Coming Soon"
     },
   {
     id: 7,
