@@ -39,7 +39,7 @@ const TeamOne = ({ id = "" }) => {
           {teamData.map((team) => (
             <Col
               xl={3}
-              lg={4}
+              lg={6}
               md={6}
               sm={8}
               xs={10}
