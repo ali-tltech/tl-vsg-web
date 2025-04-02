@@ -54,7 +54,7 @@ const SidebarSinglePost = ({ post }) => {
             : excerpt}
         </p>
         <Link href={`/blog/${id}`}>
-          <a className="btn btn-link p-0 text-primary">
+          <a className="btn btn-link p-0 text-black text-decoration-none text-uppercase text-bold">
             Read More <i className="fa fa-arrow-right ms-2"></i>
           </a>
         </Link>
@@ -94,38 +94,10 @@ const NewsSidebarSide = () => {
 
   return (
     <div className="sidebar">
-      {/* Search Section */}
-      {/* <div className="sidebar__single sidebar__search mb-4">
-        <form className="position-relative">
-          <input 
-            type="search" 
-            placeholder="Search blogs" 
-            className="form-control rounded-pill" 
-            name="search" 
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                e.preventDefault();
-                // Implement search functionality
-                // Example: router.push(`/search?query=${e.target.value}`)
-              }
-            }}
-          />
-          <button 
-            type="submit" 
-            className="btn position-absolute top-50 end-0 translate-middle-y"
-            onClick={(e) => {
-              e.preventDefault();
-              // Implement search functionality
-            }}
-          >
-            <i className="icon-magnifying-glass"></i>
-          </button>
-        </form>
-      </div> */}
 
       {/* Recent Posts Section */}
       <div className="sidebar__single sidebar__post">
-        <h3 className="sidebar__title mb-4">Recent Posts</h3>
+        <h3 className="sidebar__title mb-4">Recent Blog Posts</h3>
         
         {posts.length > 0 && (
           <Swiper

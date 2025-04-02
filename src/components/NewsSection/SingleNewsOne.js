@@ -41,7 +41,7 @@ const SingleNewsOne = ({ blogData = {} }) => {
           </li>
           <li>
             <p>
-            <i className="far fa-user " ></i> Author: {author} 
+            <i className="far fa-user " ></i> {author} 
             </p>
           </li>
         </ul>
