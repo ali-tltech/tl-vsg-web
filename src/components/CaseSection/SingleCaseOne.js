@@ -8,7 +8,6 @@ const SingleCaseOne = ({ cases = {}, smallImage = false }) => {
   const { subTitle, title, image, description,id } = cases;
   const router = useRouter(); // const newImage = smallImage && image2 ? image2 : image;
   const handleClick = () => {
-    console.log(id);
     
     router.push(`/case-details/${id}`);
   };

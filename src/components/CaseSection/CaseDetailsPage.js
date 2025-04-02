@@ -19,7 +19,7 @@ const CaseDetailsPage = () => {
               category={category}
               date={date}
             />
-            <CaseDetailsContent {...content} />
+            <CaseDetailsContent caseData={content} />
             <Row>
               <Col xl={12}>
                 <CaseDetailsPagination />

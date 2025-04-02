@@ -29,7 +29,6 @@
   --oslim-base: #434176;
   --oslim-base-rgb: 255, 97, 60;
   --oslim-extra: #fcf5f3;
-  --oslim-light-white: #fffcf8e7;
   --oslim-extra-rgb: 252, 245, 243;
   --oslim-bdr-radius: 3px;
 }
@@ -2767,10 +2766,9 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .case-one__single {
   position: relative;
-  display: block;
-  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
 }
-
 .case-one__img {
   position: relative;
   display: block;
@@ -4170,7 +4168,7 @@ background-color: #FEFAF9;
   box-shadow: 0px 10px 60px 0px rgba(0, 0, 0, 0.05);
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
-  padding: 19px 16px 18px;
+  padding: 19px 40px 18px;
   border-bottom: 2px solid transparent;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
@@ -7534,7 +7532,7 @@ background-color: #FEFAF9;
   position: relative;
   display: block;
   padding: 47px 30px 30px;
-  background-color: var(--oslim-light-white);
+  background-color: var(--oslim-extra);
   border-radius: var(--oslim-bdr-radius);
 }
 
@@ -9638,103 +9636,5 @@ background-color: #FEFAF9;
   
   .sidebar__post-image .post-image {
     height: 200px !important;
-  }
-}
-
-
-
-
-/* src/styles/youtube-gallery.css */
-.youtube-gallery-section {
-  background-color: #f8f9fa;
-  padding: 80px 0;
-}
-
-.youtube-gallery-section .tagline {
-  display: block;
-  color: #007bff;
-  font-weight: 500;
-  margin-bottom: 10px;
-}
-
-.youtube-gallery-section .title {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.video-card {
-  transition: transform 0.3s ease;
-  background-color: #fff;
-}
-
-.video-card:hover {
-  transform: translateY(-5px);
-}
-
-.thumbnail-container {
-  position: relative;
-  overflow: hidden;
-}
-
-.video-play-button {
-  opacity: 0.9;
-  transition: opacity 0.3s ease;
-  text-decoration: none;
-}
-
-.video-play-button:hover {
-  opacity: 1;
-}
-
-.play-icon {
-  width: 60px;
-  height: 60px;
-  background-color: rgba(0, 123, 255, 0.8);
-  transition: all 0.3s ease;
-}
-
-.video-card:hover .play-icon {
-  background-color: rgb(0, 123, 255);
-  transform: scale(1.1);
-}
-
-.video-title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  line-height: 1.4;
-}
-
-.video-description {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.video-duration {
-  font-size: 0.8rem;
-}
-
-.video-categories button {
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-}
-
-.video-meta {
-  font-size: 0.8rem;
-}
-
-/* Responsive adjustments */
-@media (max-width: 767px) {
-  .youtube-gallery-section .title {
-    font-size: 2rem;
-  }
-  
-  .play-icon {
-    width: 50px;
-    height: 50px;
   }
 }
