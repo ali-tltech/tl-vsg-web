@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Play, Clock, User } from 'lucide-react';
 import VisibilitySensor from 'react-visibility-sensor';
 import CountUp from 'react-countup';
+import { Image } from "react-bootstrap";
 
 const YouTubeGallery = ({ videos }) => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -52,7 +53,7 @@ const YouTubeGallery = ({ videos }) => {
               <div className="card h-100 shadow-sm hover-scale">
                 <div className="video-thumbnail-container position-relative">
                   {/* Thumbnail */}
-                  <img 
+                  <Image 
                     src={`https://img.youtube.com/vi/${getYouTubeID(video.url)}/maxresdefault.jpg`} 
                     alt={video.title} 
                     className="card-img-top"
