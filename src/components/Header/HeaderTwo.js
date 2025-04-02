@@ -63,7 +63,7 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
     };
 
     fetchSocial();
-  }, []);
+  },[]);
   
      useEffect(() => {
        const fetchData = async () => {
@@ -88,7 +88,7 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
          }
        };
        fetchData();
-     }, []);
+     },[]);
      
     
 

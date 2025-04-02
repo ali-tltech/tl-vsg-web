@@ -37,7 +37,7 @@ const TermsOfUsePolicy = () => {
     };
 
     fetchTerms();
-  }, []);
+  },[]);
 
   // Function to decode HTML entities like &amp; -> &
   const decodeHtmlEntities = (text) => {
