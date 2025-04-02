@@ -24,17 +24,12 @@ const BlogPagination = ({ currentPage, totalPages, onPageChange }) => {
                 {pageNumber}
               </span>
             ) : (
-              <a 
-                key={pageNumber}
-                className="page-numbers" 
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  onPageChange(pageNumber);
-                }}
-              >
-                {pageNumber}
-              </a>
+              <button
+              className={`page-numbers ${pageNumber === currentPage ? "current" : ""}`}
+              onClick={() => onPageChange(pageNumber)}
+            >
+              {pageNumber}
+            </button>
             );
           })}
           
