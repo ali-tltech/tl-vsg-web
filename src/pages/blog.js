@@ -11,7 +11,7 @@ const Blog = () => {
     <Layout pageTitle="Blog" footerClassName="site-footer-three">
       <Header />
       <PageHeader page="Blog" title="Blog Posts" bgImage={bg_blog}/>
-      <NewsOne className="news-page" hideTitle>
+      <NewsOne key={currentPage} className="news-page" hideTitle>
         <BlogPagination />
       </NewsOne>
     </Layout>
