@@ -7,9 +7,9 @@ import React from "react";
 
 const Cases2 = () => {
   return (
-    <Layout pageTitle="Cases Carousel" footerClassName="site-footer-three">
+    <Layout pageTitle="Casestudy" footerClassName="site-footer-three">
       <Header />
-      <PageHeader page="Cases" title="Cases Carousel" bgImage={bg_cases} />
+      <PageHeader page="Casestudy" title="Casestudy " bgImage={bg_cases} />
       <CasesPageCarousel />
     </Layout>
   );
