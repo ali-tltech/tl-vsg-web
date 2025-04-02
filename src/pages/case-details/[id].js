@@ -6,6 +6,11 @@ import CaseDetailsImg from "../../components/CaseSection/CaseDetailsImg";
 import CaseDetailsPagination from "../../components/CaseSection/CaseDetailsPagination";
 import { useRouter } from "next/router";
 import { caseById } from "src/api/api";
+import Layout from "@/components/Layout/Layout";
+import Header from "@/components/Header/Header";
+import PageHeader from "@/components/Reuseable/PageHeader";
+import bg_blog from "@/images/backgrounds/blog-banner-image.jpg";
+
 
 const { image, clientName, category, date, ...content } = caseDetailsPage;
 
@@ -29,8 +34,8 @@ const CaseDetailsPage = () => {
         }
       }, [id]);
   return (
-    <section className="case-details">
-      <Container>
+          <Layout pageTitle="Case Details" footerClassName="site-footer-three">
+      {/* <Container>
         <Row>
           <Col xl={12}>
             <CaseDetailsImg
@@ -38,17 +43,17 @@ const CaseDetailsPage = () => {
               clientName={clientName}
               category={category}
               date={date}
-            />
+              />
             <CaseDetailsContent {...caseData} />
-            {/* <Row>
-              <Col xl={12}>
-                <CaseDetailsPagination />
-              </Col>
-            </Row> */}
+           
           </Col>
         </Row>
-      </Container>
-    </section>
+      </Container> */}
+      <Header />
+      <PageHeader title={caseData.title} bgImage={bg_blog} />
+      <CaseDetailsContent caseData={caseData} />
+      </Layout>
+
   );
 };
 

@@ -58,6 +58,12 @@ export const navItems = [
     href: "/blog",
     // Custom property to indicate "Coming Soon"
     },
+    {
+      id: 7,
+      name: "Careers",
+      href: "/careers",
+      // Custom property to indicate "Coming Soon"
+      },
   {
     id: 7,
     name: "Contact",

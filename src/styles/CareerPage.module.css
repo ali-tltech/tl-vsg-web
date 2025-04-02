@@ -1,0 +1,232 @@
+/* Container and layout */
+.container {
+  background-color: #f9fafb;
+  min-height: 100vh;
+  padding: 3rem 0;
+}
+
+.contentWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Hero section */
+.heroSection {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.mainHeading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.subHeading {
+  font-size: 1.25rem;
+  color: #4b5563;
+}
+
+/* Section styling */
+.section {
+  margin-bottom: 4rem;
+}
+
+.sectionHeading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Job listings */
+.jobListings {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.tabContainer {
+  display: flex;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.tab {
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.activeTab {
+  color: #2563eb;
+  border-bottom: 2px solid #2563eb;
+}
+
+.jobList {
+  display: flex;
+  flex-direction: column;
+}
+
+.jobItem {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.2s;
+}
+
+.jobItemContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.jobMainContent {
+  flex: 1;
+}
+
+.jobBadgeContainer {
+  display: flex;
+  align-items: center;
+  padding-left: 1.5rem;
+}
+
+.jobItem:last-child {
+  border-bottom: none;
+}
+
+.jobItem:hover {
+  background-color: #f9fafb;
+}
+
+.jobHeader {
+  margin-bottom: 0.75rem;
+}
+
+.jobTitle {
+  font-size: 1.400rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.25rem;
+}
+
+.jobMeta {
+  font-size: 0.900rem;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+}
+
+.metaDivider {
+  margin: 0 0.5rem;
+}
+
+.jobDescription {
+  font-size: 0.950rem;
+  color: #4b5563;
+  margin-top: 0.75rem;
+}
+
+/* Application section */
+.applicationSection {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  padding: 2rem;
+}
+
+.applicationContent {
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+.applicationText {
+  font-size: 1.125rem;
+  color: #374151;
+  margin-bottom: 1.5rem;
+}
+
+.emailContainer {
+  background-color: #eff6ff;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.emailLink {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.emailLink:hover {
+  text-decoration: underline;
+}
+
+.applicationInstructions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  color: #374151;
+}
+
+.applicationList {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.openingBadge {
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(to right, #6366f1, #4f46e5);
+  color: white;
+  padding: 0.4rem 0.75rem;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
+  transition: all 0.2s ease;
+}
+
+.openingBadge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(79, 70, 229, 0.3);
+}
+
+.openingIcon {
+  display: flex;
+  align-items: center;
+  margin-right: 0.4rem;
+}
+
+.openingText {
+  letter-spacing: 0.02em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .jobItemContent {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .jobBadgeContainer {
+    padding-left: 0;
+    margin-top: 1rem;
+  }
+  
+  .tabContainer {
+    overflow-x: auto;
+  }
+}

@@ -2766,10 +2766,9 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .case-one__single {
   position: relative;
-  display: block;
-  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
 }
-
 .case-one__img {
   position: relative;
   display: block;
