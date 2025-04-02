@@ -1,17 +1,24 @@
+import React, { useState } from "react";
 import Header from "@/components/Header/Header";
 import Layout from "@/components/Layout/Layout";
 import BlogPagination from "@/components/NewsSection/BlogPagination";
 import NewsOne from "@/components/NewsSection/NewsOne";
 import PageHeader from "@/components/Reuseable/PageHeader";
 import bg_blog from "@/images/backgrounds/blog-banner-image.jpg";
-import React from "react";
 
 const Blog = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+
   return (
     <Layout pageTitle="Blog" footerClassName="site-footer-three">
       <Header />
-      <PageHeader page="Blog" title="Blog Posts" bgImage={bg_blog}/>
-      <NewsOne className="news-page" hideTitle>
+      <PageHeader page="Blog" title="Blog Posts" bgImage={bg_blog} />
+      <NewsOne
+        className="news-page"
+        hideTitle
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      >
         <BlogPagination />
       </NewsOne>
     </Layout>

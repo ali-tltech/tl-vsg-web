@@ -14,7 +14,6 @@ import "swiper/css/pagination";
 
 const SidebarSinglePost = ({ post }) => {
   const { image, date, title, id, excerpt } = post;
-  console.log(post);
   const formattedDate = date
     ? new Date(date).toLocaleDateString("en-US", {
         year: "numeric",

@@ -12,11 +12,12 @@ const NewsOne = ({
   showShape = false,
   id = "",
   hideTitle = false,
+  currentPage,
+  setCurrentPage,
   children,
 }) => {
   const ref = useActive(id);
   const [blogData, setBlogData] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
   const blogsPerPage = 3;
   const { tagline, title } = newsOne;
 
@@ -24,6 +25,8 @@ const NewsOne = ({
     const fetchBlogs = async () => {
       try {
         const response = await getBlog();
+        console.log("API Response in Vercel:", response);
+        
         if (Array.isArray(response?.data?.data)) {
           setBlogData(response.data.data);
         } else {
@@ -35,10 +38,15 @@ const NewsOne = ({
         setBlogData([]);
       }
     };
-
+  
     fetchBlogs();
   }, []);
-
+  useEffect(() => {
+    if (blogData.length > 0) {
+      setCurrentPage(1);
+    }
+  }, [blogData]);
+  
   // Calculate pagination values
   const totalPages = Math.ceil(blogData.length / blogsPerPage);
   const indexOfLastBlog = currentPage * blogsPerPage;

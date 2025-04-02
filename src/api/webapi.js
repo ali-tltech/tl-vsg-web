@@ -77,7 +77,6 @@ export const getSEO = async (pageTitle) => {
   export const getBlog = async () => {
     try {
       const response = await axiosInstance.get(`/blog/get-all-blogs`);
-      console.log(response);
       return response;
     } catch (error) {
       console.error("Error fetching Blog data:", error);

@@ -6,52 +6,41 @@ const BlogPagination = ({ currentPage, totalPages, onPageChange }) => {
     <Row>
       <Col lg={12}>
         <div className="blog-pagination">
-          <a 
-            className="prev page-numbers" 
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
+          <button
+            className="prev page-numbers"
+            onClick={() => {
               if (currentPage > 1) onPageChange(currentPage - 1);
             }}
           >
             <i className="fa fa-angle-left"></i>
-          </a>
-          
+          </button>
+
           {[...Array(totalPages)].map((_, index) => {
             const pageNumber = index + 1;
-            return pageNumber === currentPage ? (
-              <span key={pageNumber} className="page-numbers current">
-                {pageNumber}
-              </span>
-            ) : (
-              <a 
+            return (
+              <button
                 key={pageNumber}
-                className="page-numbers" 
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  onPageChange(pageNumber);
-                }}
+                className={`page-numbers ${pageNumber === currentPage ? "current" : ""}`}
+                onClick={() => onPageChange(pageNumber)}
               >
                 {pageNumber}
-              </a>
+              </button>
             );
           })}
-          
-          <a 
-            className="next page-numbers" 
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
+
+          <button
+            className="next page-numbers"
+            onClick={() => {
               if (currentPage < totalPages) onPageChange(currentPage + 1);
             }}
           >
             <i className="fa fa-angle-right"></i>
-          </a>
+          </button>
         </div>
       </Col>
     </Row>
   );
 };
+
 
 export default BlogPagination;

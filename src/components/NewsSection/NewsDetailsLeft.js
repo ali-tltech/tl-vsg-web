@@ -2,7 +2,6 @@ import React from "react";
 import { Image } from "react-bootstrap";
 import Link from "../Reuseable/Link";
 
-
 const NewsDetailsLeft = ({ blogDatas = {} }) => {
   const {
     image,
