@@ -45,40 +45,42 @@ const Home2 = () => {
   const videos = [
     {
       id: "1",
-      title: "Getting Started with Next.js",
-      thumbnail: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&auto=format&fit=crop&q=60",
-      description: "Learn the basics of Next.js and build your first application",
-      youtubeUrl: "https://youtube.com/watch?v=your-video-id",
-      duration: "10:30",
-      views: "1.2K"
+      title: "Theatre-Based Leadership: How Role-Play Creates Real Leaders",
+      thumbnail: "https://i.ytimg.com/vi/Elo2H0zGR-U/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDT-wkBADZ04o0HL8FAC_FyIDOy6A",
+      description: "Imagine a workplace where leadership isn’t about titles, but about action. Where a CEO and a security guard switch roles effortlessly—not in authority, but in collaboration. Welcome to the world of theatre-based leadership development!",
+      youtubeUrl: "https://youtu.be/Elo2H0zGR-U?si=PqrSZDX7ZYrWNlS4",
+      duration: "3:30",
+      channelAvatar:"https://yt3.ggpht.com/zx0rqOn5Gp2lb-t4tZumdMNIrwPg6t8qlsKcA3bkjXhgVFhq-6RZ7ztIYWeFUfShRwiMdyubVgw=s48-c-k-c0x00ffffff-no-rj",
+      channelName:"VS GenX Solutions",
     },
     {
       id: "2",
-      title: "Advanced React Patterns",
-      thumbnail: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&auto=format&fit=crop&q=60",
-      description: "Deep dive into advanced React patterns and best practices",
-      youtubeUrl: "https://youtube.com/watch?v=your-video-id-2",
-      duration: "15:45",
-      views: "2.5K"
+      title: "The Brutal Truth About Leadership: Problem is YOU, Not Them!",
+      thumbnail: "https://i.ytimg.com/vi/uM7kq4Cm3CI/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBfelMDnPDV6-MQNPo-0bC5AGvlQQ",
+      description: "What if the biggest obstacle to your leadership success isn’t your team—but your own self-deception?",
+      youtubeUrl: "https://youtu.be/uM7kq4Cm3CI?si=_kUMKf0YuKIx5h3H",
+      duration: "1:02",
+      channelAvatar:"https://yt3.ggpht.com/zx0rqOn5Gp2lb-t4tZumdMNIrwPg6t8qlsKcA3bkjXhgVFhq-6RZ7ztIYWeFUfShRwiMdyubVgw=s48-c-k-c0x00ffffff-no-rj",
+      channelName:"VS GenX Solutions",
     },
     {
       id: "3",
-      title: "Building Modern UIs",
-      thumbnail: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=800&auto=format&fit=crop&q=60",
-      description: "Create beautiful and responsive user interfaces with modern tools",
-      youtubeUrl: "https://youtube.com/watch?v=your-video-id-3",
-      duration: "12:20",
-      views: "3.1K"
+      title: "What can a legendary racehorse teach us about leadership? More than you think! ",
+      thumbnail: "https://i.ytimg.com/vi/muVRzBhPzYs/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLA5BuyriFpmGXwwSQaIp665mMavqA",
+      description: "Secretariat wasn’t just a racehorse—he was a phenomenon. His record-breaking Triple Crown victory wasn’t just about speed, but heart, strategy, and relentless drive. In this 3-minute video, we uncover the leadership lessons from Secretariat’s story—vision, resilience, and the courage to break limits. Whether you're leading a team or chasing personal goals, these insights will inspire you to run your own race!",
+      youtubeUrl: "https://youtu.be/muVRzBhPzYs?si=Q9gAg67zarOd1StN",
+      duration: "3:32",
+      channelAvatar:"https://yt3.ggpht.com/zx0rqOn5Gp2lb-t4tZumdMNIrwPg6t8qlsKcA3bkjXhgVFhq-6RZ7ztIYWeFUfShRwiMdyubVgw=s48-c-k-c0x00ffffff-no-rj",
+      channelName:"VS GenX Solutions",
     },
-    {
-      id: "4",
-      title: "Mastering TypeScript",
-      thumbnail: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=800&auto=format&fit=crop&q=60",
-      description: "Take your TypeScript skills to the next level with advanced concepts",
-      youtubeUrl: "https://youtube.com/watch?v=your-video-id-4",
-      duration: "18:15",
-      views: "4.7K"
-    },
+    // {
+    //   id: "4",
+    //   title: "Mastering TypeScript",
+    //   thumbnail: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=800&auto=format&fit=crop&q=60",
+    //   description: "Take your TypeScript skills to the next level with advanced concepts",
+    //   youtubeUrl: "https://youtube.com/watch?v=your-video-id-4",
+    //   duration: "18:15",
+    // },
   ];
 
   const pageTitle = seoData?.title || "VS GenX Solutions | Empowering Talent, Transforming HR Futures"
