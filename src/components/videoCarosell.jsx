@@ -7,6 +7,8 @@ import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
 import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 import Autoplay from "embla-carousel-autoplay";
+import { Image } from "react-bootstrap";
+
 
 export function VideoCarousel({ videos, showHeader = true }) {
   const [shouldUseCarousel, setShouldUseCarousel] = useState(videos.length > 3);
@@ -95,7 +97,7 @@ function VideoCard({ video }) {
           
           {/* Play button overlay */}
           <div className="play-overlay position-absolute top-50 start-50 translate-middle d-flex align-items-center justify-content-center">
-            <img src="/youtube-play.png" alt="Play" width={74} height={55} />
+            <Image src="/youtube-play.png" alt="Play" width={74} height={55} />
           </div>
           
           {/* Duration */}
@@ -105,7 +107,7 @@ function VideoCard({ video }) {
           
           {/* Channel info overlay with higher z-index but limited height */}
           <div className="channel-info-overlay position-absolute bottom-0 start-0 p-2 d-flex align-items-center bg-black bg-opacity-50 rounded-bottom w-100" style={{ maxHeight: '40px' }}>
-            <img 
+            <Image 
               src={video.channelAvatar} 
               alt={video.channelName} 
               className="rounded-circle me-2" 
