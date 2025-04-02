@@ -99,12 +99,12 @@ const BlogDetails = ({ initialBlogData, blogs }) => {
   if (!blogData) {
     return (
       <Layout pageTitle="Blog Not Found" footerClassName="site-footer-three">
-        <Header />
-        <div className="text-center py-5">
-          <h2>Blog not found</h2>
-          <p>The blog you're looking for doesn't exist or has been removed.</p>
-        </div>
-      </Layout>
+      <Header />
+      <div className="text-center py-5">
+        <h2>Blog not found</h2>
+        <p>The blog you&apos;re looking for doesn&apos;t exist or has been removed.</p>
+      </div>
+    </Layout>
     );
   }
 

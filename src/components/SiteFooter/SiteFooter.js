@@ -28,15 +28,16 @@ const SiteFooter = ({ footerClassName = "" }) => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [socialLink, setSocialLink] = useState([]);
-  const platformIcons = {
-    linkedin: "fab fa-linkedin",
-    youtube: "fab fa-youtube",
-    facebook: "fab fa-facebook",
-    instagram: "fab fa-instagram",
-    whatsapp: "fab fa-whatsapp",
-  };
+ 
 
   useEffect(() => {
+    const platformIcons = {
+      linkedin: "fab fa-linkedin",
+      youtube: "fab fa-youtube",
+      facebook: "fab fa-facebook",
+      instagram: "fab fa-instagram",
+      whatsapp: "fab fa-whatsapp",
+    };
       const fetchSocial = async () => {
         try {
           const response = await getSocial();

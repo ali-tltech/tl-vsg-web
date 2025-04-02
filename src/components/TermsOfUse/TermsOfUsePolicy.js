@@ -9,6 +9,14 @@ const TermsOfUsePolicy = () => {
   const [headerTitle, setHeaderTitle] = useState("");
 
   useEffect(() => {
+    const extractAndCleanContent = (content) => {
+      // Your function logic here
+      return {
+        extractedHeader: "Header",
+        extractedDate: "Date",
+        cleanedContent: "Cleaned Content",
+      };
+    };
     const fetchTerms = async () => {
       try {
         const response = await getTerms();

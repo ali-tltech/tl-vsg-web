@@ -46,24 +46,35 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
   };  
 
   useEffect(() => {
+    const platformIcons = {
+      linkedin: "fab fa-linkedin",
+      youtube: "fab fa-youtube",
+      facebook: "fab fa-facebook",
+      instagram: "fab fa-instagram",
+      whatsapp: "fab fa-whatsapp",
+    };
+  
     const fetchSocial = async () => {
       try {
         const response = await getSocial();
         if (response?.data?.data) {
-          const formattedLinks=response.data.data.filter((item)=>item.isActive).map((item)=>({
-            id: item.id,
-            icon: platformIcons[item.platform.toLowerCase()] || "fas fa-globe", // Default icon if not found
-            href: item.url,
-          }) );
+          const formattedLinks = response.data.data
+            .filter((item) => item.isActive)
+            .map((item) => ({
+              id: item.id,
+              icon: platformIcons[item.platform.toLowerCase()] || "fas fa-globe",
+              href: item.url,
+            }));
           setSocialLink(formattedLinks);
         }
       } catch (error) {
         console.error("Error fetching Social Links", error);
       }
     };
-
+  
     fetchSocial();
-  },[]);
+  }, []); // No unnecessary re-renders
+  
   
      useEffect(() => {
        const fetchData = async () => {
