@@ -15,14 +15,16 @@ const NewsOne = ({
   children,
 }) => {
   const ref = useActive(id);
-  const [blogData, setBlogData] = useState([]); 
+  const [blogData, setBlogData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const blogsPerPage = 3;
   const { tagline, title } = newsOne;
 
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
         const response = await getBlog();
-        if (Array.isArray(response?.data?.data)) {            
+        if (Array.isArray(response?.data?.data)) {
           setBlogData(response.data.data);
         } else {
           console.error("Expected an array but got:", response.data.data);
@@ -37,6 +39,27 @@ const NewsOne = ({
     fetchBlogs();
   }, []);
 
+  // Calculate pagination values
+  const totalPages = Math.ceil(blogData.length / blogsPerPage);
+  const indexOfLastBlog = currentPage * blogsPerPage;
+  const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
+  const currentBlogs = blogData.slice(indexOfFirstBlog, indexOfLastBlog);
+
+  // For non-paginated display (when !hideTitle)
+  const displayBlogs = hideTitle ? currentBlogs : blogData.slice(0, 3);
+
+  // Clone children and pass props
+  const childrenWithProps = React.Children.map(children, (child) => {
+    if (React.isValidElement(child) && child.type.name === "BlogPagination") {
+      return React.cloneElement(child, {
+        currentPage,
+        totalPages,
+        onPageChange: setCurrentPage,
+      });
+    }
+    return child;
+  });
+
   return (
     <section ref={ref} className={className} id={id}>
       {showShape && (
@@ -49,20 +72,21 @@ const NewsOne = ({
         {!hideTitle && (
           <Title title={title} tagline={tagline} className="text-center" />
         )}
+        
         <Row>
-          {blogData.slice(0, !hideTitle ? 3 : undefined).map((blog) => (
+          {displayBlogs.map((blog) => (
             <Col
               xl={4}
               lg={hideTitle ? 6 : 4}
               md={hideTitle ? 6 : undefined}
-              key={blog.id} 
+              key={blog.id}
               className="animated fadeInUp"
             >
               <SingleNewsOne blogData={blog} />
             </Col>
           ))}
         </Row>
-        {children}
+        {childrenWithProps}
       </Container>
     </section>
   );
