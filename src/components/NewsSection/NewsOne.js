@@ -12,11 +12,12 @@ const NewsOne = ({
   showShape = false,
   id = "",
   hideTitle = false,
+  currentPage,
+  setCurrentPage,
   children,
 }) => {
   const ref = useActive(id);
   const [blogData, setBlogData] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
   const blogsPerPage = 3;
   const { tagline, title } = newsOne;
 
