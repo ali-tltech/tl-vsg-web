@@ -12,7 +12,7 @@ const Blog = () => {
   return (
     <Layout pageTitle="Blog" footerClassName="site-footer-three">
       <Header />
-      <PageHeader page="Blog" title="Blog Posts" bgImage={bg_blog} />
+      <PageHeader page="Blog" title="Blogs" bgImage={bg_blog} />
       <NewsOne
         className="news-page"
         hideTitle

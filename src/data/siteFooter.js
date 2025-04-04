@@ -49,12 +49,12 @@ const footerData = {
     {
       id: 3,
       text: "Case Studies",
-      href: "#",
+      href: "/cases",
     },
     {
       id: 4,
-      text: "Blog",
-      href: "#",
+      text: "Blogs",
+      href: "/blog",
     },
     {
       id: 5,

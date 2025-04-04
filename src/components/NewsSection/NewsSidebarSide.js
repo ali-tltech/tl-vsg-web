@@ -96,7 +96,7 @@ const NewsSidebarSide = () => {
 
       {/* Recent Posts Section */}
       <div className="sidebar__single sidebar__post">
-        <h3 className="sidebar__title mb-4">Recent Blog Posts</h3>
+        <h3 className="sidebar__title mb-4">Recent Blogs</h3>
         
         {posts.length > 0 && (
           <Swiper
