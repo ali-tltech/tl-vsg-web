@@ -9,7 +9,7 @@ const Cases2 = () => {
   return (
     <Layout pageTitle="Casestudy" footerClassName="site-footer-three">
       <Header />
-      <PageHeader page="Casestudy" title="Casestudy " bgImage={bg_cases} />
+      <PageHeader page="Case Studies" title="Case Studies " bgImage={bg_cases} />
       <CasesPageCarousel />
     </Layout>
   );

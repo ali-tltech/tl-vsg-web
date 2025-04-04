@@ -17,7 +17,6 @@ const CareerPageWithOpenings = () => {
                 }
             } catch (err) {
                 console.error('Error fetching Careers:', err);
-                toast.error('Failed to load Careers');
             }
         }
         fetchData();
