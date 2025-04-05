@@ -140,7 +140,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 @media (min-width: 1200px) {
   .container {
-    max-width: 1200px;
+    max-width: 1248px;
   }
 }
 
