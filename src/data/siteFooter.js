@@ -38,7 +38,7 @@ const footerData = {
   links: [
     {
       id: 1,
-      text: "About",
+      text: "About Us",
       href: "/about",
     },
     {
