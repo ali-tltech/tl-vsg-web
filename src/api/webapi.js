@@ -93,3 +93,13 @@ export const getSEO = async (pageTitle) => {
       console.error("Error fetching Blog data:", error);
     } 
   };
+
+
+  export const getAllYouTubeVideos = async () => {
+    try {
+      const response = await axiosInstance.get(`/youtube/get-all-youtube-videos`);
+      return response;
+    } catch (error) {
+      console.error("Error fetching Youtube Video data:", error);
+    } 
+  };
