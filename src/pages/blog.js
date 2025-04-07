@@ -10,9 +10,9 @@ const Blog = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   return (
-    <Layout pageTitle="Blog" footerClassName="site-footer-three">
+    <Layout pageTitle="Blogs" footerClassName="site-footer-three">
       <Header />
-      <PageHeader page="Blog" title="Blogs" bgImage={bg_blog} />
+      <PageHeader page="Blogs" title="Blogs" bgImage={bg_blog} />
       <NewsOne
         className="news-page"
         hideTitle
