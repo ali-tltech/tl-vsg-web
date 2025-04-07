@@ -2,6 +2,11 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 
 const BlogPagination = ({ currentPage, totalPages, onPageChange }) => {
+  // Don't render pagination if there's only one page or no pages
+  if (!totalPages || totalPages <= 1) {
+    return null;
+  }
+  
   return (
     <Row>
       <Col lg={12}>
@@ -11,6 +16,7 @@ const BlogPagination = ({ currentPage, totalPages, onPageChange }) => {
             onClick={() => {
               if (currentPage > 1) onPageChange(currentPage - 1);
             }}
+            disabled={currentPage <= 1}
           >
             <i className="fa fa-angle-left"></i>
           </button>
@@ -33,6 +39,7 @@ const BlogPagination = ({ currentPage, totalPages, onPageChange }) => {
             onClick={() => {
               if (currentPage < totalPages) onPageChange(currentPage + 1);
             }}
+            disabled={currentPage >= totalPages}
           >
             <i className="fa fa-angle-right"></i>
           </button>
@@ -41,6 +48,5 @@ const BlogPagination = ({ currentPage, totalPages, onPageChange }) => {
     </Row>
   );
 };
-
 
 export default BlogPagination;

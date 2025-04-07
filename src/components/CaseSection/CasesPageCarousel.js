@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import SwiperCore, { Autoplay, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SingleCaseOne from "./SingleCaseOne";
-import { useEffect } from "react";
 import axiosInstance from "src/axios/AxiosInstance";
 
 SwiperCore.use([Autoplay, Pagination]);
@@ -41,28 +40,28 @@ const options = {
 };
 
 const CasesPageCarousel = () => {
-  const [cases,setCases]=useState([])
-  useEffect(()=>{
-   async function fetchData(){
+  const [cases, setCases] = useState([]);
+  
+  useEffect(() => {
+    async function fetchData() {
       try {
-        const response = await axiosInstance.get("/casestudy/get-all-casestudy")
-        setCases(response.data.data)
-        
+        const response = await axiosInstance.get("/casestudy/get-all-casestudy");
+        setCases(response.data.data);
       } catch (error) {
         console.error(error);
-        
       }
     }
-    fetchData()
-  },[])
+    fetchData();
+  }, []);
+  
   return (
     <section className="cases-page cases-page--carousel">
       <Container>
         <Swiper {...options} className="thm-swiper__slider case-carousel">
           <div className="swiper-wrapper">
-            {cases.map((cases) => (
-              <SwiperSlide key={cases.id}>
-                <SingleCaseOne cases={cases} />
+            {cases.map((caseItem) => (
+              <SwiperSlide key={caseItem.id}>
+                <SingleCaseOne cases={caseItem} />
               </SwiperSlide>
             ))}
           </div>

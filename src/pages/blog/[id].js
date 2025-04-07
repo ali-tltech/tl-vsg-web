@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { getBlog } from "src/api/webapi";
 import bg_blog from "@/images/backgrounds/blog-banner-image.jpg";
+import BlogPageHeader from "@/components/Reuseable/BlogPageHeader";
 
 export async function getServerSideProps(context) {
   const { id } = context.params;
@@ -111,7 +112,7 @@ const BlogDetails = ({ initialBlogData, blogs }) => {
   return (
     <Layout pageTitle={blogData.title || "Blog Details"} footerClassName="site-footer-three">
       <Header />
-      <PageHeader title={blogData.title} bgImage={bg_blog} />
+      <BlogPageHeader title={blogData.title} bgImage={bg_blog} />
       <NewsDetailsPage blogData={blogData} allBlogs={blogs} />
     </Layout>
   );

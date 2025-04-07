@@ -10,6 +10,7 @@ import Layout from "@/components/Layout/Layout";
 import Header from "@/components/Header/Header";
 import PageHeader from "@/components/Reuseable/PageHeader";
 import bg_blog from "@/images/backgrounds/blog-banner-image.jpg";
+import CasesPageHeader from "@/components/Reuseable/CasesPageHeader";
 
 
 const { image, clientName, category, date, ...content } = caseDetailsPage;
@@ -50,7 +51,7 @@ const CaseDetailsPage = () => {
         </Row>
       </Container> */}
       <Header />
-      <PageHeader title={caseData.title} bgImage={bg_blog} />
+      <CasesPageHeader title={caseData.title} bgImage={bg_blog} />
       <CaseDetailsContent caseData={caseData} />
       </Layout>
 
