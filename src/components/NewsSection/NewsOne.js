@@ -174,31 +174,36 @@ const BlogPagination = ({ currentPage = 1, totalPages = 1, onPageChange }) => {
   return (
     <div className="blog-pagination">
       <ul className="pagination-list">
-        {/* Prev Button */}
+        {/* Previous Arrow */}
         <li className={`pagination-arrow ${currentPage <= 1 ? 'disabled' : ''}`}>
           <a href="#" onClick={(e) => {
             e.preventDefault();
             if (currentPage > 1) handlePageClick(currentPage - 1);
           }} aria-label="Previous">
-            <span aria-hidden="true">Prev</span>
+            <i className="fa fa-angle-left"></i>
           </a>
         </li>
         
+        <div className="pagination-divider"></div>
+        
         {renderPageNumbers()}
         
-        {/* Next Button */}
+        <div className="pagination-divider"></div>
+        
+        {/* Next Arrow */}
         <li className={`pagination-arrow ${currentPage >= totalPages ? 'disabled' : ''}`}>
           <a href="#" onClick={(e) => {
             e.preventDefault();
             if (currentPage < totalPages) handlePageClick(currentPage + 1);
           }} aria-label="Next">
-            <span aria-hidden="true">Next</span>
+            <i className="fa fa-angle-right"></i>
           </a>
         </li>
       </ul>
     </div>
   );
 };
+
 
 export default NewsOne;
 export { BlogPagination };
