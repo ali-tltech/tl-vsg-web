@@ -11,46 +11,28 @@ const { image, tagline, title, text, } = welcomeTwo;
 const WelcomeTwo = ({ id = "" }) => {
   const ref = useActive(id);
 
+  // Custom style to replace the negative margin while maintaining visual interest
+  const customLeftStyle = {
+    position: "relative",
+    paddingLeft: 0,
+    marginLeft: "5%", // Small positive margin instead of large negative one
+  };
+
   return (
     <section ref={ref} className="welcome-two" id={id}>
-      <Container>
+      <Container fluid>
         <Row>
-          <Col xl={5}>
-            <div className="welcome-two__left animated slideInLeft">
+          <Col xl={5} lg={5} md={12} sm={12}>
+            <div className="welcome-two__left animated slideInLeft" style={customLeftStyle}>
               <div className="welcome-two__img">
-                <Image src={image.src} alt="" />
+                <Image src={image.src} alt="" fluid />
               </div>
             </div>
           </Col>
-          <Col xl={7}>
+          <Col xl={7} lg={7} md={12} sm={12}>
             <div className="welcome-two__right">
               <Title title={title} tagline={tagline} className="text-left" />
               <p className="">{text}</p>
-              {/* <div className="welcome-two__content"> */}
-                {/* <ul className="list-unstyled welcome-two__points">
-                  {points.map((point, i) => (
-                    <li key={i}>
-                      <div className="icon">
-                        <i className="fa fa-arrow-right"></i>
-                      </div>
-                      <div className="text">
-                        <p>{point}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ul> */}
-                {/* <div className="welcome-two__icon-box">
-                  <span className="icon-help"></span>
-                  <p className="welcome-two__icon-box-text">
-                    <TextSplit text={iconText} />
-                  </p>
-                </div> */}
-              {/* </div> */}
-              {/* <p className="welcome-two__text-2">{text2}</p>
-              <p className="welcome-two__text-3">{text3}</p> */}
-              {/* <Link href="/contact" className="thm-btn welcome-two__btn">
-              Book a Free Consultation
-              </Link> */}
             </div>
           </Col>
         </Row>

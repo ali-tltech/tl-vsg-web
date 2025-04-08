@@ -4620,13 +4620,32 @@ background-color: #FEFAF9;
 .welcome-two {
   position: relative;
   display: block;
-  padding: 60px 0 120px;
+  padding: 60px 40px 60px 0;
 }
 
 .welcome-two__left {
   position: relative;
   display: block;
-  margin-left: -375px;
+  margin-left: 0; /* Override the -375px */
+}
+
+/* For larger screens, you could add some margin if desired */
+@media (min-width: 1200px) {
+  .welcome-two__left {
+    margin-left: 0; /* Adjust as needed, but keep it non-negative */
+  }
+}
+
+/* You might also need to adjust the pseudo-element */
+.welcome-two__img:before {
+  position: absolute;
+  top: -120px;
+  bottom: -120px;
+  left: -100%; /* Changed from -1000000px to make it more reasonable */
+  right: 270px;
+  background-color: var(--oslim-extra);
+  content: "";
+  z-index: -1;
 }
 
 .welcome-two__img {
