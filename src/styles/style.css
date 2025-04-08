@@ -632,6 +632,21 @@ input[type="search"]::-webkit-search-results-decoration {
 .stricky-header .main-menu__list > li + li {
   margin-left: 80px;
 }
+@media (min-width: 1440px) {
+  .main-menu .main-menu__list > li + li,
+.stricky-header .main-menu__list > li + li {
+  margin-left: 64px;
+}
+
+}
+@media (min-width: 2500px) {
+  .main-menu .main-menu__list > li + li,
+.stricky-header .main-menu__list > li + li {
+  margin-left: 80px;
+}
+
+}
+
 
 .main-menu .main-menu__list > li > a,
 .stricky-header .main-menu__list > li > a {
@@ -918,6 +933,7 @@ input[type="search"]::-webkit-search-results-decoration {
   display: block;
   padding: 10px 0;
 }
+
 
 .main-header-two__top-left {
   position: relative;

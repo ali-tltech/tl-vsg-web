@@ -7,27 +7,27 @@ import { useRouter } from "next/router";
 const SingleNewsOne = ({ blogData = {} }) => {
   const router = useRouter();
   const { image, content, title, date, excerpt, author, id } = blogData;
-  
+
   const formattedDate = date
     ? new Date(date).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      })
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
     : "Unknown Date";
-    
+
   const handleClick = () => {
     router.push(`/blog/${id}`);
   };
-  
+
   return (
-    <div 
-      className="news-one__single" 
+    <div
+      className="news-one__single"
       onClick={handleClick}
-      style={{ 
-        cursor: 'pointer', 
-        borderRadius: '8px', 
-        overflow: 'hidden', 
+      style={{
+        cursor: 'pointer',
+        borderRadius: '8px',
+        overflow: 'hidden',
         boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
         height: '100%',
         display: 'flex',
@@ -35,15 +35,15 @@ const SingleNewsOne = ({ blogData = {} }) => {
         backgroundColor: '#fff'
       }}
     >
-      <div 
-        className="news-one__img" 
-        style={{ 
-          height: '220px', 
+      <div
+        className="news-one__img"
+        style={{
+          height: '220px',
           overflow: 'hidden'
         }}
       >
-        <Image 
-          src={image} 
+        <Image
+          src={image}
           alt={title || "Blog image"}
           style={{
             width: '100%',
@@ -52,7 +52,7 @@ const SingleNewsOne = ({ blogData = {} }) => {
           }}
         />
       </div>
-      <div 
+      <div
         className="news-one__content"
         style={{
           padding: '1.5rem',
@@ -61,7 +61,7 @@ const SingleNewsOne = ({ blogData = {} }) => {
           flexGrow: 1
         }}
       >
-        <h3 
+        <h3
           className="news-one__title"
           style={{
             fontSize: '1.25rem',
@@ -72,7 +72,7 @@ const SingleNewsOne = ({ blogData = {} }) => {
         >
           {title}
         </h3>
-        <div 
+        <div
           className="news-one__sub-title"
           style={{
             marginBottom: '1rem',
@@ -82,32 +82,29 @@ const SingleNewsOne = ({ blogData = {} }) => {
         >
           <p>{excerpt}</p>
         </div>
-        <ul 
-          className="list-unstyled news-one__meta"
-          style={{
+
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'flex-start'  // Ensures all children align to the left
+        }}>
+          <div style={{
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'flex-start',
-            fontSize: '0.9rem',
-            margin: '0.5rem 0 0 0',
-            borderTop: '1px solid #eee',
-            paddingTop: '1rem'
-          }}
-        >
-          <li style={{ marginRight: '1rem' }}>
-            <p style={{ margin: 0 }}>
-              <i className="far fa-clock" style={{ marginRight: '0.5rem' }}></i> {formattedDate}
-            </p>
-          </li>
-          <li style={{ marginRight: '1rem' }}>
-            <span>/</span>
-          </li>
-          <li>
-            <p style={{ margin: 0 }}>
-              <i className="far fa-user" style={{ marginRight: '0.5rem' }}></i> {author}
-            </p>
-          </li>
-        </ul>
+            marginBottom: '8px'  // Space between the two rows
+          }}>
+            <i className="far fa-clock" style={{ marginRight: '8px',fontSize:'15px' }}></i>
+            <span style={{fontSize:"15px" }}>{formattedDate}</span>
+          </div>
+
+          <div style={{
+            display: 'flex',
+            alignItems: 'center'
+          }}>
+            <i className="far fa-user" style={{ marginRight: '8px',fontSize:'15px'}}></i>
+            <span style={{fontSize:"15px" }}>{author}</span>
+          </div>
+        </div>
       </div>
     </div>
   );

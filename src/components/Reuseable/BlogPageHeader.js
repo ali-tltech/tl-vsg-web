@@ -28,7 +28,7 @@ const BlogPageHeader = (
                     <span>/</span>
                   </li>{" "}
                   <li>
-                  <Link href="/blog">Blog</Link>
+                  <Link href="/blog">Blogs</Link>
                   </li>{" "}
                   <li>
                     <span>/</span>
