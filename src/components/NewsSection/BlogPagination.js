@@ -1,51 +1,72 @@
-import React from "react";
-import { Col, Row } from "react-bootstrap";
-
-const BlogPagination = ({ currentPage, totalPages, onPageChange }) => {
-  // Don't render pagination if there's only one page or no pages
-  if (!totalPages || totalPages <= 1) {
-    return null;
-  }
+// BlogPagination.jsx - Can be exported from NewsOne.jsx or as a separate file
+const BlogPagination = ({ currentPage = 1, totalPages = 1, onPageChange }) => {
+  if (totalPages <= 1) return null;
   
+  const handlePageClick = (pageNumber) => {
+    if (pageNumber >= 1 && pageNumber <= totalPages && onPageChange) {
+      onPageChange(pageNumber);
+      
+      // Scroll to top of blog section
+      window.scrollTo({
+        top: document.getElementById('blog-section')?.offsetTop - 100 || 0,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const renderPageNumbers = () => {
+    const pageNumbers = [];
+    const maxVisiblePages = 5;
+    
+    let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+    let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+    
+    if (endPage - startPage + 1 < maxVisiblePages) {
+      startPage = Math.max(1, endPage - maxVisiblePages + 1);
+    }
+    
+    for (let i = startPage; i <= endPage; i++) {
+      pageNumbers.push(
+        <li key={i} className={i === currentPage ? "active" : ""}>
+          <a href="#" onClick={(e) => {
+            e.preventDefault();
+            handlePageClick(i);
+          }}>
+            {i}
+          </a>
+        </li>
+      );
+    }
+    
+    return pageNumbers;
+  };
+
   return (
-    <Row>
-      <Col lg={12}>
-        <div className="blog-pagination">
-          <button
-            className="prev page-numbers"
-            onClick={() => {
-              if (currentPage > 1) onPageChange(currentPage - 1);
-            }}
-            disabled={currentPage <= 1}
-          >
-            <i className="fa fa-angle-left"></i>
-          </button>
-
-          {[...Array(totalPages)].map((_, index) => {
-            const pageNumber = index + 1;
-            return (
-              <button
-                key={pageNumber}
-                className={`page-numbers ${pageNumber === currentPage ? "current" : ""}`}
-                onClick={() => onPageChange(pageNumber)}
-              >
-                {pageNumber}
-              </button>
-            );
-          })}
-
-          <button
-            className="next page-numbers"
-            onClick={() => {
-              if (currentPage < totalPages) onPageChange(currentPage + 1);
-            }}
-            disabled={currentPage >= totalPages}
-          >
-            <i className="fa fa-angle-right"></i>
-          </button>
-        </div>
-      </Col>
-    </Row>
+    <div className="blog-pagination">
+      <ul className="pagination-list">
+        {/* Prev Button */}
+        <li className={`pagination-arrow ${currentPage <= 1 ? 'disabled' : ''}`}>
+          <a href="#" onClick={(e) => {
+            e.preventDefault();
+            if (currentPage > 1) handlePageClick(currentPage - 1);
+          }} aria-label="Previous">
+            <span aria-hidden="true">Prev</span>
+          </a>
+        </li>
+        
+        {renderPageNumbers()}
+        
+        {/* Next Button */}
+        <li className={`pagination-arrow ${currentPage >= totalPages ? 'disabled' : ''}`}>
+          <a href="#" onClick={(e) => {
+            e.preventDefault();
+            if (currentPage < totalPages) handlePageClick(currentPage + 1);
+          }} aria-label="Next">
+            <span aria-hidden="true">Next</span>
+          </a>
+        </li>
+      </ul>
+    </div>
   );
 };
 
