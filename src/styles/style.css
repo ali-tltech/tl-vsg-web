@@ -9736,3 +9736,68 @@ background-color: #FEFAF9;
 .swiper-wrapper {
   align-items: stretch;
 }
+
+
+/* Add these styles to your CSS file */
+.blog-pagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.pagination-list {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+
+.pagination-list li {
+  margin: 0 5px;
+}
+
+.pagination-list li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  min-width: 40px;
+  padding: 0 10px;
+  background-color: #f7f7f7;
+  color: #333;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.pagination-list li.active a {
+  background-color: #191825; /* Your theme primary color */
+  color: white;
+}
+
+.pagination-list li a:hover {
+  
+  color: white;
+}
+
+.pagination-list li.active a:hover {
+  color: white;
+  /* Darker shade of your primary color */
+}
+
+
+.pagination-arrow a {
+  font-weight: 600;
+  padding: 0 15px !important;
+
+}
+
+.pagination-arrow.disabled a {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

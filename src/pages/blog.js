@@ -1,7 +1,7 @@
+"use client";
 import React, { useState } from "react";
 import Header from "@/components/Header/Header";
 import Layout from "@/components/Layout/Layout";
-import BlogPagination from "@/components/NewsSection/BlogPagination";
 import NewsOne from "@/components/NewsSection/NewsOne";
 import PageHeader from "@/components/Reuseable/PageHeader";
 import bg_blog from "@/images/backgrounds/blog-banner-image.jpg";
@@ -18,9 +18,8 @@ const Blog = () => {
         hideTitle
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
-      >
-        <BlogPagination />
-      </NewsOne>
+        id="blog-section"
+      />
     </Layout>
   );
 };
