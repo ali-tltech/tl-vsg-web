@@ -1,7 +1,7 @@
 import { useRootContext } from "@/context/context";
 import headerData from "@/data/headerData";
 import useScroll from "@/hooks/useScroll";
-import React, { useEffect, useState, useRef, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Image } from "react-bootstrap";
 import Link from "../Reuseable/Link";
 import MenuList from "./MenuList";
@@ -23,15 +23,8 @@ const whatsappLink = `https://wa.me/${phoneHref}?text=${encodeURIComponent(messa
 const HeaderTwo = ({ navItems = items, onePage = false }) => {
   const { scrollTop } = useScroll(100);
   const { toggleMenu, toggleSearch } = useRootContext();
-  const [organizationDetails, setOrganizationDetails] = useState([]);
+  const [organizationDetails, setOrganizationDetails] = useState([])
   const [socialLink, setSocialLink] = useState([]);
-  const isMounted = useRef(true);
-  
-  // Optimize render by only updating when scrollTop crosses the threshold
-  const throttledScrollTop = useMemo(() => {
-    return scrollTop;
-  }, [scrollTop]);
-  
   const platformIcons = {
     linkedin: "fab fa-linkedin",
     youtube: "fab fa-youtube",
@@ -39,6 +32,7 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
     instagram: "fab fa-instagram",
     whatsapp: "fab fa-whatsapp",
   };
+
 
   const handleToggleSearch = () => {
     toggleSearch();
@@ -52,13 +46,18 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
   };  
 
   useEffect(() => {
-    // Set mounted ref
-    isMounted.current = true;
-    
+    const platformIcons = {
+      linkedin: "fab fa-linkedin",
+      youtube: "fab fa-youtube",
+      facebook: "fab fa-facebook",
+      instagram: "fab fa-instagram",
+      whatsapp: "fab fa-whatsapp",
+    };
+  
     const fetchSocial = async () => {
       try {
         const response = await getSocial();
-        if (response?.data?.data && isMounted.current) {
+        if (response?.data?.data) {
           const formattedLinks = response.data.data
             .filter((item) => item.isActive)
             .map((item) => ({
@@ -74,44 +73,36 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
     };
   
     fetchSocial();
-    
-    // Cleanup function
-    return () => {
-      isMounted.current = false;
-    };
-  }, []);
+  }, []); // No unnecessary re-renders
   
-  useEffect(() => {
-    isMounted.current = true;
-    
-    const fetchData = async () => {
-      try {
-        const contactData = await organization();
-        if (contactData.data && isMounted.current) {
-          const fullAddress = contactData.data.data.location;
-          const addressParts = fullAddress.split(/(.*?,.*?,)/g).filter(Boolean);
   
-          // Format the phone number by adding a space only after the first two digits
-          const phone = contactData.data.data.phone;
-          const formattedPhone = phone.length > 2 ? phone.slice(0, 2) + " " + phone.slice(2) : phone;
-  
-          setOrganizationDetails({
-            ...contactData.data.data,
-            formattedAddress: addressParts, // Store as an array
-            phone: formattedPhone, // Store the formatted phone number
-          });
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
+     useEffect(() => {
+       const fetchData = async () => {
+         try {
+           const contactData = await organization();
+           if (contactData.data) {
+             const fullAddress = contactData.data.data.location;
+             const addressParts = fullAddress.split(/(.*?,.*?,)/g).filter(Boolean);
+     
+             // Format the phone number by adding a space only after the first two digits
+             const phone = contactData.data.data.phone;
+             const formattedPhone = phone.length > 2 ? phone.slice(0, 2) + " " + phone.slice(2) : phone;
+     
+             setOrganizationDetails({
+               ...contactData.data.data,
+               formattedAddress: addressParts, // Store as an array
+               phone: formattedPhone, // Store the formatted phone number
+             });
+           }
+         } catch (error) {
+           console.error(error);
+         }
+       };
+       fetchData();
+     },[]);
+     
     
-    fetchData();
-    
-    return () => {
-      isMounted.current = false;
-    };
-  }, []);
+
   
   return (
     <header className="main-header-two clearfix">
@@ -127,9 +118,9 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
               </div>
               <div className="main-header-two__top-social">
                 {socialLink.map((social) => (
-                  <a key={social.id} href={social.href} target="_blank" rel="noopener noreferrer">
-                    <i className={social.icon}></i>
-                  </a>
+               <a key={social.id} href={social.href} target="_blank" rel="noopener noreferrer">
+               <i className={social.icon}></i>
+             </a>
                 ))}
               </div>
             </div>
@@ -152,13 +143,15 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
       {/*End Top navbar */}
 
       <nav
-        className={`main-menu main-menu-two animated clearfix ${
-          throttledScrollTop ? "stricky-header stricked-menu stricky-fixed" : ""
-        }`}
+        className={`${
+          scrollTop
+            ? "stricky-header stricked-menu stricky-fixed slideInDown"
+            : "slideIn"
+        } main-menu main-menu-two animated clearfix`}
       >
         <div
           className={`main-menu-two-wrapper clearfix${
-            throttledScrollTop ? " sticky-header__content" : ""
+            scrollTop ? " sticky-header__content" : ""
           }`}
         >
           <Container className="clearfix">
