@@ -6,8 +6,38 @@ import bg_cases from "@/images/backgrounds/cases-banner-image.jpg";
 import React from "react";
 
 const Cases2 = () => {
+  useEffect(() => {
+    const fetchSEO = async () => {
+      try {
+        // Update the API call to include the pageTitle parameter
+        const response = await getSEO("case-Studies");
+        if (response?.data) {
+          // Store the SEO data
+          setSeoData(response.data);
+        } else {
+          console.error("Unexpected response format:", response);
+        }
+      } catch (error) {
+        console.error("Failed to fetch SEO data:", error);
+      }
+    };
+
+    fetchSEO();
+  }, []);
+
+
+  const pageTitle = seoData?.title || "VS GenX Solutions | Case-Studies"
+  const metaDescription = seoData?.description
+  const metaKeywords = seoData?.keywords
+  const ogImage = seoData?.ogImage
   return (
-    <Layout pageTitle="Casestudy" footerClassName="site-footer-three">
+    <Layout pageTitle={pageTitle}
+      metaDescription={metaDescription}
+      metaKeywords={metaKeywords}
+      ogImage={ogImage}
+      twitterImage={ogImage}
+      twitterTitle={pageTitle}
+      twitterDescription={metaDescription} footerClassName="site-footer-three">
       <Header />
       <PageHeader page="Case Studies" title="Case Studies " bgImage={bg_cases} />
       <CasesPageCarousel />
