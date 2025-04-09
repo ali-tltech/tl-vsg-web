@@ -25,6 +25,7 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
   const { toggleMenu, toggleSearch } = useRootContext();
   const [organizationDetails, setOrganizationDetails] = useState([])
   const [socialLink, setSocialLink] = useState([]);
+  const [isFixed, setIsFixed] = useState(false);
   const platformIcons = {
     linkedin: "fab fa-linkedin",
     youtube: "fab fa-youtube",
@@ -32,7 +33,6 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
     instagram: "fab fa-instagram",
     whatsapp: "fab fa-whatsapp",
   };
-
 
   const handleToggleSearch = () => {
     toggleSearch();
@@ -45,15 +45,23 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
     toggleMenu();
   };  
 
+  // Handle scroll state with proper transition
   useEffect(() => {
-    const platformIcons = {
-      linkedin: "fab fa-linkedin",
-      youtube: "fab fa-youtube",
-      facebook: "fab fa-facebook",
-      instagram: "fab fa-instagram",
-      whatsapp: "fab fa-whatsapp",
-    };
-  
+    let timeout;
+    if (scrollTop) {
+      // Set fixed immediately when scrolling down
+      setIsFixed(true);
+    } else {
+      // Add a small delay before removing fixed state to prevent flickering
+      timeout = setTimeout(() => {
+        setIsFixed(false);
+      }, 200);
+    }
+    
+    return () => clearTimeout(timeout);
+  }, [scrollTop]);
+
+  useEffect(() => {
     const fetchSocial = async () => {
       try {
         const response = await getSocial();
@@ -73,36 +81,32 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
     };
   
     fetchSocial();
-  }, []); // No unnecessary re-renders
+  }, []);
   
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const contactData = await organization();
+        if (contactData.data) {
+          const fullAddress = contactData.data.data.location;
+          const addressParts = fullAddress.split(/(.*?,.*?,)/g).filter(Boolean);
   
-     useEffect(() => {
-       const fetchData = async () => {
-         try {
-           const contactData = await organization();
-           if (contactData.data) {
-             const fullAddress = contactData.data.data.location;
-             const addressParts = fullAddress.split(/(.*?,.*?,)/g).filter(Boolean);
-     
-             // Format the phone number by adding a space only after the first two digits
-             const phone = contactData.data.data.phone;
-             const formattedPhone = phone.length > 2 ? phone.slice(0, 2) + " " + phone.slice(2) : phone;
-     
-             setOrganizationDetails({
-               ...contactData.data.data,
-               formattedAddress: addressParts, // Store as an array
-               phone: formattedPhone, // Store the formatted phone number
-             });
-           }
-         } catch (error) {
-           console.error(error);
-         }
-       };
-       fetchData();
-     },[]);
-     
-    
-
+          // Format the phone number by adding a space only after the first two digits
+          const phone = contactData.data.data.phone;
+          const formattedPhone = phone.length > 2 ? phone.slice(0, 2) + " " + phone.slice(2) : phone;
+  
+          setOrganizationDetails({
+            ...contactData.data.data,
+            formattedAddress: addressParts, // Store as an array
+            phone: formattedPhone, // Store the formatted phone number
+          });
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
   
   return (
     <header className="main-header-two clearfix">
@@ -118,9 +122,9 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
               </div>
               <div className="main-header-two__top-social">
                 {socialLink.map((social) => (
-               <a key={social.id} href={social.href} target="_blank" rel="noopener noreferrer">
-               <i className={social.icon}></i>
-             </a>
+                  <a key={social.id} href={social.href} target="_blank" rel="noopener noreferrer">
+                    <i className={social.icon}></i>
+                  </a>
                 ))}
               </div>
             </div>
@@ -143,15 +147,17 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
       {/*End Top navbar */}
 
       <nav
-        className={`${
-          scrollTop
-            ? "stricky-header stricked-menu stricky-fixed slideInDown"
-            : "slideIn"
-        } main-menu main-menu-two animated clearfix`}
+        className={`main-menu main-menu-two animated clearfix ${
+          isFixed ? "stricky-header stricked-menu stricky-fixed slideInDown" : ""
+        }`}
+        style={{
+          transition: "transform 0.3s ease-in-out, opacity 0.3s ease-in-out",
+          willChange: "transform, opacity"
+        }}
       >
         <div
           className={`main-menu-two-wrapper clearfix${
-            scrollTop ? " sticky-header__content" : ""
+            isFixed ? " sticky-header__content" : ""
           }`}
         >
           <Container className="clearfix">

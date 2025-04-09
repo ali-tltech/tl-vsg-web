@@ -3,14 +3,17 @@ import Header from "@/components/Header/Header";
 import Layout from "@/components/Layout/Layout";
 import PageHeader from "@/components/Reuseable/PageHeader";
 import bg_cases from "@/images/backgrounds/cases-banner-image.jpg";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getSEO } from "src/api/webapi";
 
 const Cases2 = () => {
+  const [seoData, setSeoData] = useState(null);
+
   useEffect(() => {
     const fetchSEO = async () => {
       try {
         // Update the API call to include the pageTitle parameter
-        const response = await getSEO("case-Studies");
+        const response = await getSEO("case-studies");
         if (response?.data) {
           // Store the SEO data
           setSeoData(response.data);

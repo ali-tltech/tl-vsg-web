@@ -1,18 +1,22 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "@/components/Header/Header";
 import Layout from "@/components/Layout/Layout";
 import NewsOne from "@/components/NewsSection/NewsOne";
 import PageHeader from "@/components/Reuseable/PageHeader";
 import bg_blog from "@/images/backgrounds/blog-banner-image.jpg";
+import { getSEO } from "src/api/webapi";
 
 const Blog = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [seoData, setSeoData] = useState(null);
+
   useEffect(() => {
     const fetchSEO = async () => {
       try {
         // Update the API call to include the pageTitle parameter
         const response = await getSEO("blogs");
+        
         if (response?.data) {
           // Store the SEO data
           setSeoData(response.data);
