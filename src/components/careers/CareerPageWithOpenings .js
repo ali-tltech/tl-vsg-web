@@ -1,25 +1,42 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styles from '../../styles/CareerPage.module.css';
 import axiosInstance from 'src/axios/AxiosInstance';
 
 const CareerPageWithOpenings = () => {
     const [careers, setCareers] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const isMounted = useRef(true);
 
     useEffect(() => {
+        // Set mounted ref
+        isMounted.current = true;
+        
         async function fetchData() {
+            setIsLoading(true);
             try {
                 const response = await axiosInstance.get('/career/get-all-career');
                 const result = response.data;
-                console.log(response.data);
-
-                if (result.success) {
+                
+                if (result.success && isMounted.current) {
                     setCareers(result.data);
                 }
             } catch (err) {
-                console.error('Error fetching Careers:', err);
+                if (isMounted.current) {
+                    console.error('Error fetching Careers:', err);
+                }
+            } finally {
+                if (isMounted.current) {
+                    setIsLoading(false);
+                }
             }
         }
+        
         fetchData();
+        
+        // Cleanup function
+        return () => {
+            isMounted.current = false;
+        };
     }, []);
 
     return (
@@ -29,12 +46,8 @@ const CareerPageWithOpenings = () => {
                 <div className={styles.heroSection}>
                     <h1 className={styles.mainHeading}>Join Our Team</h1>
                     <p className={styles.subHeading}>
-                        {/* VS GenX Solutions was founded with a clear mission—to empower businesses and individuals through purpose-driven, scalable HR solutions. We&apos;re looking for talented individuals who are passionate about transforming HR practices and making a meaningful impact. */}
                         VS GenX Solutions was founded with a clear mission—to empower businesses and individuals through purpose-driven, scalable HR solutions. We&#39;re looking for talented individuals who are passionate about transforming HR practices and making a meaningful impact.
-                        {/* VS GenX Solutions was founded with a clear mission—to empower businesses and individuals through purpose-driven, scalable HR solutions. We&apos;re looking for talented individuals who are passionate about transforming HR practices and making a meaningful impact. */}
-
                     </p>
-
                 </div>
 
                 {/* Job Listings */}
@@ -42,38 +55,44 @@ const CareerPageWithOpenings = () => {
                     <h2 className={styles.sectionHeading}>Open Positions</h2>
 
                     <div className={styles.jobListings}>
-                        <div className={styles.jobList}>
-                            {careers.map(job => (
-                                <div key={job.id} className={styles.jobItem}>
-                                    <div className={styles.jobItemContent}>
-                                        <div className={styles.jobMainContent}>
-                                            <div className={styles.jobHeader}>
-                                                <h3 className={styles.jobTitle}>{job.position}</h3>
-                                                <div className={styles.jobMeta}>
-                                                    <span>{job.location}</span>
-                                                    <span className={styles.metaDivider}>•</span>
-                                                    <span>{job.jobType}</span>
+                        {isLoading ? (
+                            <div className={styles.loadingState}>Loading open positions...</div>
+                        ) : careers.length > 0 ? (
+                            <div className={styles.jobList}>
+                                {careers.map(job => (
+                                    <div key={job.id} className={styles.jobItem}>
+                                        <div className={styles.jobItemContent}>
+                                            <div className={styles.jobMainContent}>
+                                                <div className={styles.jobHeader}>
+                                                    <h3 className={styles.jobTitle}>{job.position}</h3>
+                                                    <div className={styles.jobMeta}>
+                                                        <span>{job.location}</span>
+                                                        <span className={styles.metaDivider}>•</span>
+                                                        <span>{job.jobType}</span>
+                                                    </div>
                                                 </div>
+                                                <p className={styles.jobDescription}>{job.shortdescription}</p>
                                             </div>
-                                            <p className={styles.jobDescription}>{job.shortdescription}</p>
-                                        </div>
-                                        <div className={styles.jobBadgeContainer}>
-                                            <div className={styles.openingBadge}>
-                                                <span className={styles.openingIcon}>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                                                        <circle cx="9" cy="7" r="4"></circle>
-                                                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                                    </svg>
-                                                </span>
-                                                <span className={styles.openingText}>{job.positionCount} Openings</span>
+                                            <div className={styles.jobBadgeContainer}>
+                                                <div className={styles.openingBadge}>
+                                                    <span className={styles.openingIcon}>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                                            <circle cx="9" cy="7" r="4"></circle>
+                                                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                                        </svg>
+                                                    </span>
+                                                    <span className={styles.openingText}>{job.positionCount} Openings</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
-                        </div>
+                                ))}
+                            </div>
+                        ) : (
+                            <div className={styles.noOpenings}>No open positions at this time. Check back soon!</div>
+                        )}
                     </div>
                 </div>
 

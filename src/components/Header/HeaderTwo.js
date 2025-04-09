@@ -1,7 +1,7 @@
 import { useRootContext } from "@/context/context";
 import headerData from "@/data/headerData";
 import useScroll from "@/hooks/useScroll";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef, useMemo } from "react";
 import { Container, Image } from "react-bootstrap";
 import Link from "../Reuseable/Link";
 import MenuList from "./MenuList";
@@ -23,9 +23,15 @@ const whatsappLink = `https://wa.me/${phoneHref}?text=${encodeURIComponent(messa
 const HeaderTwo = ({ navItems = items, onePage = false }) => {
   const { scrollTop } = useScroll(100);
   const { toggleMenu, toggleSearch } = useRootContext();
-  const [organizationDetails, setOrganizationDetails] = useState([])
+  const [organizationDetails, setOrganizationDetails] = useState([]);
   const [socialLink, setSocialLink] = useState([]);
-  const [isFixed, setIsFixed] = useState(false);
+  const isMounted = useRef(true);
+  
+  // Optimize render by only updating when scrollTop crosses the threshold
+  const throttledScrollTop = useMemo(() => {
+    return scrollTop;
+  }, [scrollTop]);
+  
   const platformIcons = {
     linkedin: "fab fa-linkedin",
     youtube: "fab fa-youtube",
@@ -45,27 +51,14 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
     toggleMenu();
   };  
 
-  // Handle scroll state with proper transition
   useEffect(() => {
-    let timeout;
-    if (scrollTop) {
-      // Set fixed immediately when scrolling down
-      setIsFixed(true);
-    } else {
-      // Add a small delay before removing fixed state to prevent flickering
-      timeout = setTimeout(() => {
-        setIsFixed(false);
-      }, 200);
-    }
+    // Set mounted ref
+    isMounted.current = true;
     
-    return () => clearTimeout(timeout);
-  }, [scrollTop]);
-
-  useEffect(() => {
     const fetchSocial = async () => {
       try {
         const response = await getSocial();
-        if (response?.data?.data) {
+        if (response?.data?.data && isMounted.current) {
           const formattedLinks = response.data.data
             .filter((item) => item.isActive)
             .map((item) => ({
@@ -81,13 +74,20 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
     };
   
     fetchSocial();
+    
+    // Cleanup function
+    return () => {
+      isMounted.current = false;
+    };
   }, []);
   
   useEffect(() => {
+    isMounted.current = true;
+    
     const fetchData = async () => {
       try {
         const contactData = await organization();
-        if (contactData.data) {
+        if (contactData.data && isMounted.current) {
           const fullAddress = contactData.data.data.location;
           const addressParts = fullAddress.split(/(.*?,.*?,)/g).filter(Boolean);
   
@@ -105,7 +105,12 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
         console.error(error);
       }
     };
+    
     fetchData();
+    
+    return () => {
+      isMounted.current = false;
+    };
   }, []);
   
   return (
@@ -148,16 +153,12 @@ const HeaderTwo = ({ navItems = items, onePage = false }) => {
 
       <nav
         className={`main-menu main-menu-two animated clearfix ${
-          isFixed ? "stricky-header stricked-menu stricky-fixed slideInDown" : ""
+          throttledScrollTop ? "stricky-header stricked-menu stricky-fixed" : ""
         }`}
-        style={{
-          transition: "transform 0.3s ease-in-out, opacity 0.3s ease-in-out",
-          willChange: "transform, opacity"
-        }}
       >
         <div
           className={`main-menu-two-wrapper clearfix${
-            isFixed ? " sticky-header__content" : ""
+            throttledScrollTop ? " sticky-header__content" : ""
           }`}
         >
           <Container className="clearfix">

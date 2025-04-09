@@ -9860,3 +9860,58 @@ background-color: #FEFAF9;
   background-color: rgba(25, 24, 37, 0.15);
   margin: 0 5px;
 }
+
+
+
+/* Add this to your global CSS or create a new file for header-specific styles */
+
+.stricky-header {
+  will-change: transform;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+
+.main-menu-two-wrapper {
+  backface-visibility: hidden; /* Helps with performance */
+}
+
+/* Replace any animation classes with these optimized versions */
+.slideInDown {
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+
+.slideIn {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+
+/* Prevent layout thrashing by pre-allocating space */
+.main-header-two {
+  contain: layout size style; /* Modern browsers only */
+}
+
+/* Optimize mobile menu experience */
+.locked {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+/* Use hardware acceleration for smoother animations */
+.animated {
+  transform: translateZ(0);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Optimize touch response on mobile */
+.mobile-nav__toggler {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
