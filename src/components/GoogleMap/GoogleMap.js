@@ -12,7 +12,6 @@ const GoogleMap = ({
         try {
           const contactData = await organization();
           if (contactData.data) {
-            console.log(contactData.data.data);
     
             const fullAddress = contactData.data.data.location;
     

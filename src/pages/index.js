@@ -26,7 +26,6 @@ const Home2 = () => {
       try {
         // Update the API call to include the pageTitle parameter
         const response = await getSEO("home");
-        console.log(response.data);
         if (response?.data) {
           // Store the SEO data
           setSeoData(response.data);
