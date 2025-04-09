@@ -14,8 +14,7 @@ const Faq = () => {
     const fetchSEO = async () => {
       try {
         // Update the API call to include the pageTitle parameter
-        const response = await getSEO("services");
-        console.log(response.data);
+        const response = await getSEO("faqs");
         if (response?.data) {
           // Store the SEO data
           setSeoData(response.data);

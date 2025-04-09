@@ -15,7 +15,6 @@ const Privacy = () => {
       try {
         // Update the API call to include the pageTitle parameter
         const response = await getSEO("privacy-policy");
-        console.log(response.data);
         if (response?.data) {
           // Store the SEO data
           setSeoData(response.data);
