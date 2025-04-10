@@ -14,21 +14,34 @@ const whatsappLink = `https://wa.me/${phoneHref}?text=${encodeURIComponent(messa
 const Header = ({ mainMenuClass = "", navItems = items, onePage = false }) => {
   const { scrollTop } = useScroll(100);
   const { toggleMenu, toggleSearch } = useRootContext();
-  const [organizationDetails, setOrganizationDetails] = useState([])
-
-
+  const [organizationDetails, setOrganizationDetails] = useState([]);
 
   const handleToggleSearch = () => {
     toggleSearch();
     toggleMenu(false);
-    document.body.classList.toggle("locked");
+    // Use a more gentle approach to prevent body scrolling
+    if (!document.body.classList.contains("locked")) {
+      document.body.classList.add("locked");
+    } else {
+      document.body.classList.remove("locked");
+    }
   };
 
   const handleToggleMenu = () => {
-    document.body.classList.toggle("locked");
+    // Modified to be more smooth with mobile scrolling
+    if (!document.body.classList.contains("locked")) {
+      document.body.classList.add("locked");
+      // When adding locked class, save the current scroll position
+      document.body.style.top = `-${window.scrollY}px`;
+    } else {
+      // When removing locked class, restore scroll position
+      const scrollY = document.body.style.top;
+      document.body.style.top = '';
+      document.body.classList.remove("locked");
+      window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    }
     toggleMenu();
   };
-
     
   useEffect(() => {
     const fetchData = async () => {
@@ -55,8 +68,17 @@ const Header = ({ mainMenuClass = "", navItems = items, onePage = false }) => {
     fetchData();
   }, []);
   
-  
-      
+  // Add cleanup function to ensure body scroll is restored when component unmounts
+  useEffect(() => {
+    return () => {
+      if (document.body.classList.contains("locked")) {
+        const scrollY = document.body.style.top;
+        document.body.style.top = '';
+        document.body.classList.remove("locked");
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
+    };
+  }, []);
 
   return (
     <header className="main-header clearfix">

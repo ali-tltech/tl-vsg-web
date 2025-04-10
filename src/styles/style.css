@@ -886,6 +886,85 @@ input[type="search"]::-webkit-search-results-decoration {
   }
 }
 
+/* FIX FOR MOBILE SCROLLING ISSUES */
+@media (max-width: 1199px) {
+  .main-menu {
+    padding: 0 20px;
+  }
+
+  .main-menu-wrapper__logo {
+    margin-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .main-menu-wrapper__logo:before {
+    display: none;
+  }
+  
+  /* Prevent body from locking completely */
+  body.locked {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Fix header in mobile */
+  .main-header {
+    position: fixed;
+    background-color: var(--oslim-black);
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  /* Better animation for slideInDown */
+  .slideInDown {
+    animation-name: slideInDown;
+    animation-duration: 0.6s;
+    animation-fill-mode: both;
+    will-change: transform;
+  }
+  
+  @keyframes slideInDown {
+    from {
+      transform: translateY(-100%);
+      visibility: visible;
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  /* Stop animation flicker */
+  .animated {
+    animation-duration: 0.6s;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    will-change: transform, opacity;
+  }
+  
+  /* Smoother transitions */
+  .main-menu.stricky-fixed {
+    transition: all 0.3s ease;
+  }
+}
+
+/* Fix for extremely small screens */
+@media (max-width: 480px) {
+  .main-menu-wrapper__call {
+    display: none;
+  }
+  
+  .main-menu-wrapper__logo {
+    margin-right: 20px;
+  }
+  
+  .main-menu {
+    padding: 0 10px;
+  }
+}
+
 /*--------------------------------------------------------------
 # cookie
 --------------------------------------------------------------*/

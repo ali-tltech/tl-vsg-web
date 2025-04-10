@@ -4,7 +4,7 @@ import Header from "@/components/Header/Header";
 import Layout from "@/components/Layout/Layout";
 import PageHeader from "@/components/Reuseable/PageHeader";
 import bg_cases from "@/images/backgrounds/cases-banner-image.jpg";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getSEO } from "src/api/webapi";
 
 const Careers = () => {
