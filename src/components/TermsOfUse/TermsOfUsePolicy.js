@@ -9,34 +9,19 @@ const TermsOfUsePolicy = () => {
   const [headerTitle, setHeaderTitle] = useState("");
 
   useEffect(() => {
-    const extractAndCleanContent = (content) => {
-      // Your function logic here
-      return {
-        extractedHeader: "Header",
-        extractedDate: "Date",
-        cleanedContent: "Cleaned Content",
-      };
-    };
     const fetchTerms = async () => {
       try {
         const response = await getTerms();
-        console.log(response, "ressss");
 
         if (response?.data?.document) {
           const documentData = response.data.document;
           setTermsData(documentData);
 
-          // Extract and clean content
           const { extractedHeader, extractedDate, cleanedContent } = extractAndCleanContent(documentData.content);
 
-          if (extractedHeader) {
-            setHeaderTitle(extractedHeader);
-          }
-          if (extractedDate) {
-            setLastUpdated(extractedDate);
-          }
+          if (extractedHeader) setHeaderTitle(extractedHeader);
+          if (extractedDate) setLastUpdated(extractedDate);
 
-          // Set sanitized content with decoded HTML entities
           setSanitizedContent(cleanedContent);
         }
       } catch (error) {
@@ -45,22 +30,19 @@ const TermsOfUsePolicy = () => {
     };
 
     fetchTerms();
-  },[]);
+  }, []);
 
-  // Function to decode HTML entities like &amp; -> &
   const decodeHtmlEntities = (text) => {
     const textarea = document.createElement("textarea");
     textarea.innerHTML = text;
     return textarea.value;
   };
 
-  // Function to extract and clean header & last updated
   const extractAndCleanContent = (htmlContent) => {
     let extractedHeader = "";
     let extractedDate = "N/A";
     let cleanedContent = htmlContent;
 
-    // Match and remove the first <h2> (header title)
     const headerRegex = /<h2[^>]*>(.*?)<\/h2>/i;
     const headerMatch = cleanedContent.match(headerRegex);
     if (headerMatch) {
@@ -68,7 +50,6 @@ const TermsOfUsePolicy = () => {
       cleanedContent = cleanedContent.replace(headerRegex, "");
     }
 
-    // Match and remove the "Last Updated" paragraph
     const dateRegex = /<p[^>]*>\s*<em>\s*Last Updated:\s*([\w\s\d,]+)\s*<\/em>\s*<\/p>/i;
     const dateMatch = cleanedContent.match(dateRegex);
     if (dateMatch) {
@@ -76,7 +57,6 @@ const TermsOfUsePolicy = () => {
       cleanedContent = cleanedContent.replace(dateRegex, "");
     }
 
-    // Decode HTML entities for the entire cleaned content
     cleanedContent = decodeHtmlEntities(cleanedContent);
 
     return { extractedHeader, extractedDate, cleanedContent };
@@ -92,13 +72,11 @@ const TermsOfUsePolicy = () => {
         {headerTitle || "Terms and Conditions & Disclaimer"}
       </h2>
 
-      {/* Show extracted "Last Updated" date */}
       <p style={{ fontSize: "14px", textAlign: "center", fontStyle: "italic", color: "#666" }}>
         Last Updated: {lastUpdated}
       </p>
 
       <section className="mt-5">
-        {/* Render sanitized HTML content */}
         <div
           className="prose prose-blue max-w-none"
           dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(sanitizedContent) }}
