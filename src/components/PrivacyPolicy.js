@@ -16,17 +16,17 @@ export default function PrivacyPolicy() {
           const documentData = response.data.document;
           setPolicyData(documentData);
 
-          // Extract and remove both the first header and "Last Updated" from content
-          const { extractedHeader, extractedDate, cleanedContent } = extractAndCleanContent(documentData.content);
+          const { extractedHeader, extractedDate, cleanedContent } =
+            extractAndCleanContent(documentData.content);
 
           if (extractedHeader) {
             setHeaderTitle(extractedHeader);
           }
+
           if (extractedDate) {
             setLastUpdated(extractedDate);
           }
 
-          // Set modified content without the extracted header and "Last Updated"
           setSanitizedContent(cleanedContent);
         }
       } catch (error) {
@@ -37,53 +37,80 @@ export default function PrivacyPolicy() {
     fetchPolicy();
   }, []);
 
-  // Function to extract and remove the first <h2> and "Last Updated" line from HTML content
+  // Function to extract and clean HTML content
   const extractAndCleanContent = (htmlContent) => {
     let extractedHeader = "";
     let extractedDate = "N/A";
-    let cleanedContent = htmlContent;
+    let cleanedContent = htmlContent?.trim() || "";
 
-    // Match and remove the first <h2> (header title)
-    const headerRegex = /<h2[^>]*>(.*?)<\/h2>/i;
+    // Match and remove the first <h1> to <h6>
+    const headerRegex = /<h[1-6][^>]*>(.*?)<\/h[1-6]>/i;
     const headerMatch = cleanedContent.match(headerRegex);
-    if (headerMatch) {
+    if (headerMatch && headerMatch[1].trim() !== "") {
       extractedHeader = headerMatch[1].trim();
       cleanedContent = cleanedContent.replace(headerRegex, "");
     }
 
-    // Match and remove <p>Last Updated: [date]</p>
+    // Match and remove <p>Last Updated: ...</p>
     const dateRegex = /<p[^>]*>\s*Last Updated:\s*([\w\s,]+)\s*<\/p>/i;
     const dateMatch = cleanedContent.match(dateRegex);
-    if (dateMatch) {
+    if (dateMatch && dateMatch[1].trim() !== "") {
       extractedDate = dateMatch[1].trim();
       cleanedContent = cleanedContent.replace(dateRegex, "");
     }
+
+    // Clean up any leftover <br> or empty tags at the top
+    cleanedContent = cleanedContent
+      .replace(/^(<br\s*\/?>|\s|&nbsp;)+/i, "")
+      .trim();
 
     return { extractedHeader, extractedDate, cleanedContent };
   };
 
   if (!policyData) {
-    return <p className="text-center mt-10 text-gray-600">Loading Privacy Policy...</p>;
+    return (
+      <p className="text-center mt-10 text-gray-600">
+        Loading Privacy Policy...
+      </p>
+    );
   }
 
   return (
-    <div className="p-5 text-gray-800 leading-relaxed " style={{ padding: "20px", color: "#333", lineHeight: "1.8", maxWidth: "1200px", margin: "auto" }}>
+    <div
+      className="p-5 text-gray-800 leading-relaxed"
+      style={{
+        padding: "20px",
+        color: "#333",
+        lineHeight: "1.8",
+        maxWidth: "1200px",
+        margin: "auto",
+      }}
+    >
+      {/* Render extracted header or fallback */}
       <h2 className="text-center text-blue-600 mb-3 mt-20">
-        {headerTitle || (policyData.title === "PRIVACY" && "Privacy Policy")}
+        {headerTitle || "Privacy Policy"}
       </h2>
 
-      {/* Show extracted "Last Updated" date */}
+      {/* Render extracted "Last Updated" date */}
       <p className="text-sm text-center italic text-gray-600">
         Last Updated: {lastUpdated}
       </p>
 
-      <section className="mt-5">
-        {/* Render HTML content safely without the extracted header and Last Updated */}
-        <div
-          className="prose prose-blue max-w-none"
-          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(sanitizedContent) }}
-        />
-      </section>
+      {/* Render the main sanitized content */}
+      {sanitizedContent?.trim() ? (
+        <section className="mt-5">
+          <div
+            className="prose prose-blue max-w-none"
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(sanitizedContent),
+            }}
+          />
+        </section>
+      ) : (
+        <p className="text-center text-gray-500 mt-4">
+          No privacy policy available at the moment.
+        </p>
+      )}
     </div>
   );
 }
