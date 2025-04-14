@@ -13,7 +13,7 @@ const SingleServiceOne = ({ service = {} }) => {
     employeeEngagement: "icon-creative-1",
   });
 
-  const { title, image, icon , shortDescription,id } = service;
+  const { title, image, icon, shortDescription, id } = service;
 
   const safeHref = id ? `/service-details/${id}` : "#";
   const safeTitle = title || "Service";
@@ -54,32 +54,100 @@ const SingleServiceOne = ({ service = {} }) => {
   };
 
   return (
-    <div className="services-one__single">
-      <div className="services-one__img">
+    <div className="services-one__single" style={{ 
+      height: "500px", 
+      display: "flex", 
+      flexDirection: "column",
+      overflow: "hidden",
+      boxShadow: "0 5px 15px rgba(0, 0, 0, 0.05)",
+      borderRadius: "10px",
+      transition: "transform 0.3s ease, box-shadow 0.3s ease",
+    }}>
+      {/* Image section with fixed height */}
+      <div className="services-one__img" style={{ 
+        height: "220px", 
+        overflow: "hidden",
+        flexShrink: 0
+      }}>
         {image && (
           <Image 
             src={typeof image === 'string' ? image : ''} 
             alt={safeTitle}
+            style={{ 
+              width: "100%", 
+              height: "100%", 
+              objectFit: "cover",
+              objectPosition: "center" 
+            }}
           />
         )}
       </div>
-      <div className="services-one__content">
-        <div className="services-one__title-box">
-          <div className="services-one__title-icon">
-            <span className={getIconClass()}></span>
+      
+      {/* Content section with fixed layout */}
+      <div className="services-one__content" style={{ 
+        display: "flex", 
+        flexDirection: "column",
+        padding: "25px 20px 20px",
+        flexGrow: 1,
+        justifyContent: "space-between"
+      }}>
+        {/* Top content */}
+        <div>
+          <div className="services-one__title-box" style={{
+            marginBottom: "15px"
+          }}>
+            <div className="services-one__title-icon">
+              <span className={getIconClass()}></span>
+            </div>
+            <h3 className="services-one__title" style={{
+              marginBottom: "0",
+              fontSize: "22px",
+              lineHeight: "1.3",
+              fontWeight: "700"
+            }}>
+              <Link href={safeHref}>
+                <TextSplit text={safeTitle} />
+              </Link>
+            </h3>
           </div>
-          <h3 className="services-one__title">
-            <Link href={safeHref}>
-              <TextSplit text={safeTitle} />
-            </Link>
-          </h3>
+          
+          <p className="services-one__text" style={{ 
+            margin: "0 0 15px",
+            height: "80px",
+            overflow: "hidden",
+            display: "-webkit-box",
+            WebkitLineClamp: "3",
+            WebkitBoxOrient: "vertical",
+            textOverflow: "ellipsis"
+          }}>
+            {safeText}
+          </p>
         </div>
-        <p className="services-one__text">{safeText}</p>
-        <div className="services-one__bottom">
-          <Link href={safeHref} className="services-one__read-more">
+        
+        {/* Bottom action links with fixed position */}
+        <div className="services-one__bottom" style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginTop: "auto",
+          paddingTop: "15px",
+          borderTop: "1px solid #e9ebee"
+        }}>
+          <Link href={safeHref} className="services-one__read-more" style={{
+            fontSize: "16px",
+            fontWeight: "500"
+          }}>
             Read More
           </Link>
-          <Link href={safeHref} className="services-one__arrow">
+          <Link href={safeHref} className="services-one__arrow" style={{
+            width: "40px",
+            height: "40px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            borderRadius: "50%",
+            background: "#f5f6f8"
+          }}>
             <span className="icon-right-arrow"></span>
           </Link>
         </div>
