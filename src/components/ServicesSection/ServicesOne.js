@@ -1,5 +1,3 @@
-
-// ServicesOne.js - Fixed version
 import { servicesOne } from "@/data/servicesSection";
 import useActive from "@/hooks/useActive";
 import React, { useEffect, useState } from "react";
@@ -39,19 +37,26 @@ const ServicesOne = ({ id = "", hideTitle = false, serviceCount }) => {
   }, []);
 
   return (
-    <section ref={ref} className="services-one" id={id}>
+    <section 
+      ref={ref} 
+      className="services-one" 
+      id={id}
+      style={{ 
+        marginBottom: "80px" // Added bottom margin for spacing before footer
+      }}
+    >
       <Container>
         {!hideTitle && (
           <Title title={title} tagline={tagline} className="text-center" />
         )}
-        <Row>
+        <Row className="gx-5 gy-4"> {/* Added gutter classes for spacing between cards */}
           {isLoading ? (
             <Col className="text-center">
               <p>Loading services...</p>
             </Col>
           ) : (
             // Use serviceDetails instead of services
-            serviceDetails.slice(0, serviceCount || serviceDetails.length).map((service) => (
+            serviceDetails.slice(0, serviceCount || serviceDetails.length).map((service, index) => (
               <Col
                 xl={4}
                 lg={4}

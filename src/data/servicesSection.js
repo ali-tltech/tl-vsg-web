@@ -65,7 +65,7 @@ export const servicesOne = {
 
 export const serviceDetailsSidebar = {
   navItems: servicesSubNavItems.slice(3),
-  title: "Contact with \n us for any \n advice",
+  title: "Expert advice \n contact",
   phoneIcon: "icon-phone-call",
   text: "Need help? Talk to an expert",
   phone: "+91 9000334512",

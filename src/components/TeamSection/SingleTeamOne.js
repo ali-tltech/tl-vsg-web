@@ -24,13 +24,13 @@ const SingleTeamOne = ({ team = {} }) => {
           <h3 className="team-one__name">{name}</h3>
           <p className="team-one__title">{position}</p>
         </div>
-        <ul className="list-unstyled team-one__social">
+        {/* <ul className="list-unstyled team-one__social">
             <li >
               <a href={linkedin} target="_blank" rel="noreferrer">
                 <i className="fab fa-linkedin"></i>
               </a>
             </li>
-        </ul>
+        </ul> */}
       </div>
     </div>
   );
