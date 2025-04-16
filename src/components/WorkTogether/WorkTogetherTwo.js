@@ -44,10 +44,11 @@ const WorkTogetherTwo = () => {
           ))}
         </div>
         <div className="work-together-two__milestones">
-          <ul>
+          <ul className="work-together-two__milestones-list-style">
             {workTogetherTwo.milestones.map((milestone, index) => (
               <li key={index} style={{ display: "flex", alignItems: "start", marginBottom: "10px" }}>
                 <div
+                  className="work-together-two__milestones-list-icons"
                   style={{
                     background: "#434176",
                     borderRadius: "8px",

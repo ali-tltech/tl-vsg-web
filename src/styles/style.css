@@ -3352,6 +3352,56 @@ input[type="search"]::-webkit-search-results-decoration {
   color: var(--oslim-white);
 }
 
+@media (max-width: 370px) {
+  .free-consultation__contact-email {
+    font-size: 15px;
+  }
+}
+
+
+.work-together-two__milestones-list-style{
+  padding-left: 2rem;
+}
+@media (max-width: 760px) {
+  .work-together-two__milestones-list-style {
+    padding-left: 0rem;
+    font-size: 18px;
+
+  }
+}
+@media (max-width: 370px) {
+  .work-together-two__milestones-list-style {
+    padding-left: 0rem;
+    font-size: 15px;
+
+  }
+}
+
+
+.work-together-two__milestones-list-icons{
+  background: "#434176";
+  border-radius: "8px";
+  margin-right: "10px";
+  height: "35px";
+  width: "35px";
+  display: "flex";
+  align-items: "center";
+  justify-content: "center";
+}
+
+@media (max-width: 765px) {
+  .work-together-two__milestones-list-icons {
+    background: "#434176";
+    border-radius: "8px";
+    margin-right: "10px";
+    height: "28px";
+    width: "28px";
+  display: "flex";
+    align-items: "center";
+    justify-content: "center";
+
+  }
+}
 /*--------------------------------------------------------------
 # Our Mission
 --------------------------------------------------------------*/
@@ -5080,7 +5130,7 @@ background-color: #FEFAF9;
 
 .quality-work__tab-box .tab-buttons .tab-btn.active-btn span:before,
 .quality-work__tab-box .tab-buttons .tab-btn.active-btn span:after {
-  width: 50%;
+  width: 100%;
 }
 
 .quality-work__tab-box .tabs-content {
