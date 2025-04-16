@@ -7899,7 +7899,7 @@ background-color: #FEFAF9;
 .news-details {
   position: relative;
   display: block;
-  padding: 60px 0 120px;
+  padding: 60px 0 60px;
 }
 
 .news-details__left {
@@ -9938,4 +9938,46 @@ background-color: #FEFAF9;
   height: 20px;
   background-color: rgba(25, 24, 37, 0.15);
   margin: 0 5px;
+}
+
+
+
+/* Add these styles to your project's CSS file */
+
+.news-details__img-container {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  overflow: hidden;
+  background-color: #f0f0f0; /* Light background for image loading */
+  border-radius: 8px;
+}
+
+.case-featured-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This ensures the image covers the entire container */
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+/* Media queries for different screen sizes */
+@media (max-width: 767px) {
+  .image-wrapper {
+    padding-top: 75%; /* 4:3 Aspect Ratio for smaller screens */
+  }
+}
+
+@media (min-width: 1200px) {
+  .image-wrapper {
+    padding-top: 50%; /* 2:1 Aspect Ratio for larger screens */
+  }
 }
