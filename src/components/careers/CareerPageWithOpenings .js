@@ -29,12 +29,8 @@ const CareerPageWithOpenings = () => {
                 <div className={styles.heroSection}>
                     <h1 className={styles.mainHeading}>Join Our Team</h1>
                     <p className={styles.subHeading}>
-                        {/* VS GenX Solutions was founded with a clear mission—to empower businesses and individuals through purpose-driven, scalable HR solutions. We&apos;re looking for talented individuals who are passionate about transforming HR practices and making a meaningful impact. */}
                         VS GenX Solutions was founded with a clear mission—to empower businesses and individuals through purpose-driven, scalable HR solutions. We&#39;re looking for talented individuals who are passionate about transforming HR practices and making a meaningful impact.
-                        {/* VS GenX Solutions was founded with a clear mission—to empower businesses and individuals through purpose-driven, scalable HR solutions. We&apos;re looking for talented individuals who are passionate about transforming HR practices and making a meaningful impact. */}
-
                     </p>
-
                 </div>
 
                 {/* Job Listings */}
@@ -55,7 +51,11 @@ const CareerPageWithOpenings = () => {
                                                     <span>{job.jobType}</span>
                                                 </div>
                                             </div>
-                                            <p className={styles.jobDescription}>{job.shortdescription}</p>
+                                            {/* Render HTML content safely */}
+                                            <div 
+                                                className={styles.jobDescription}
+                                                dangerouslySetInnerHTML={{ __html: job.shortdescription }}
+                                            />
                                         </div>
                                         <div className={styles.jobBadgeContainer}>
                                             <div className={styles.openingBadge}>
