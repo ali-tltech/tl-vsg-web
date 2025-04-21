@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Clock, AlertCircle, Calendar, Mail } from 'lucide-react';
 
@@ -32,7 +31,7 @@ export default function Maintenance() {
           marginTop: "1rem", 
           color: "#555" 
         }}>
-          We're performing some updates. Please check back soon!
+          We&apos;re performing some updates. Please check back soon!
         </p>
         
         <div style={{
@@ -47,7 +46,7 @@ export default function Maintenance() {
             fontWeight: "600",
             color: "#444",
             marginBottom: "1rem"
-          }}>What's Happening?</h2>
+          }}>What&apos;s Happening?</h2>
           
           <div style={{
             display: "grid",
@@ -62,7 +61,7 @@ export default function Maintenance() {
               <Clock style={{ marginRight: "0.75rem", color: "#3b82f6", flexShrink: 0 }} size={24} />
               <div>
                 <h3 style={{ fontWeight: "500", color: "#333" }}>Estimated Downtime</h3>
-                <p style={{ color: "#555" }}>Our system will be back online in approximately 5 hours.</p>
+                <p style={{ color: "#555" }}>Our system will be back online in approximately 2 hours.</p>
               </div>
             </div>
             
@@ -72,7 +71,7 @@ export default function Maintenance() {
             }}>
               <AlertCircle style={{ marginRight: "0.75rem", color: "#3b82f6", flexShrink: 0 }} size={24} />
               <div>
-                <h3 style={{ fontWeight: "500", color: "#333" }}>What We're Improving</h3>
+                <h3 style={{ fontWeight: "500", color: "#333" }}>What We&apos;re Improving</h3>
                 <p style={{ color: "#555" }}>Upgrading our servers and implementing new security features.</p>
               </div>
             </div>
