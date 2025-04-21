@@ -125,7 +125,7 @@ const NewsSidebarSide = () => {
         {/* No posts placeholder */}
         {posts.length === 0 && (
           <div className="text-center text-muted py-4">
-            No recent posts available
+            No recent Blogs available
           </div>
         )}
       </div>
