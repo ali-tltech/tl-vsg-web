@@ -6,7 +6,7 @@ import Title from "../Reuseable/Title";
 import SingleServiceOne from "./SingleServiceOne";
 import { service } from "src/api/api";
 
-const { tagline, title } = servicesOne; // Remove services from this destructuring
+const { tagline, title } = servicesOne; 
 
 const ServicesOne = ({ id = "", hideTitle = false, serviceCount }) => {
   const ref = useActive(id);
@@ -54,7 +54,7 @@ const ServicesOne = ({ id = "", hideTitle = false, serviceCount }) => {
             <Col className="text-center">
               <p>Loading services...</p>
             </Col>
-          ) : (
+          ) : serviceDetails && serviceDetails.length > 0 ? (
             // Use serviceDetails instead of services
             serviceDetails.slice(0, serviceCount || serviceDetails.length).map((service, index) => (
               <Col
@@ -67,6 +67,10 @@ const ServicesOne = ({ id = "", hideTitle = false, serviceCount }) => {
                 <SingleServiceOne service={service} />
               </Col>
             ))
+          ) : (
+            <Col className="text-center py-5">
+              <p>No services available</p>
+            </Col>
           )}
         </Row>
       </Container>
