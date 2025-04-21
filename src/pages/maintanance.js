@@ -41,12 +41,7 @@ export default function Maintenance() {
           borderRadius: "0.5rem",
           boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)"
         }}>
-          <h2 style={{
-            fontSize: "1.5rem",
-            fontWeight: "600",
-            color: "#444",
-            marginBottom: "1rem"
-          }}>What&apos;s Happening?</h2>
+         
           
           <div style={{
             display: "grid",
@@ -54,38 +49,11 @@ export default function Maintenance() {
             gap: "1.5rem",
             textAlign: "left"
           }}>
-            <div style={{
-              display: "flex",
-              alignItems: "flex-start"
-            }}>
-              <Clock style={{ marginRight: "0.75rem", color: "#3b82f6", flexShrink: 0 }} size={24} />
-              <div>
-                <h3 style={{ fontWeight: "500", color: "#333" }}>Estimated Downtime</h3>
-                <p style={{ color: "#555" }}>Our system will be back online in approximately 2 hours.</p>
-              </div>
-            </div>
+         
             
-            <div style={{
-              display: "flex",
-              alignItems: "flex-start"
-            }}>
-              <AlertCircle style={{ marginRight: "0.75rem", color: "#3b82f6", flexShrink: 0 }} size={24} />
-              <div>
-                <h3 style={{ fontWeight: "500", color: "#333" }}>What We&apos;re Improving</h3>
-                <p style={{ color: "#555" }}>Upgrading our servers and implementing new security features.</p>
-              </div>
-            </div>
+           
             
-            <div style={{
-              display: "flex",
-              alignItems: "flex-start"
-            }}>
-              <Calendar style={{ marginRight: "0.75rem", color: "#3b82f6", flexShrink: 0 }} size={24} />
-              <div>
-                <h3 style={{ fontWeight: "500", color: "#333" }}>Scheduled Completion</h3>
-                <p style={{ color: "#555" }}>April 21, 2025 at 6:00 PM EST</p>
-              </div>
-            </div>
+          
             
             <div style={{
               display: "flex",
@@ -94,7 +62,7 @@ export default function Maintenance() {
               <Mail style={{ marginRight: "0.75rem", color: "#3b82f6", flexShrink: 0 }} size={24} />
               <div>
                 <h3 style={{ fontWeight: "500", color: "#333" }}>Questions?</h3>
-                <p style={{ color: "#555" }}>Contact our support team at support@example.com</p>
+                <p style={{ color: "#555" }}>Contact our support team at <a href='mailto:enablement@vsgenxsolutions.com' >enablement@vsgenxsolutions.com</a> </p>
               </div>
             </div>
           </div>
