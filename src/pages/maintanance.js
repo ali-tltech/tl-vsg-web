@@ -55,16 +55,33 @@ export default function Maintenance() {
             
           
             
-            <div style={{
-              display: "flex",
-              alignItems: "flex-start"
-            }}>
-              <Mail style={{ marginRight: "0.75rem", color: "#3b82f6", flexShrink: 0 }} size={24} />
-              <div>
-                <h3 style={{ fontWeight: "500", color: "#333" }}>Questions?</h3>
-                <p style={{ color: "#555" }}>Contact our support team at <a href='mailto:enablement@vsgenxsolutions.com' >enablement@vsgenxsolutions.com</a> </p>
-              </div>
-            </div>
+         <div style={{
+  display: "flex",
+  alignItems: "flex-start"
+}}>
+  <Mail style={{ marginRight: "0.75rem", color: "#3b82f6", flexShrink: 0 }} size={24} />
+  <div>
+    <h3 style={{ fontWeight: "500", color: "#333" }}>Questions?</h3>
+    <p style={{ color: "#555" }}>Contact our support team at <a 
+      href="mailto:enablement@vsgenxsolutions.com"
+      style={{
+        color: "#3b82f6",
+        textDecoration: "none", 
+        fontWeight: "500",
+        transition: "color 0.2s ease, borderBottom 0.2s ease",
+        borderBottom: "1px solid #3b82f6"
+      }}
+      onMouseOver={(e) => {
+        e.target.style.color = "#1e40af";
+        e.target.style.borderBottom = "1px solid #1e40af";
+      }}
+      onMouseOut={(e) => {
+        e.target.style.color = "#3b82f6";
+        e.target.style.borderBottom = "1px solid #3b82f6";
+      }}
+    >enablement@vsgenxsolutions.com</a></p>
+  </div>
+</div>
           </div>
         </div>
         
