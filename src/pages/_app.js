@@ -29,7 +29,7 @@
   import { useRouter } from "next/router";
   import Script from "next/script";
   import ContextProvider from "@/context/ContextProvider";
-import FaviconUpdater from "@/components/FaviconUpdater/FaviconUpdater";
+  import FaviconUpdater from "@/components/FaviconUpdater/FaviconUpdater";
   
   // Google Analytics Tracking ID
   const GA_TRACKING_ID = "G-56XPSKHF5L"; // Replace with your actual Google Analytics ID
@@ -52,9 +52,13 @@ import FaviconUpdater from "@/components/FaviconUpdater/FaviconUpdater";
   import "@/styles/responsive.css";
   
   import { Toaster } from "react-hot-toast";
+import Maintenance from "./maintanance";
   
   const MyApp = ({ Component, pageProps }) => {
     const router = useRouter();
+  
+    const isMaintenance = process.env.NEXT_PUBLIC_MAINTENANCE_MODE === "true";
+    const isMaintenancePage = Component.name === "Maintenance";
   
     useEffect(() => {
       const handleRouteChange = (url) => {
@@ -67,6 +71,10 @@ import FaviconUpdater from "@/components/FaviconUpdater/FaviconUpdater";
         router.events.off("routeChangeComplete", handleRouteChange);
       };
     }, [router.events]);
+  
+    if (isMaintenance && !isMaintenancePage) {
+      return <Maintenance />;
+    }
   
     return (
       <ContextProvider>
@@ -89,10 +97,9 @@ import FaviconUpdater from "@/components/FaviconUpdater/FaviconUpdater";
             `,
           }}
         />
-        
+  
         <Toaster position="top-right" reverseOrder={false} />
-        {/*------ favicon automation component ------*/}
-        {/* <FaviconUpdater /> */} 
+        {/* <FaviconUpdater /> */}
         <Component {...pageProps} />
       </ContextProvider>
     );
