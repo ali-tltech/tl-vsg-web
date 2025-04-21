@@ -7967,6 +7967,21 @@ background-color: #FEFAF9;
   border-radius: var(--oslim-bdr-radius);
 }
 
+.news-details_carousal__img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.news-details_carousal__img img {
+  max-width: 80%;
+  height: auto;
+  border-radius: var(--oslim-bdr-radius);
+  display: block;
+}
+
+
 .news-details__content {
   position: relative;
   display: block;
@@ -8323,11 +8338,11 @@ background-color: #FEFAF9;
 .cases-page {
   position: relative;
   display: block;
-  padding: 120px 0 90px;
+  padding: 60px 0 90px;
 }
 
 .cases-page--carousel {
-  padding-bottom: 120px;
+  padding-bottom: 60px;
 }
 
 .case-carousel .swiper-pagination {

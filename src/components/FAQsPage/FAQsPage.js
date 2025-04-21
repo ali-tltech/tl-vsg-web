@@ -5,9 +5,11 @@ import { handleFaqs } from "src/api/webapi";
 
 const FAQsPage = () => {
   const [faqsData, setFaqsData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchFaqs = async () => {
+      setLoading(true);
       try {
         const response = await handleFaqs();
 
@@ -20,11 +22,43 @@ const FAQsPage = () => {
       } catch (error) {
         console.error("Failed to fetch FAQs:", error);
         setFaqsData([]);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchFaqs();
   }, []);
+
+  // If loading, show loading state
+  if (loading) {
+    return (
+      <section className="faq-page">
+        <Container>
+          <Row>
+            <Col className="text-center py-5">
+              <p>Loading FAQs...</p>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+    );
+  }
+
+  // If no FAQs are available after loading
+  if (faqsData.length === 0) {
+    return (
+      <section className="faq-page">
+        <Container>
+          <Row>
+            <Col className="text-center py-5">
+              <p>No FAQs available</p>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+    );
+  }
 
   // Split FAQs into two columns
   const midIndex = Math.ceil(faqsData.length / 2);

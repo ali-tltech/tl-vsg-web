@@ -23,8 +23,8 @@ const CaseDetailsLeft = ({ caseDatas = {} }) => {
 
   return (
     <div className="news-details__left">
-      <div className="news-details__img">
-        <Image  className="lg:h-96" src={image} alt={title} />
+      <div className="news-details_carousal__img">
+        <Image  className="" src={image} alt={title} />
       </div>
       <div className="news-details__content">
         <ul className="list-unstyled news-details__meta">
@@ -36,11 +36,6 @@ const CaseDetailsLeft = ({ caseDatas = {} }) => {
           <li>
             <span>/</span>
           </li>
-          {/* <li>
-            <Link href="#">
-              <i className="far fa-user"></i> {author}
-            </Link>
-          </li> */}
         </ul>
         <h3 className="news-details__title">{title}</h3>
         <div 
