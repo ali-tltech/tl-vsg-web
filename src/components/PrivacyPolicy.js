@@ -63,9 +63,44 @@ export default function PrivacyPolicy() {
     cleanedContent = cleanedContent
       .replace(/^(<br\s*\/?>|\s|&nbsp;)+/i, "")
       .trim();
+    
+    // Remove empty paragraph tags
+    cleanedContent = cleanedContent
+      .replace(/<p>\s*(&nbsp;)*\s*<\/p>/gi, "")
+      .replace(/<p><br\s*\/?><\/p>/gi, "");
+    
+    // Fix excessive spacing between sections
+    cleanedContent = cleanedContent
+      .replace(/(<\/[^>]+>)\s*(<[^>]+>)/g, "$1$2")
+      .replace(/>\s+</g, "> <");
 
     return { extractedHeader, extractedDate, cleanedContent };
   };
+
+  const configureStyles = () => {
+    // Create a style configuration object to improve section spacing
+    return {
+      container: {
+        padding: "20px",
+        color: "#333",
+        lineHeight: "1.8",
+        maxWidth: "1200px",
+        margin: "auto",
+      },
+      section: {
+        marginBottom: "1.5rem",
+      },
+      heading: {
+        marginTop: "1.5rem",
+        marginBottom: "1rem",
+      },
+      paragraph: {
+        marginBottom: "1rem",
+      }
+    };
+  };
+
+  const styles = configureStyles();
 
   if (!policyData) {
     return (
@@ -75,24 +110,21 @@ export default function PrivacyPolicy() {
     );
   }
 
+  // Configure DOMPurify to retain specific styles we want
+  const purifyConfig = {
+    ADD_ATTR: ['style'],
+    ADD_TAGS: ['section']
+  };
+
   return (
-    <div
-      className="p-5 text-gray-800 leading-relaxed"
-      style={{
-        padding: "20px",
-        color: "#333",
-        lineHeight: "1.8",
-        maxWidth: "1200px",
-        margin: "auto",
-      }}
-    >
+    <div className="p-5 text-gray-800 leading-relaxed" style={styles.container}>
       {/* Render extracted header or fallback */}
       <h2 className="text-center text-blue-600 mb-3 mt-20">
         {headerTitle || "Privacy Policy"}
       </h2>
 
       {/* Render extracted "Last Updated" date */}
-      <p className="text-sm text-center italic text-gray-600">
+      <p className="text-sm text-center italic text-gray-600 mb-8">
         Last Updated: {lastUpdated}
       </p>
 
@@ -102,7 +134,7 @@ export default function PrivacyPolicy() {
           <div
             className="prose prose-blue max-w-none"
             dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(sanitizedContent),
+              __html: DOMPurify.sanitize(sanitizedContent, purifyConfig),
             }}
           />
         </section>
