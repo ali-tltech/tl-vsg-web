@@ -45,27 +45,27 @@ export const navItems = [
     href: "/testimonials",
 
   },
+  // {
+  //   id: 5,
+  //   name: "Cases",
+  //   href: "/cases",
+  
+
+  // },
+  // {
+  //   id: 6,
+  //   name: "Blogs",
+  //   href: "/blog",
+  
+  //   },
+  //   {
+  //     id: 7,
+  //     name: "Careers",
+  //     href: "/careers",
+  //   },
+    // Custom property to indicate "Coming Soon"
   {
     id: 5,
-    name: "Cases",
-    href: "/cases",
-    // Custom property to indicate "Coming Soon"
-
-  },
-  {
-    id: 6,
-    name: "Blogs",
-    href: "/blog",
-    // Custom property to indicate "Coming Soon"
-    },
-    {
-      id: 7,
-      name: "Careers",
-      href: "/careers",
-      // Custom property to indicate "Coming Soon"
-      },
-  {
-    id: 7,
     name: "Contact",
     href: "/contact",
   },
