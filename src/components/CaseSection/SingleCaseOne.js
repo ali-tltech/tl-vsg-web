@@ -1,6 +1,3 @@
-
-
-// SingleCaseOne.js
 import React from "react";
 import { Image } from "react-bootstrap";
 import Link from "../Reuseable/Link";
@@ -27,6 +24,8 @@ const SingleCaseOne = ({ cases = {}, smallImage = false }) => {
           boxShadow: '0 2px 15px rgba(0,0,0,0.08)',
           backgroundColor: '#fff',
           height: '100%',
+          width: '100%', 
+          maxWidth: '350px',
           display: 'flex',
           flexDirection: 'column',
           position: 'relative',
@@ -36,7 +35,7 @@ const SingleCaseOne = ({ cases = {}, smallImage = false }) => {
         <div 
           className="case-one__img"
           style={{
-            height: '250px',
+            height: '200px',
             overflow: 'hidden',
             position: 'relative'
           }}
@@ -55,7 +54,7 @@ const SingleCaseOne = ({ cases = {}, smallImage = false }) => {
         <div 
           className="case-one__content"
           style={{
-            padding: '25px 20px',
+            padding: '20px 15px',
             flexGrow: 1,
             display: 'flex',
             flexDirection: 'column',
@@ -65,7 +64,6 @@ const SingleCaseOne = ({ cases = {}, smallImage = false }) => {
           }}
         >
           <div>
-            
             <h3 
               className="case-one__title"
               style={{
@@ -102,10 +100,10 @@ const SingleCaseOne = ({ cases = {}, smallImage = false }) => {
           className="case-one__arrow"
           style={{
             position: 'absolute',
-            bottom: '20px',
-            right: '20px',
-            width: '40px',
-            height: '40px',
+            bottom: '15px',
+            right: '15px',
+            width: '35px',
+            height: '35px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
