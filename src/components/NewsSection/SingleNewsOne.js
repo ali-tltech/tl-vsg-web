@@ -12,6 +12,7 @@ const SingleNewsOne = ({ blogData = {} }) => {
       day: "numeric",
     })
     : "Unknown Date";
+console.log();
 
   // If no ID, don't make it clickable
   if (!id) {
@@ -19,7 +20,7 @@ const SingleNewsOne = ({ blogData = {} }) => {
   }
 
   return (
-    <Link href={`id ? /blog/${id} : "#"`} passHref>
+    <Link href={`/blog/${id}`} passHref>
       <div
         className="news-one__single"
         style={{
