@@ -91,17 +91,41 @@ export const getSEO = async (pageTitle) => {
     }
   
     try {
-      const response = await axiosInstance.get(`/blog/get-blog/${id}`);
-      return response;
-    } catch (error) {
-      console.error(Error, `fetching blog with ID ${id}:`, error.message);
+      // You might need to include a timeout to prevent hanging requests
+      const response = await axiosInstance.get(`/blog/get-blog/${id}, {
+        timeout: 8000 // 8 second timeout
+      }`);
       
-      // Check if it's a 404 or other specific error
-      if (error.response?.status === 404) {
-        return { data: { data: null }, status: 404 };
+      // Add some validation of the response
+      if (!response.data) {
+        throw new Error("Invalid response: No data received");
       }
       
-      throw error; // Re-throw to let the component handle it
+      return response;
+    } catch (error) {
+      // Handle different types of errors differently
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        console.error(`Server error for blog ID ${id}:, {
+          status: error.response.status,
+          data: error.response.data
+        }`);
+        
+        // Return null data for 404s instead of throwing
+        if (error.response.status === 404) {
+          return { data: { data: null } };
+        }
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.error(`Network error for blog ID ${id}:, error.request`);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.error(Error `setting up request for blog ID ${id}:`, error.message);
+      }
+      
+      // Re-throw the error to be handled by the calling function
+      throw error;
     }
   };
 
