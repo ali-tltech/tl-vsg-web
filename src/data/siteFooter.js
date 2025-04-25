@@ -46,38 +46,43 @@ const footerData = {
       text: "Services",
       href: "/services",
     },
-    // {
-    //   id: 3,
-    //   text: "Case Studies",
-    //   href: "/cases",
-    // },
-    // {
-    //   id: 4,
-    //   text: "Blogs",
-    //   href: "/blog",
-    // },
     {
       id: 3,
+      text: "Case Studies",
+      href: "/cases",
+    },
+    {
+      id: 4,
+      text: "Blogs",
+      href: "/blog",
+    },
+    {
+      id: 5,
+      text: "Careers",
+      href: "/careers",
+    },
+    {
+      id: 6,
       text: "FAQs",
       href: "/faq",
     },
     {
-      id: 4,
+      id: 7,
       text: "Contact",
       href: "/contact",
     },
     {
-      id: 5,
+      id: 8,
       text: "Terms & conditions",
       href: "/terms-of-use",
     },
     {
-      id: 6,
+      id: 9,
       text: "Privacy policy",
       href: "/privacy-policy",
     },
     {
-      id: 7,
+      id: 10,
       text: "Testimonials",
       href: "/testimonials",
     },
