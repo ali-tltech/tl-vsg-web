@@ -92,9 +92,9 @@ export const getSEO = async (pageTitle) => {
   
     try {
       // You might need to include a timeout to prevent hanging requests
-      const response = await axiosInstance.get(`/blog/get-blog/${id}, {
+      const response = await axiosInstance.get(`/blog/get-blog/${id}`, {
         timeout: 8000 // 8 second timeout
-      }`);
+      });
       
       // Add some validation of the response
       if (!response.data) {
@@ -121,7 +121,7 @@ export const getSEO = async (pageTitle) => {
         console.error(`Network error for blog ID ${id}:, error.request`);
       } else {
         // Something happened in setting up the request that triggered an Error
-        console.error(Error `setting up request for blog ID ${id}:`, error.message);
+        console.error(`setting up request for blog ID ${id}:`, error.message);
       }
       
       // Re-throw the error to be handled by the calling function
