@@ -1,73 +1,121 @@
 import Header from "@/components/Header/Header";
 import Layout from "@/components/Layout/Layout";
 import NewsDetailsPage from "@/components/NewsSection/NewsDetailsPage";
-import BlogPageHeader from "@/components/Reuseable/BlogPageHeader";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+import { getBlog, getBlogById } from "src/api/webapi";
 import bg_blog from "@/images/backgrounds/blog-banner-image.jpg";
-import { getBlog } from "src/api/webapi";
+import BlogPageHeader from "@/components/Reuseable/BlogPageHeader";
 
 export async function getServerSideProps(context) {
   const { id } = context.params;
-  
+ 
   try {
-    const response = await getBlog();
+    // Fetch the specific blog by ID first
+    const blogResponse = await getBlogById(id);
+    const blogData = blogResponse?.data?.data;
     
-    // Validate API response structure
-    if (!response?.data?.data || !Array.isArray(response.data.data)) {
-      throw new Error("Invalid API response structure");
-    }
-
-    const allBlogs = response.data.data;
-    const blogData = allBlogs.find(blog => blog.id === id);
-    const relatedPosts = allBlogs.filter(blog => blog.id !== id).slice(0, 3);
-
-    if (!blogData) return { notFound: true };
-
+    // Fetch all blogs to pass to the page for related articles
+    const blogsResponse = await getBlog();
+    const blogs = blogsResponse?.data?.data || [];
+   
     return {
       props: {
-        blogData: JSON.parse(JSON.stringify(blogData)), // Handle Date objects
-        relatedPosts: JSON.parse(JSON.stringify(relatedPosts))
+        initialBlogData: blogData || null,
+        blogs: blogs || []
       }
     };
   } catch (error) {
-    console.error("SSR Error:", error.message);
-    return { 
-      props: { 
-        error: true,
-        message: error.message 
-      } 
+    console.error("Error fetching blog data:", error);
+    return {
+      props: {
+        initialBlogData: null,
+        blogs: []
+      }
     };
   }
 }
 
-const BlogDetails = ({ blogData, relatedPosts, error, message }) => {
-  if (error) {
+const BlogDetails = ({ initialBlogData, blogs }) => {
+  const router = useRouter();
+  const { id } = router.query;
+ 
+  const [blogData, setBlogData] = useState(initialBlogData);
+  const [loading, setLoading] = useState(!initialBlogData);
+  const [relatedBlogs, setRelatedBlogs] = useState(blogs);
+
+  useEffect(() => {
+    // If we already have blog data from SSR, skip client-side fetching
+    if (initialBlogData && id === initialBlogData.id) {
+      return;
+    }
+
+    const fetchBlogData = async () => {
+      if (!id) return;
+      
+      setLoading(true);
+      
+      try {
+        // Use the specific endpoint to get blog by ID
+        const response = await getBlogById(id);
+        
+        if (response?.data?.data) {
+          setBlogData(response.data.data);
+        } else {
+          console.error("Blog not found");
+          setBlogData(null);
+        }
+      } catch (error) {
+        console.error("Error fetching blog details:", error);
+        setBlogData(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogData();
+  }, [id, initialBlogData]);
+
+  // If loading, show a loader
+  if (loading) {
     return (
-      <Layout pageTitle="Error" footerClassName="site-footer-three">
+      <Layout pageTitle="Loading..." footerClassName="site-footer-three">
         <Header />
         <div className="text-center py-5">
-          <h2>Error Loading Blog</h2>
-          <p>{message || "Failed to load blog content"}</p>
+          <div className="spinner-border text-primary" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </Layout>
+    );
+  }
+
+  // If no blog data is found, show a not found message
+  if (!blogData) {
+    return (
+      <Layout pageTitle="Blog Not Found" footerClassName="site-footer-three">
+        <Header />
+        <div className="text-center py-5">
+          <h2>Blog not found</h2>
+          <p>The blog you&apos;re looking for doesn&apos;t exist or has been removed.</p>
+          <button 
+            className="btn btn-primary mt-3" 
+            onClick={() => router.push('/blog')}
+          >
+            Back to Blogs
+          </button>
         </div>
       </Layout>
     );
   }
 
   return (
-    <Layout 
-      pageTitle={blogData?.title || "Blog Details"} 
-      footerClassName="site-footer-three"
-    >
+    <Layout pageTitle={blogData.title || "Blog Details"} footerClassName="site-footer-three">
       <Header />
-      <BlogPageHeader 
-        title={blogData?.title || ""} 
-        bgImage={bg_blog} 
-      />
-      <NewsDetailsPage 
-        blogData={blogData} 
-        relatedPosts={relatedPosts} 
-      />
+      <BlogPageHeader title={blogData.title} bgImage={bg_blog} />
+      <NewsDetailsPage blogData={blogData} allBlogs={relatedBlogs} />
     </Layout>
   );
 };
 
-export default BlogDetails;
+export default BlogDetails;
