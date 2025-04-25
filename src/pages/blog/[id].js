@@ -7,77 +7,51 @@ import { getBlog, getBlogById } from "src/api/webapi";
 import bg_blog from "@/images/backgrounds/blog-banner-image.jpg";
 import BlogPageHeader from "@/components/Reuseable/BlogPageHeader";
 
-export async function getServerSideProps(context) {
-  const { id } = context.params;
- 
-  try {
-    // Fetch the specific blog by ID first
-    const blogResponse = await getBlogById(id);
-    const blogData = blogResponse?.data?.data;
-    
-    // Fetch all blogs to pass to the page for related articles
-    const blogsResponse = await getBlog();
-    const blogs = blogsResponse?.data?.data || [];
-   
-    return {
-      props: {
-        initialBlogData: blogData || null,
-        blogs: blogs || []
-      }
-    };
-  } catch (error) {
-    console.error("Error fetching blog data:", error);
-    return {
-      props: {
-        initialBlogData: null,
-        blogs: []
-      }
-    };
-  }
-}
+// Remove getServerSideProps completely
 
-const BlogDetails = ({ initialBlogData, blogs }) => {
+const BlogDetails = () => {
   const router = useRouter();
   const { id } = router.query;
  
-  const [blogData, setBlogData] = useState(initialBlogData);
-  const [loading, setLoading] = useState(!initialBlogData);
-  const [relatedBlogs, setRelatedBlogs] = useState(blogs);
+  const [blogData, setBlogData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    // If we already have blog data from SSR, skip client-side fetching
-    if (initialBlogData && id === initialBlogData.id) {
-      return;
-    }
-
-    const fetchBlogData = async () => {
-      if (!id) return;
-      
-      setLoading(true);
-      
-      try {
-        // Use the specific endpoint to get blog by ID
-        const response = await getBlogById(id);
-        
-        if (response?.data?.data) {
-          setBlogData(response.data.data);
-        } else {
-          console.error("Blog not found");
+    // Only fetch when ID is available from router
+    if (id) {
+      const fetchData = async () => {
+        setLoading(true);
+        try {
+          // First, get the specific blog
+          const blogResponse = await getBlogById(id);
+          
+          if (blogResponse?.data?.data) {
+            setBlogData(blogResponse.data.data);
+            
+            // Then get all blogs for related articles
+            const blogsResponse = await getBlog();
+            if (blogsResponse?.data?.data) {
+              setBlogs(blogsResponse.data.data);
+            }
+          } else {
+            console.error("Blog not found");
+            setBlogData(null);
+          }
+        } catch (error) {
+          console.error("Error fetching blog details:", error);
           setBlogData(null);
+        } finally {
+          setLoading(false);
         }
-      } catch (error) {
-        console.error("Error fetching blog details:", error);
-        setBlogData(null);
-      } finally {
-        setLoading(false);
-      }
-    };
+      };
+      
+      fetchData();
+    }
+  }, [id]); // Only depend on ID from router
 
-    fetchBlogData();
-  }, [id, initialBlogData]);
-
-  // If loading, show a loader
-  if (loading) {
+  // If loading or no ID yet, show a loader
+  if (loading || !id) {
     return (
       <Layout pageTitle="Loading..." footerClassName="site-footer-three">
         <Header />
@@ -113,7 +87,7 @@ const BlogDetails = ({ initialBlogData, blogs }) => {
     <Layout pageTitle={blogData.title || "Blog Details"} footerClassName="site-footer-three">
       <Header />
       <BlogPageHeader title={blogData.title} bgImage={bg_blog} />
-      <NewsDetailsPage blogData={blogData} allBlogs={relatedBlogs} />
+      <NewsDetailsPage blogData={blogData} allBlogs={blogs} />
     </Layout>
   );
 };
