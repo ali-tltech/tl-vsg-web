@@ -1,7 +1,6 @@
 import Header from "@/components/Header/Header";
 import Layout from "@/components/Layout/Layout";
 import NewsDetailsPage from "@/components/NewsSection/NewsDetailsPage";
-import PageHeader from "@/components/Reuseable/PageHeader";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { getBlog } from "src/api/webapi";

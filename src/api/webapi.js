@@ -85,13 +85,24 @@ export const getSEO = async (pageTitle) => {
 
 
   export const getBlogById = async (id) => {
+    if (!id) {
+      console.error("getBlogById called without an ID");
+      throw new Error("Blog ID is required");
+    }
+  
     try {
       const response = await axiosInstance.get(`/blog/get-blog/${id}`);
-      console.log(response);
       return response;
     } catch (error) {
-      console.error("Error fetching Blog data:", error);
-    } 
+      console.error(Error, `fetching blog with ID ${id}:`, error.message);
+      
+      // Check if it's a 404 or other specific error
+      if (error.response?.status === 404) {
+        return { data: { data: null }, status: 404 };
+      }
+      
+      throw error; // Re-throw to let the component handle it
+    }
   };
 
 
