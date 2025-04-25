@@ -7,15 +7,13 @@ import { getBlog, getBlogById } from "src/api/webapi";
 import bg_blog from "@/images/backgrounds/blog-banner-image.jpg";
 import BlogPageHeader from "@/components/Reuseable/BlogPageHeader";
 
-// Remove getServerSideProps completely
-
 const BlogDetails = () => {
   const router = useRouter();
   const { id } = router.query;
  
   const [blogData, setBlogData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [blogs, setBlogs] = useState([]);
+  const [relatedBlogs, setRelatedBlogs] = useState([]);
 
   useEffect(() => {
     // Only fetch when ID is available from router
@@ -32,7 +30,11 @@ const BlogDetails = () => {
             // Then get all blogs for related articles
             const blogsResponse = await getBlog();
             if (blogsResponse?.data?.data) {
-              setBlogs(blogsResponse.data.data);
+              // Filter out the current blog from the list of all blogs
+              const filteredBlogs = blogsResponse.data.data.filter(
+                blog => blog.id !== id
+              );
+              setRelatedBlogs(filteredBlogs);
             }
           } else {
             console.error("Blog not found");
@@ -87,7 +89,7 @@ const BlogDetails = () => {
     <Layout pageTitle={blogData.title || "Blog Details"} footerClassName="site-footer-three">
       <Header />
       <BlogPageHeader title={blogData.title} bgImage={bg_blog} />
-      <NewsDetailsPage blogData={blogData} allBlogs={blogs} />
+      <NewsDetailsPage blogData={blogData} allBlogs={relatedBlogs} />
     </Layout>
   );
 };

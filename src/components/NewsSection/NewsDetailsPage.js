@@ -3,7 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import NewsDetailsLeft from "./NewsDetailsLeft";
 import NewsSidebarSide from "./NewsSidebarSide";
 
-const NewsDetailsPage = ({ blogData, relatedPosts }) => {
+const NewsDetailsPage = ({ blogData, allBlogs }) => {
   return (
     <section className="news-details">
       <Container>
@@ -12,7 +12,7 @@ const NewsDetailsPage = ({ blogData, relatedPosts }) => {
             <NewsDetailsLeft blogDatas={blogData} />
           </Col>
           <Col xl={4} lg={5}>
-            <NewsSidebarSide relatedPosts={relatedPosts} />
+            <NewsSidebarSide relatedPosts={allBlogs} />
           </Col>
         </Row>
       </Container>
