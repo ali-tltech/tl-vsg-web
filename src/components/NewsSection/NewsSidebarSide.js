@@ -1,38 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Image } from "react-bootstrap";
-import { useRouter } from "next/router";
 import Link from "next/link";
-import { getBlog } from "src/api/webapi";
-
-// Import Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 
 const SidebarSinglePost = ({ post }) => {
-  const { image, date, title, id, excerpt } = post;
-  const formattedDate = date
-    ? new Date(date).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-      })
-    : "Unknown Date";
+  const safePost = {
+    image: post.image || "/images/placeholder-blog.jpg",
+    date: post.date ? new Date(post.date) : new Date(),
+    title: post.title || "Untitled Post",
+    id: post.id || "#",
+    excerpt: post.excerpt || "No excerpt available"
+  };
+
+  const formattedDate = safePost.date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
 
   return (
     <div className="sidebar__post-item position-relative">
       <div className="sidebar__post-image overflow-hidden">
-        <Image 
-          src={image} 
-          alt={title} 
-          className="w-100 post-image transition" 
-          style={{ 
-            height: '250px', 
-            objectFit: 'cover' 
-          }} 
+        <Image
+          src={safePost.image}
+          alt={safePost.title}
+          className="w-100 post-image transition"
+          style={{ height: '250px', objectFit: 'cover' }}
+          onError={(e) => {
+            e.target.src = "/images/placeholder-blog.jpg";
+          }}
         />
       </div>
       <div className="sidebar__post-content mt-3 px-3">
@@ -43,17 +42,17 @@ const SidebarSinglePost = ({ post }) => {
           </span>
         </div>
         <h4 className="sidebar__post-title mb-2">
-          <Link href={`/blog/${id}`}>
-            <a className="text-dark text-decoration-none">{title}</a>
+          <Link href={`/blog/${safePost.id}`}>
+            <a className="text-dark text-decoration-none">{safePost.title}</a>
           </Link>
         </h4>
         <p className="sidebar__post-excerpt text-muted">
-          {excerpt && excerpt.length > 100 
-            ? `${excerpt.substring(0, 100)}...` 
-            : excerpt}
+          {safePost.excerpt.length > 100
+            ? `${safePost.excerpt.substring(0, 100)}...`
+            : safePost.excerpt}
         </p>
-        <Link href={`/blog/${id}`}>
-          <a className="btn btn-link p-0 text-black text-decoration-none text-uppercase text-bold">
+        <Link href={`/blog/${safePost.id}`}>
+          <a className="btn btn-link p-0 text-black text-decoration-none text-uppercase">
             Read More <i className="fa fa-arrow-right ms-2"></i>
           </a>
         </Link>
@@ -62,70 +61,30 @@ const SidebarSinglePost = ({ post }) => {
   );
 };
 
-const NewsSidebarSide = () => {
-  const [posts, setPosts] = useState([]);
-  const router = useRouter();
-  const { id: currentBlogId } = router.query;
-
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const response = await getBlog();
-        if (response?.data?.data) {
-          // Filter out the current blog from the list
-          const filteredPosts = response.data.data.filter(
-            blog => blog.id !== currentBlogId
-          );
-          
-          setPosts(filteredPosts);
-        }
-      } catch (error) {
-        console.error("Error fetching blogs:", error);
-        // Optional: Add error handling toast or message
-      }
-    };
-
-    // Only fetch if currentBlogId is available
-    if (currentBlogId) {
-      fetchBlogs();
-    }
-  }, [currentBlogId]);
-
+const NewsSidebarSide = ({ relatedPosts = [] }) => {
   return (
     <div className="sidebar">
-
-      {/* Recent Posts Section */}
-      <div className="sidebar__single sidebar__post">
+      <div className="sidebar_single sidebar_post">
         <h3 className="sidebar__title mb-4">Recent Blogs</h3>
-        
-        {posts.length > 0 && (
+
+        {relatedPosts.length > 0 ? (
           <Swiper
             modules={[Autoplay, Pagination]}
             spaceBetween={20}
             slidesPerView={1}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-            }}
-            pagination={{ 
-              clickable: true,
-              dynamicBullets: true 
-            }}
-            loop={true}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            pagination={{ clickable: true, dynamicBullets: true }}
             className="sidebar-blog-swiper"
           >
-            {posts.map((post) => (
-              <SwiperSlide key={post.id}>
+            {relatedPosts.map((post) => (
+              <SwiperSlide key={post.id || Math.random()}>
                 <SidebarSinglePost post={post} />
               </SwiperSlide>
             ))}
           </Swiper>
-        )}
-
-        {/* No posts placeholder */}
-        {posts.length === 0 && (
+        ) : (
           <div className="text-center text-muted py-4">
-            No recent Blogs available
+            No related blogs available
           </div>
         )}
       </div>
