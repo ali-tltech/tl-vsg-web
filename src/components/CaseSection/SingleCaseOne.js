@@ -13,25 +13,61 @@ const SingleCaseOne = ({ cases = {}, smallImage = false }) => {
   };
   
   return (
-    <div className="case-one__card-wrapper">
-      <div 
-        onClick={handleClick} 
-        className="case-one__single"
-        style={{
-          cursor: 'pointer',
-          borderRadius: '8px',
-          overflow: 'hidden',
-          boxShadow: '0 2px 15px rgba(0,0,0,0.08)',
-          backgroundColor: '#fff',
-          height: '100%',
-          width: '100%', 
-          maxWidth: '350px',
-          display: 'flex',
-          flexDirection: 'column',
-          position: 'relative',
-          transition: 'transform 0.3s ease, box-shadow 0.3s ease'
-        }}
-      >
+    <div className="case-one__card-wrapper" style={{ padding: '12px' }}>
+  <div 
+  onClick={handleClick} 
+  className="case-one__single"
+  style={{
+    cursor: 'pointer',
+    borderRadius: '12px',
+    overflow: 'hidden',
+    boxShadow: `
+      rgba(0, 0, 0, 0.15) 0px 54px 55px,
+      rgba(0, 0, 0, 0.08) 0px -12px 30px,
+      rgba(0, 0, 0, 0.08) 0px 4px 6px,
+      rgba(0, 0, 0, 0.12) 0px 12px 13px,
+      rgba(0, 0, 0, 0.07) 0px -3px 5px,
+      rgba(50, 50, 93, 0.15) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.2) 0px 30px 60px -30px,
+      rgba(10, 37, 64, 0.25) 0px -2px 6px 0px inset
+    `,
+    backgroundColor: '#fff',
+    height: '100%',
+    width: '100%',
+    maxWidth: '350px',
+    display: 'flex',
+    flexDirection: 'column',
+    position: 'relative',
+    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+    border: '1px solid #eaeaea'
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = 'translateY(-5px)';
+    e.currentTarget.style.boxShadow = `
+      rgba(0, 0, 0, 0.2) 0px 64px 65px,
+      rgba(0, 0, 0, 0.15) 0px -20px 40px,
+      rgba(0, 0, 0, 0.15) 0px 6px 10px,
+      rgba(0, 0, 0, 0.18) 0px 18px 20px,
+      rgba(0, 0, 0, 0.1) 0px -5px 8px,
+      rgba(50, 50, 93, 0.2) 0px 60px 120px -10px,
+      rgba(0, 0, 0, 0.25) 0px 40px 80px -20px,
+      rgba(10, 37, 64, 0.3) 0px -2px 8px 0px inset
+    `;
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = 'translateY(0)';
+    e.currentTarget.style.boxShadow = `
+      rgba(0, 0, 0, 0.15) 0px 54px 55px,
+      rgba(0, 0, 0, 0.08) 0px -12px 30px,
+      rgba(0, 0, 0, 0.08) 0px 4px 6px,
+      rgba(0, 0, 0, 0.12) 0px 12px 13px,
+      rgba(0, 0, 0, 0.07) 0px -3px 5px,
+      rgba(50, 50, 93, 0.15) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.2) 0px 30px 60px -30px,
+      rgba(10, 37, 64, 0.25) 0px -2px 6px 0px inset
+    `;
+  }}
+>
         <div 
           className="case-one__img"
           style={{
@@ -60,7 +96,8 @@ const SingleCaseOne = ({ cases = {}, smallImage = false }) => {
             flexDirection: 'column',
             justifyContent: 'space-between',
             position: 'relative',
-            zIndex: 2
+            zIndex: 2,
+            backgroundColor: '#fff'
           }}
         >
           <div>
@@ -88,7 +125,7 @@ const SingleCaseOne = ({ cases = {}, smallImage = false }) => {
               style={{
                 fontSize: '0.875rem',
                 marginTop: '0',
-                marginBottom: '2rem', // Added extra space to account for arrow
+                marginBottom: '2rem', // Added extra space for arrow
                 color: '#666',
                 fontWeight: '500',
                 display: '-webkit-box',
@@ -116,7 +153,8 @@ const SingleCaseOne = ({ cases = {}, smallImage = false }) => {
             justifyContent: 'center',
             backgroundColor: '#f5f5f5',
             borderRadius: '50%',
-            transition: 'background-color 0.3s ease'
+            transition: 'all 0.3s ease',
+            border: '1px solid #eaeaea'
           }}
         >
           <Link href={`/case-details/${id}`}>

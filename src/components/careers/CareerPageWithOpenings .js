@@ -35,18 +35,18 @@ const CareerPageWithOpenings = () => {
                     <p className={styles.subHeading}>
                         VS GenX Solutions was founded with a clear mission—to empower businesses and individuals through purpose-driven, scalable HR solutions. We&#39;re looking for talented individuals who are passionate about transforming HR practices and making a meaningful impact.
                     </p>
-                   <p className={styles.subHeading}>
-                   If you’re ready to grow with a dynamic team, thrive on innovation, and believe in creating real value, we’d love to hear from you.
+                    <p className={styles.subHeading}>
+                        If you’re ready to grow with a dynamic team, thrive on innovation, and believe in creating real value, we’d love to hear from you.
 
-                   </p>
+                    </p>
                 </div>
- {/* Simple Application Instructions */}
- <div className={`${styles.section} ${styles.applicationSection}`}>
+                {/* Simple Application Instructions */}
+                <div className={`${styles.section} ${styles.applicationSection}`}>
                     <h2 className={styles.sectionHeading}>Ready to Apply?</h2>
 
                     <div className={styles.applicationContent}>
                         <p className={styles.applicationText}>
-                            {careers && careers.length > 0 
+                            {careers && careers.length > 0
                                 ? "Email your resume, cover letter, and portfolio links with the position name in the subject line to:"
                                 : "Even though we don't have current openings, we welcome you to send your resume for future opportunities to:"}
                         </p>
@@ -82,7 +82,7 @@ const CareerPageWithOpenings = () => {
                                                     </div>
                                                 </div>
                                                 {/* Render HTML content safely */}
-                                                <div 
+                                                <div
                                                     className={styles.jobDescription}
                                                     dangerouslySetInnerHTML={{ __html: job.shortdescription }}
                                                 />
@@ -105,14 +105,14 @@ const CareerPageWithOpenings = () => {
                                 ))}
                             </div>
                         ) : (
-<div className={styles.noOpeningsMessage} style={{textAlign: 'center', padding: '30px 0'}}>
+                            <div className={styles.noOpeningsMessage} style={{ textAlign: 'center', padding: '30px 0' }}>
                                 <p>No career openings available at this time.</p>
                             </div>
                         )}
                     </div>
                 </div>
 
-               
+
             </div>
         </div>
     );
