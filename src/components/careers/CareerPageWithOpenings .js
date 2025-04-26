@@ -35,8 +35,29 @@ const CareerPageWithOpenings = () => {
                     <p className={styles.subHeading}>
                         VS GenX Solutions was founded with a clear mission—to empower businesses and individuals through purpose-driven, scalable HR solutions. We&#39;re looking for talented individuals who are passionate about transforming HR practices and making a meaningful impact.
                     </p>
-                </div>
+                   <p className={styles.subHeading}>
+                   If you’re ready to grow with a dynamic team, thrive on innovation, and believe in creating real value, we’d love to hear from you.
 
+                   </p>
+                </div>
+ {/* Simple Application Instructions */}
+ <div className={`${styles.section} ${styles.applicationSection}`}>
+                    <h2 className={styles.sectionHeading}>Ready to Apply?</h2>
+
+                    <div className={styles.applicationContent}>
+                        <p className={styles.applicationText}>
+                            {careers && careers.length > 0 
+                                ? "Email your resume, cover letter, and portfolio links with the position name in the subject line to:"
+                                : "Even though we don't have current openings, we welcome you to send your resume for future opportunities to:"}
+                        </p>
+
+                        <div className={styles.emailContainer}>
+                            <a href="mailto:careers@vsgenxsolutions.com" className={styles.emailLink}>
+                                careers@vsgenxsolutions.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 {/* Job Listings */}
                 <div className={styles.section}>
                     <h2 className={styles.sectionHeading}>Open Positions</h2>
@@ -91,24 +112,7 @@ const CareerPageWithOpenings = () => {
                     </div>
                 </div>
 
-                {/* Simple Application Instructions */}
-                <div className={`${styles.section} ${styles.applicationSection}`}>
-                    <h2 className={styles.sectionHeading}>Ready to Apply?</h2>
-
-                    <div className={styles.applicationContent}>
-                        <p className={styles.applicationText}>
-                            {careers && careers.length > 0 
-                                ? "Email your resume, cover letter, and portfolio links with the position name in the subject line to:"
-                                : "Even though we don't have current openings, we welcome you to send your resume for future opportunities to:"}
-                        </p>
-
-                        <div className={styles.emailContainer}>
-                            <a href="mailto:careers@vsgenxsolutions.com" className={styles.emailLink}>
-                                careers@vsgenxsolutions.com
-                            </a>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
         </div>
     );

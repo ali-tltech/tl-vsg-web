@@ -70,7 +70,7 @@ const SingleCaseOne = ({ cases = {}, smallImage = false }) => {
                 fontSize: '1.25rem',
                 fontWeight: '600',
                 lineHeight: '1.4',
-                marginBottom: '0',
+                marginBottom: '8px',
                 display: '-webkit-box',
                 WebkitLineClamp: 2,
                 WebkitBoxOrient: 'vertical',
@@ -87,9 +87,16 @@ const SingleCaseOne = ({ cases = {}, smallImage = false }) => {
               className="case-one__tagline"
               style={{
                 fontSize: '0.875rem',
-                marginBottom: '0.5rem',
+                marginTop: '0',
+                marginBottom: '2rem', // Added extra space to account for arrow
                 color: '#666',
-                fontWeight: '500'
+                fontWeight: '500',
+                display: '-webkit-box',
+                WebkitLineClamp: 1,
+                WebkitBoxOrient: 'vertical',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                whiteSpace: 'nowrap' // Ensure it stays on one line
               }}
             >
               {subTitle}
