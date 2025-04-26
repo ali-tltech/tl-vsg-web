@@ -22,18 +22,28 @@ console.log();
   return (
     <Link href={`/blog/${id}`} passHref>
       <div
-        className="news-one__single"
-        style={{
-          cursor: id ? 'pointer' : 'default',
-          borderRadius: '8px',
-          overflow: 'hidden',
-          boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          backgroundColor: '#fff'
-        }}
-      >
+  className="news-one__single"
+  style={{
+    cursor: id ? 'pointer' : 'default',
+    borderRadius: '8px',
+    overflow: 'hidden',
+    boxShadow: `
+      rgba(0, 0, 0, 0.10) 0px 20px 25px,
+      rgba(0, 0, 0, 0.06) 0px -6px 15px,
+      rgba(0, 0, 0, 0.06) 0px 2px 4px,
+      rgba(0, 0, 0, 0.08) 0px 6px 8px,
+      rgba(0, 0, 0, 0.04) 0px -2px 3px,
+      rgba(50, 50, 93, 0.10) 0px 20px 40px -15px,
+      rgba(0, 0, 0, 0.10) 0px 15px 30px -15px,
+      rgba(10, 37, 64, 0.15) 0px -2px 4px 0px inset
+    `,
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    backgroundColor: '#fff'
+  }}
+>
+
         <div
           className="news-one__img"
           style={{
