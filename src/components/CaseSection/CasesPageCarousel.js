@@ -123,7 +123,9 @@ const CasesPageCarousel = () => {
           <div className="swiper-wrapper">
             {cases.map((caseItem) => (
               <SwiperSlide key={caseItem.id}>
-                <SingleCaseOne cases={caseItem} />
+                <div className="case-slide-wrapper" style={{ maxWidth: "350px", margin: "0 auto" }}>
+                  <SingleCaseOne cases={caseItem} />
+                </div>
               </SwiperSlide>
             ))}
           </div>

@@ -34,38 +34,38 @@ export const navItems = [
     // subNavItems: servicesSubNavItems,
   },
   {
-    id: 3,
+    id: 4,
     name: "FAQs",
     href: "/faq",
 
   },
   {
-    id: 4,
+    id: 5,
     name: "Testimonials",
     href: "/testimonials",
 
   },
-  // {
-  //   id: 5,
-  //   name: "Cases",
-  //   href: "/cases",
+  {
+    id: 6,
+    name: "Cases",
+    href: "/cases",
   
 
-  // },
-  // {
-  //   id: 6,
-  //   name: "Blogs",
-  //   href: "/blog",
+  },
+  {
+    id: 7,
+    name: "Blogs",
+    href: "/blog",
   
-  //   },
-  //   {
-  //     id: 7,
-  //     name: "Careers",
-  //     href: "/careers",
-  //   },
+    },
+    {
+      id: 8,
+      name: "Careers",
+      href: "/careers",
+    },
     // Custom property to indicate "Coming Soon"
   {
-    id: 5,
+    id: 9,
     name: "Contact",
     href: "/contact",
   },
